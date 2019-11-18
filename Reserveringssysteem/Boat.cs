@@ -14,7 +14,7 @@ namespace Reserveringssysteem
     {
         public int ID { get; set; }
 
-        [Required]
+        [Required, EnumDataType(typeof(BoatStatus))]
         public BoatStatus Status { get; set; }
 
         [Required]

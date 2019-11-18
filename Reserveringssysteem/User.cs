@@ -21,7 +21,7 @@ namespace Reserveringssysteem
         [Required]
         public DateTime DateOfBirth { get; set; }
 
-        [Required]
+        [Required, EnumDataType(typeof(Gender))]
         public Gender Gender { get; set; }
 
         [Required]

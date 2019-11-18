@@ -60,10 +60,12 @@
     <Compile Include="Match.cs" />
     <Compile Include="MatchTeam.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecreationalTeam.cs" />
     <Compile Include="Reservation.cs" />
+    <Compile Include="ReserveringssysteemContext.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Team.cs" />

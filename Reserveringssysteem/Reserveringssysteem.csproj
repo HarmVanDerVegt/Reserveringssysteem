@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adress.cs" />
+    <Compile Include="Address.cs" />
     <Compile Include="Boat.cs" />
     <Compile Include="BoatType.cs" />
     <Compile Include="Certificate.cs" />
@@ -67,6 +67,22 @@
     <Compile Include="Migrations\201911181122558_AddedBoatStatus.cs" />
     <Compile Include="Migrations\201911181122558_AddedBoatStatus.designer.cs">
       <DependentUpon>201911181122558_AddedBoatStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911181125405_AddedBoatType.cs" />
+    <Compile Include="Migrations\201911181125405_AddedBoatType.designer.cs">
+      <DependentUpon>201911181125405_AddedBoatType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911181331315_RestOfDatabase.cs" />
+    <Compile Include="Migrations\201911181331315_RestOfDatabase.designer.cs">
+      <DependentUpon>201911181331315_RestOfDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911181344411_AddressAttrRequired.cs" />
+    <Compile Include="Migrations\201911181344411_AddressAttrRequired.designer.cs">
+      <DependentUpon>201911181344411_AddressAttrRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911181359085_IntroducedRequiredAttributes.cs" />
+    <Compile Include="Migrations\201911181359085_IntroducedRequiredAttributes.designer.cs">
+      <DependentUpon>201911181359085_IntroducedRequiredAttributes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -89,6 +105,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911181122558_AddedBoatStatus.resx">
       <DependentUpon>201911181122558_AddedBoatStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911181125405_AddedBoatType.resx">
+      <DependentUpon>201911181125405_AddedBoatType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911181331315_RestOfDatabase.resx">
+      <DependentUpon>201911181331315_RestOfDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911181344411_AddressAttrRequired.resx">
+      <DependentUpon>201911181344411_AddressAttrRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911181359085_IntroducedRequiredAttributes.resx">
+      <DependentUpon>201911181359085_IntroducedRequiredAttributes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

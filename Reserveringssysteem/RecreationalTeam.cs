@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reserveringssysteem
+namespace Reserveringssysteem   
 {
-    class RecreationalTeam
+    class RecreationalTeam : Team
     {
     }
 }

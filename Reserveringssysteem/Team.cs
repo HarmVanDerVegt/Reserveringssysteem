@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Reserveringssysteem
 {
-    class Team
+    abstract class Team
     {
+        public int ID { get; set; }
+        public bool HasCoxswain { get; set; }
+        public List<Reservation> Reservations = new List<Reservation>(); 
     }
 }

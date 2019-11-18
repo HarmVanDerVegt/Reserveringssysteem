@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Reserveringssysteem
 {
-    class Member
+    class Member : User
     {
+        private string Email { get; set; }
+        private string Password { get; set; }
+
     }
 }

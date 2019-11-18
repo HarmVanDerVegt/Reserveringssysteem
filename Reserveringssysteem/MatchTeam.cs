@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Reserveringssysteem
 {
-    class MatchTeam
+    class MatchTeam : Team
     {
+        public string Name { get; set; }
     }
 }

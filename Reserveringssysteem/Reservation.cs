@@ -8,5 +8,8 @@ namespace Reserveringssysteem
 {
     class Reservation
     {
+        public int ID { get; set; }
+        public DateTime DateTime { get; set; }
+        public TimeSpan Duration { get; set; }
     }
 }

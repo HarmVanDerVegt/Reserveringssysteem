@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Reserveringssysteem
 {
-    public enum BoatStatus { Whole, Maintanance, Broken };
+    public enum BoatStatus { Whole, Maintenance, Broken };
     class Boat
     {
         public int ID { get; set; }
+        public BoatStatus Status { get; set; }
+        public BoatType Type { get; set; }
     }
 }

@@ -33,5 +33,11 @@ namespace ReserveringssysteemWF
 
 
         }
+
+        private void Bt_AddReservation_Click(object sender, EventArgs e)
+        {
+            ReservationDialog reservationDialog = new ReservationDialog();
+            reservationDialog.ShowDialog();
+        }
     }
 }

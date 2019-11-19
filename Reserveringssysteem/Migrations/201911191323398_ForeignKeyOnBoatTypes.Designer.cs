@@ -7,13 +7,13 @@ namespace Reserveringssysteem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0")]
-    public sealed partial class AddressAttrRequired : IMigrationMetadata
+    public sealed partial class ForeignKeyOnBoatTypes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddressAttrRequired));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ForeignKeyOnBoatTypes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911181344411_AddressAttrRequired"; }
+            get { return "201911191323398_ForeignKeyOnBoatTypes"; }
         }
         
         string IMigrationMetadata.Source

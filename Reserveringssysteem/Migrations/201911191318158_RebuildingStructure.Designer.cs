@@ -7,13 +7,13 @@ namespace Reserveringssysteem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0")]
-    public sealed partial class RestOfDatabase : IMigrationMetadata
+    public sealed partial class RebuildingStructure : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RestOfDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RebuildingStructure));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911181331315_RestOfDatabase"; }
+            get { return "201911191318158_RebuildingStructure"; }
         }
         
         string IMigrationMetadata.Source

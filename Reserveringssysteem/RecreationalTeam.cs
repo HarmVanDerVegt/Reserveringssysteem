@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Reserveringssysteem   
 {
-    class RecreationalTeam : Team
+    public class RecreationalTeam : Team
     {
     }
 }

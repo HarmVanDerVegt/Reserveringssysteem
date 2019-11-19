@@ -24,5 +24,11 @@ namespace ReserveringssysteemWF
             coxswainComboBox.Text = "Geen stuurman";
             teamListBox.Items.Add("Beau ter Ham");
         }
+
+        private void AddMemberButton_Click(object sender, EventArgs e)
+        {
+            UserPicker userPicker = new UserPicker();
+            userPicker.ShowDialog();
+        }
     }
 }

@@ -60,6 +60,12 @@
     <Compile Include="ReservationDialog.Designer.cs">
       <DependentUpon>ReservationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserPicker.Designer.cs">
+      <DependentUpon>UserPicker.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -74,6 +80,9 @@
     </Compile>
     <EmbeddedResource Include="ReservationDialog.resx">
       <DependentUpon>ReservationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserPicker.resx">
+      <DependentUpon>UserPicker.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

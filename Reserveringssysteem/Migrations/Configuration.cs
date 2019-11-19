@@ -18,6 +18,14 @@
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
+            //context.Users.Add(new Member() { DateOfBirth = DateTime.Now, 
+            //    Gender = Gender.Male, 
+            //    Name = "Kappa", 
+            //    Organisation = "Bier", 
+            //    Address = new Address() { City = "Zwolle", HouseNumber = 16, Street = "Roeistraat", ZIP = "7741 AB" }, 
+            //    Email = "a@a", 
+            //    Password = "asdf"});
+            context.SaveChanges();
         }
     }
 }

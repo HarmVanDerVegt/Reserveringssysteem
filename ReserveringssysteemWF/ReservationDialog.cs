@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reserveringssysteem;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace ReserveringssysteemWF
 {
     public partial class ReservationDialog : Form
     {
+        public Reservation reservation = new Reservation();
+
         public ReservationDialog()
         {
             InitializeComponent();
@@ -22,12 +25,11 @@ namespace ReserveringssysteemWF
             datePicker.MinDate = DateTime.Today.AddDays(2);
             datePicker.MaxDate = DateTime.Today.AddDays(14);
             coxswainComboBox.Text = "Geen stuurman";
-            teamListBox.Items.Add("Beau ter Ham");
         }
 
         private void AddMemberButton_Click(object sender, EventArgs e)
         {
-            UserPicker userPicker = new UserPicker();
+            MemberPicker userPicker = new MemberPicker();
             userPicker.ShowDialog();
         }
     }

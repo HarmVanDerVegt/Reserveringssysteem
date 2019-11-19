@@ -1,6 +1,6 @@
 ﻿namespace ReserveringssysteemWF
 {
-    partial class UserPicker
+    partial class MemberPicker
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,9 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.memberListBox = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.memberListBox = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +46,7 @@
             this.AddButton.TabIndex = 0;
             this.AddButton.Text = "Toevoegen";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // cancelButton
             // 
@@ -72,15 +73,14 @@
             this.panel1.Size = new System.Drawing.Size(281, 149);
             this.panel1.TabIndex = 2;
             // 
-            // memberListBox
+            // textBox1
             // 
-            this.memberListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.memberListBox.FormattingEnabled = true;
-            this.memberListBox.Location = new System.Drawing.Point(12, 12);
-            this.memberListBox.Name = "memberListBox";
-            this.memberListBox.Size = new System.Drawing.Size(257, 95);
-            this.memberListBox.TabIndex = 0;
+            this.textBox1.Location = new System.Drawing.Point(12, 126);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(257, 20);
+            this.textBox1.TabIndex = 2;
             // 
             // label1
             // 
@@ -91,14 +91,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Filter";
             // 
-            // textBox1
+            // memberListBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.memberListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(12, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(257, 20);
-            this.textBox1.TabIndex = 2;
+            this.memberListBox.FormattingEnabled = true;
+            this.memberListBox.Location = new System.Drawing.Point(12, 12);
+            this.memberListBox.Name = "memberListBox";
+            this.memberListBox.Size = new System.Drawing.Size(257, 95);
+            this.memberListBox.TabIndex = 0;
             // 
             // UserPicker
             // 
@@ -118,6 +119,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Teamlid kiezer";
+            this.Load += new System.EventHandler(this.UserPicker_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

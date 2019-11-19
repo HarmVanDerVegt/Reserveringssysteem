@@ -16,9 +16,21 @@ namespace ReserveringssysteemWF
         public Form2()
         {
             InitializeComponent();
-            foreach (BoatType boatType in BoatType.Fleet)
+
+            
+        }
+
+        private void FillComboBox()
+        {
+            using (var db = new ReserveringssysteemContext())
             {
-                Cb_AddBoats.Items.Add(boatType.Name);
+                var query = from boatType in db.BoatTypes
+                            select boatType.Name;
+
+                foreach (var item in query)
+                {
+                    Cb_AddBoats.Items.AddRange(item);
+                }
             }
         }
 

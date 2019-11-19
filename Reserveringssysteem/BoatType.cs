@@ -12,7 +12,6 @@ namespace Reserveringssysteem
 {
     public class BoatType
     {
-        private static int IdCounter = 0;
 
         public int ID { get; set; }
 
@@ -31,5 +30,11 @@ namespace Reserveringssysteem
         public List<Match> Matches { get; set; }
         public List<Boat> Boats { get; set; }
 
+        public BoatType(string name, int size, bool hasCoxswain)
+        {
+            Name = name;
+            Size = size;
+            HasCoxswain = hasCoxswain;
+        }
     }
 }

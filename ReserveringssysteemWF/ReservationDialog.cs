@@ -16,5 +16,13 @@ namespace ReserveringssysteemWF
         {
             InitializeComponent();
         }
+
+        private void ReservationDialog_Load(object sender, EventArgs e)
+        {
+            datePicker.MinDate = DateTime.Today.AddDays(2);
+            datePicker.MaxDate = DateTime.Today.AddDays(14);
+            coxswainComboBox.Text = "Geen stuurman";
+            teamListBox.Items.Add("Beau ter Ham");
+        }
     }
 }

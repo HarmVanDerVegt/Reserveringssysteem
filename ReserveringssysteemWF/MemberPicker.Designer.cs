@@ -102,6 +102,7 @@
             this.memberListBox.Size = new System.Drawing.Size(257, 95);
             this.memberListBox.TabIndex = 0;
             this.memberListBox.SelectedIndexChanged += new System.EventHandler(this.memberListBox_SelectedIndexChanged);
+            this.memberListBox.SelectedValueChanged += new System.EventHandler(this.memberListBox_SelectedIndexChanged);
             // 
             // MemberPicker
             // 

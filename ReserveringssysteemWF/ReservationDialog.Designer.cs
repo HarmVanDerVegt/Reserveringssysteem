@@ -40,7 +40,7 @@
             this.coxswainComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.RemoveMemberButton = new System.Windows.Forms.Button();
+            this.removeMemberButton = new System.Windows.Forms.Button();
             this.AddMemberButton = new System.Windows.Forms.Button();
             this.teamListBox = new System.Windows.Forms.ListBox();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -65,7 +65,7 @@
             this.panel1.Controls.Add(this.coxswainComboBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.RemoveMemberButton);
+            this.panel1.Controls.Add(this.removeMemberButton);
             this.panel1.Controls.Add(this.AddMemberButton);
             this.panel1.Controls.Add(this.teamListBox);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -185,15 +185,16 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Teamleden";
             // 
-            // RemoveMemberButton
+            // removeMemberButton
             // 
-            this.RemoveMemberButton.Enabled = false;
-            this.RemoveMemberButton.Location = new System.Drawing.Point(117, 126);
-            this.RemoveMemberButton.Name = "RemoveMemberButton";
-            this.RemoveMemberButton.Size = new System.Drawing.Size(99, 23);
-            this.RemoveMemberButton.TabIndex = 2;
-            this.RemoveMemberButton.Text = "Lid verwijderen";
-            this.RemoveMemberButton.UseVisualStyleBackColor = true;
+            this.removeMemberButton.Enabled = false;
+            this.removeMemberButton.Location = new System.Drawing.Point(117, 126);
+            this.removeMemberButton.Name = "removeMemberButton";
+            this.removeMemberButton.Size = new System.Drawing.Size(99, 23);
+            this.removeMemberButton.TabIndex = 2;
+            this.removeMemberButton.Text = "Lid verwijderen";
+            this.removeMemberButton.UseVisualStyleBackColor = true;
+            this.removeMemberButton.Click += new System.EventHandler(this.RemoveMemberButton_Click);
             // 
             // AddMemberButton
             // 
@@ -214,6 +215,8 @@
             this.teamListBox.Name = "teamListBox";
             this.teamListBox.Size = new System.Drawing.Size(400, 95);
             this.teamListBox.TabIndex = 0;
+            this.teamListBox.SelectedIndexChanged += new System.EventHandler(this.teamListBox_SelectedIndexChanged);
+            this.teamListBox.SelectedValueChanged += new System.EventHandler(this.teamListBox_SelectedIndexChanged);
             // 
             // cancelButton
             // 
@@ -268,7 +271,7 @@
         private System.Windows.Forms.ListBox teamListBox;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button reserveButton;
-        private System.Windows.Forms.Button RemoveMemberButton;
+        private System.Windows.Forms.Button removeMemberButton;
         private System.Windows.Forms.Button AddMemberButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox durationComboBox;

@@ -1,6 +1,7 @@
 ﻿using Reserveringssysteem;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -50,6 +51,8 @@ namespace ReserveringssysteemWF
                 if (string.IsNullOrWhiteSpace(filterTextBox.Text) || member.Name.ToLower().Contains(filterTextBox.Text.ToLower()))
                     displayMembers.Add(member);
             }
+
+            memberListBox_SelectedIndexChanged(this, new EventArgs());
         }
 
         private void memberListBox_SelectedIndexChanged(object sender, EventArgs e)

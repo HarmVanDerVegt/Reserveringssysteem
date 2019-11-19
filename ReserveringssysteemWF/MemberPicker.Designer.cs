@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.filterTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.memberListBox = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // AddButton
+            // addButton
             // 
-            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddButton.Location = new System.Drawing.Point(113, 155);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(75, 23);
-            this.AddButton.TabIndex = 0;
-            this.AddButton.Text = "Toevoegen";
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addButton.Location = new System.Drawing.Point(113, 155);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Toevoegen";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // cancelButton
             // 
@@ -65,7 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.filterTextBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.memberListBox);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -73,14 +73,15 @@
             this.panel1.Size = new System.Drawing.Size(281, 149);
             this.panel1.TabIndex = 2;
             // 
-            // textBox1
+            // filterTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.filterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(12, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(257, 20);
-            this.textBox1.TabIndex = 2;
+            this.filterTextBox.Location = new System.Drawing.Point(12, 126);
+            this.filterTextBox.Name = "filterTextBox";
+            this.filterTextBox.Size = new System.Drawing.Size(257, 20);
+            this.filterTextBox.TabIndex = 2;
+            this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
             // label1
             // 
@@ -100,21 +101,22 @@
             this.memberListBox.Name = "memberListBox";
             this.memberListBox.Size = new System.Drawing.Size(257, 95);
             this.memberListBox.TabIndex = 0;
+            this.memberListBox.SelectedIndexChanged += new System.EventHandler(this.memberListBox_SelectedIndexChanged);
             // 
-            // UserPicker
+            // MemberPicker
             // 
-            this.AcceptButton = this.AddButton;
+            this.AcceptButton = this.addButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(281, 190);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.addButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "UserPicker";
+            this.Name = "MemberPicker";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -128,10 +130,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox filterTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox memberListBox;
     }

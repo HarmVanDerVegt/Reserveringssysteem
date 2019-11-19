@@ -13,7 +13,10 @@ namespace ReserveringssysteemWF
 {
     public partial class MemberPicker : Form
     {
-        public Member SelectedMember;
+        private readonly List<Member> members = new List<Member>();
+        private BindingList<Member> displayMembers = new BindingList<Member>();
+
+        public Member SelectedMember { get; set; }
 
         public MemberPicker()
         {
@@ -22,7 +25,8 @@ namespace ReserveringssysteemWF
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            SelectedMember = (Member)memberListBox.SelectedItem;
+            DialogResult = DialogResult.OK;
         }
 
         private void UserPicker_Load(object sender, EventArgs e)
@@ -30,7 +34,27 @@ namespace ReserveringssysteemWF
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
                 foreach (User user in context.Users)
                     if (user.GetType() == typeof(Member))
-                        memberListBox.Items.Add(user.Name);
+                        members.Add((Member)user);
+
+            filterTextBox_TextChanged(this, new EventArgs());
+
+            memberListBox.DataSource = displayMembers;
+            memberListBox.DisplayMember = "Name";
+        }
+
+        private void filterTextBox_TextChanged(object sender, EventArgs e)
+        {
+            displayMembers.Clear();
+            foreach (Member member in members)
+            {
+                if (string.IsNullOrWhiteSpace(filterTextBox.Text) || member.Name.ToLower().Contains(filterTextBox.Text.ToLower()))
+                    displayMembers.Add(member);
+            }
+        }
+
+        private void memberListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addButton.Enabled = memberListBox.SelectedIndex != -1;
         }
     }
 }

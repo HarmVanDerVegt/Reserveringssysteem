@@ -58,7 +58,6 @@ namespace ReserveringssysteemWF
         private void teamListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             removeMemberButton.Enabled = teamListBox.SelectedIndex != -1;
-            coxswainComboBox.Enabled = teamData.Count > 0;
         }
     }
 }

@@ -70,7 +70,7 @@
             this.panel1.Controls.Add(this.teamListBox);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(424, 385);
+            this.panel1.Size = new System.Drawing.Size(424, 345);
             this.panel1.TabIndex = 0;
             // 
             // startTimePicker
@@ -80,7 +80,7 @@
             this.startTimePicker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.startTimePicker.Enabled = false;
             this.startTimePicker.FormattingEnabled = true;
-            this.startTimePicker.Location = new System.Drawing.Point(270, 294);
+            this.startTimePicker.Location = new System.Drawing.Point(270, 270);
             this.startTimePicker.Name = "startTimePicker";
             this.startTimePicker.Size = new System.Drawing.Size(142, 21);
             this.startTimePicker.TabIndex = 13;
@@ -88,7 +88,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(270, 278);
+            this.label6.Location = new System.Drawing.Point(270, 254);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 12;
@@ -101,7 +101,7 @@
             this.durationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.durationComboBox.Enabled = false;
             this.durationComboBox.FormattingEnabled = true;
-            this.durationComboBox.Location = new System.Drawing.Point(270, 254);
+            this.durationComboBox.Location = new System.Drawing.Point(270, 230);
             this.durationComboBox.Name = "durationComboBox";
             this.durationComboBox.Size = new System.Drawing.Size(142, 21);
             this.durationComboBox.TabIndex = 11;
@@ -109,7 +109,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(270, 238);
+            this.label5.Location = new System.Drawing.Point(270, 214);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 10;
@@ -122,7 +122,7 @@
             this.boatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boatComboBox.Enabled = false;
             this.boatComboBox.FormattingEnabled = true;
-            this.boatComboBox.Location = new System.Drawing.Point(270, 214);
+            this.boatComboBox.Location = new System.Drawing.Point(270, 190);
             this.boatComboBox.Name = "boatComboBox";
             this.boatComboBox.Size = new System.Drawing.Size(142, 21);
             this.boatComboBox.TabIndex = 9;
@@ -130,7 +130,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(270, 198);
+            this.label4.Location = new System.Drawing.Point(270, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 8;
@@ -139,7 +139,7 @@
             // datePicker
             // 
             this.datePicker.Enabled = false;
-            this.datePicker.Location = new System.Drawing.Point(9, 214);
+            this.datePicker.Location = new System.Drawing.Point(9, 174);
             this.datePicker.Name = "datePicker";
             this.datePicker.ShowToday = false;
             this.datePicker.ShowWeekNumbers = true;
@@ -148,7 +148,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 192);
+            this.label3.Location = new System.Drawing.Point(12, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 6;
@@ -162,19 +162,21 @@
             this.coxswainComboBox.FormattingEnabled = true;
             this.coxswainComboBox.Items.AddRange(new object[] {
             "Geen stuurman"});
-            this.coxswainComboBox.Location = new System.Drawing.Point(12, 168);
+            this.coxswainComboBox.Location = new System.Drawing.Point(270, 310);
             this.coxswainComboBox.Name = "coxswainComboBox";
-            this.coxswainComboBox.Size = new System.Drawing.Size(400, 21);
+            this.coxswainComboBox.Size = new System.Drawing.Size(142, 21);
             this.coxswainComboBox.TabIndex = 5;
+            this.coxswainComboBox.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 152);
+            this.label2.Location = new System.Drawing.Point(270, 294);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Stuurman";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -222,7 +224,7 @@
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(337, 391);
+            this.cancelButton.Location = new System.Drawing.Point(337, 351);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 1;
@@ -233,7 +235,7 @@
             // 
             this.reserveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.reserveButton.Enabled = false;
-            this.reserveButton.Location = new System.Drawing.Point(256, 391);
+            this.reserveButton.Location = new System.Drawing.Point(256, 351);
             this.reserveButton.Name = "reserveButton";
             this.reserveButton.Size = new System.Drawing.Size(75, 23);
             this.reserveButton.TabIndex = 2;
@@ -246,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(424, 426);
+            this.ClientSize = new System.Drawing.Size(424, 386);
             this.Controls.Add(this.reserveButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.panel1);

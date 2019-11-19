@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Reserveringssysteem
 {
-    class Certificate
+    public class Certificate
     {
         [ForeignKey("Type")]
         public int ID { get; private set; }

@@ -11,7 +11,7 @@ namespace Reserveringssysteem
 {
     public enum Gender { Male, Female };
 
-    class User
+    public class User
     {
         public int ID { get; set; }
 
@@ -30,6 +30,5 @@ namespace Reserveringssysteem
         public List<Certificate> Levels { get; set; }
 
         public List<Team> Teams { get; set; }
-
     }
 }

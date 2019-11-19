@@ -2,21 +2,18 @@
 
 namespace Reserveringssysteem
 {
-    class ReserveringssysteemContext : DbContext
+    public class ReserveringssysteemContext : DbContext
     {
-        DbSet<Boat> Boats { get; set; }
-        DbSet<BoatType> BoatTypes { get; set; }
-        DbSet<Reservation> Reservations { get; set; }
-        DbSet<Team> Teams { get; set; }
-        DbSet<Match> Matches { get; set; }
-        DbSet<Certificate> Certificates { get; set; }
-        DbSet<User> Users { get; set; }
-        //DbSet<Member> Members { get; set; }
-        DbSet<Role> Roles { get; set; }
-        DbSet<Address> Addresses { get; set; }
-        DbSet<Result> Results { get; set; }
-
-
-
+        public DbSet<Boat> Boats { get; set; }
+        public DbSet<BoatType> BoatTypes { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Match> Matches { get; set; }
+        public DbSet<Certificate> Certificates { get; set; }
+        public DbSet<User> Users { get; set; }
+        //public DbSet<Member> Members { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Result> Results { get; set; }
     }
 }

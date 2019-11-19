@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Reserveringssysteem
 {
     public enum BoatStatus { Whole, Maintenance, Broken };
-    class Boat
+    public class Boat
     {
         public int ID { get; set; }
 

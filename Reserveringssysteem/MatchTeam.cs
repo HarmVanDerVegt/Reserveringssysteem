@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Reserveringssysteem
 {
-    class MatchTeam : Team
+    public class MatchTeam : Team
     {
         [Required]
         public string Name { get; set; }

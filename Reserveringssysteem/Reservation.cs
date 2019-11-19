@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Reserveringssysteem
 {
-    class Reservation
+    public class Reservation
     {
         public int ID { get; set; }
 

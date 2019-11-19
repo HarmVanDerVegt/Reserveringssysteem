@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Reserveringssysteem
 {
-    class Address
+    public class Address
     {
         [Key, ForeignKey("Member")]
         public int ID { get; set; }

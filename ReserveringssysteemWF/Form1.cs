@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Reserveringssysteem;
 
 namespace ReserveringssysteemWF
 {
@@ -15,8 +16,8 @@ namespace ReserveringssysteemWF
         public Form1()
         {
             InitializeComponent();
+            BoatType.CreateBoatTypes();
             this.MinimumSize = new Size(600, 300);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,6 +33,22 @@ namespace ReserveringssysteemWF
             Datagrid_Teams.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
+        }
+
+        private void Bt_AddBoat_Click(object sender, EventArgs e)
+        {
+            ShowCreateBoatDialog();
+        }
+
+        private void ShowCreateBoatDialog()
+        {
+            Form2 CreateBoatDialog = new Form2();
+            CreateBoatDialog.Show();
+        }
+
+        public void ShowBoatsTable(Boat boat)
+        {
+            //Datagrid_Boats[0]
         }
     }
 }

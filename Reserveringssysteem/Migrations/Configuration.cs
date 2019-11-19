@@ -28,6 +28,7 @@
             context.BoatTypes.Add(new BoatType("Vier Zonder", 4, false));
             context.BoatTypes.Add(new BoatType("Vier Met", 4, true));
             context.BoatTypes.Add(new BoatType("Acht", 8, true));
+            
             context.SaveChanges();
         }
     }

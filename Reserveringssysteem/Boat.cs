@@ -12,16 +12,25 @@ namespace Reserveringssysteem
     public enum BoatStatus { Whole, Maintenance, Broken };
     public class Boat
     {
-        private static int IdCounter = 0;
-
         public int ID { get; set; }
 
         [Required, EnumDataType(typeof(BoatStatus))]
-        public BoatStatus Status { get; set; }
+        public BoatStatus BoatStatus { get; set; }
 
         [Required]
-        public BoatType Type { get; set; }
+        public BoatType BoatType { get; set; }
 
         public List<Reservation> Reservations { get; set; }
+
+        public Boat(BoatType boatType)
+        {
+            BoatStatus = BoatStatus.Whole;
+            BoatType = boatType;
+
+            
+
+        }
+
+        private Boat() { }
     }
 }

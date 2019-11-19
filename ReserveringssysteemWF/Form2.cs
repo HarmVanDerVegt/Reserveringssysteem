@@ -16,8 +16,7 @@ namespace ReserveringssysteemWF
         public Form2()
         {
             InitializeComponent();
-
-            
+            FillComboBox();
         }
 
         private void FillComboBox()
@@ -29,18 +28,23 @@ namespace ReserveringssysteemWF
 
                 foreach (var item in query)
                 {
-                    Cb_AddBoats.Items.AddRange(item);
+                    Cb_AddBoats.Items.Add(item);
                 }
             }
         }
 
         private void Bt_Add_AddBoats_Click(object sender, EventArgs e)
         {
-            foreach(BoatType boatType in BoatType.Fleet)
+            using(var db = new ReserveringssysteemContext())
             {
-                if (boatType.Name == (string)Cb_AddBoats.SelectedItem)
+                var boatTypes = from boatType in db.BoatTypes
+                                where boatType.Name == (string)Cb_AddBoats.SelectedItem
+                                select boatType;
+
+                foreach (var boatType in boatTypes)
                 {
                     Boat boat = new Boat(boatType);
+                    db.Boats.Add(boat);
                     Dispose();
                 }
             }

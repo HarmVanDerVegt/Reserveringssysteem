@@ -16,7 +16,6 @@ namespace ReserveringssysteemWF
         public Form1()
         {
             InitializeComponent();
-            BoatType.CreateBoatTypes();
             this.MinimumSize = new Size(600, 300);
         }
 

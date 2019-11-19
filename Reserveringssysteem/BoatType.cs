@@ -35,6 +35,15 @@ namespace Reserveringssysteem
             Name = name;
             Size = size;
             HasCoxswain = hasCoxswain;
+            Certificate = new Certificate($"Certificate {name}");
+            Certificate.Type = this;
+
+            using (var db = new ReserveringssysteemContext())
+            {
+                db.Certificates.Add(Certificate);
+            }
         }
+
+        private BoatType() { }
     }
 }

@@ -21,5 +21,11 @@ namespace Reserveringssysteem
         public BoatType Type { get; set; }
 
         public List<User> Users { get; set; }
+
+        public Certificate(string name)
+        {
+            Name = name;
+            //Type = boatType;
+        }
     }
 }

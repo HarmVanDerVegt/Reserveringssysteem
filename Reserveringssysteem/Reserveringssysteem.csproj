@@ -84,6 +84,10 @@
     <Compile Include="Migrations\201911181359085_IntroducedRequiredAttributes.designer.cs">
       <DependentUpon>201911181359085_IntroducedRequiredAttributes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911191128560_UpdatedBoatAttributes.cs" />
+    <Compile Include="Migrations\201911191128560_UpdatedBoatAttributes.designer.cs">
+      <DependentUpon>201911191128560_UpdatedBoatAttributes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911181359085_IntroducedRequiredAttributes.resx">
       <DependentUpon>201911181359085_IntroducedRequiredAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911191128560_UpdatedBoatAttributes.resx">
+      <DependentUpon>201911191128560_UpdatedBoatAttributes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

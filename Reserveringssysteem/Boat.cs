@@ -27,7 +27,11 @@ namespace Reserveringssysteem
             BoatStatus = BoatStatus.Whole;
             BoatType = boatType;
 
-            
+            using (var db = new ReserveringssysteemContext())
+            {
+                db.Boats.Add(this);
+                //db.SaveChanges();
+            }
 
         }
 

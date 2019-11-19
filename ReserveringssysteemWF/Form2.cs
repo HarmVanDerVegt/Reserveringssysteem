@@ -44,9 +44,10 @@ namespace ReserveringssysteemWF
                 foreach (var boatType in boatTypes)
                 {
                     Boat boat = new Boat(boatType);
-                    db.Boats.Add(boat);
                     Dispose();
                 }
+
+                db.SaveChanges();
             }
         }
 

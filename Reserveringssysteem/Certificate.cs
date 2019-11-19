@@ -11,21 +11,22 @@ namespace Reserveringssysteem
 {
     public class Certificate
     {
-        [ForeignKey("Type")]
+        
         public int ID { get; private set; }
 
         [Required]
         public string Name { get; set; }
+        
+        public virtual BoatType BoatType { get; set; }
 
-        [Required]
-        public BoatType Type { get; set; }
 
         public List<User> Users { get; set; }
 
         public Certificate(string name)
         {
             Name = name;
-            //Type = boatType;
         }
+
+        private Certificate() { }
     }
 }

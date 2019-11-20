@@ -72,5 +72,10 @@ namespace ReserveringssysteemWF
         {
             return boat.BoatType.Boats.Count;
         }
+
+        private void Bt_AddReservation_Click(object sender, EventArgs e)
+        {
+            new ReservationDialog().ShowDialog();
+        }
     }
 }

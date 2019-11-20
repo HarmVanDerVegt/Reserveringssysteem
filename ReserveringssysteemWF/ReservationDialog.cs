@@ -16,5 +16,10 @@ namespace ReserveringssysteemWF
         {
             InitializeComponent();
         }
+
+        private void addMemberButton_Click(object sender, EventArgs e)
+        {
+            new MemberPicker().ShowDialog();
+        }
     }
 }

@@ -92,6 +92,7 @@
             this.addMemberButton.TabIndex = 2;
             this.addMemberButton.Text = "Teamlid toevoegen";
             this.addMemberButton.UseVisualStyleBackColor = true;
+            this.addMemberButton.Click += new System.EventHandler(this.addMemberButton_Click);
             // 
             // teamListBox
             // 

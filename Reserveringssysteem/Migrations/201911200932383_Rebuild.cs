@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class RebuildingStructure : DbMigration
+    public partial class Rebuild : DbMigration
     {
         public override void Up()
         {
@@ -61,6 +61,18 @@
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.Certificates", t => t.ID)
                 .Index(t => t.ID);
+            
+            CreateTable(
+                "dbo.Boats",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        BoatStatus = c.Int(nullable: false),
+                        BoatType_ID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.BoatTypes", t => t.BoatType_ID, cascadeDelete: true)
+                .Index(t => t.BoatType_ID);
             
             CreateTable(
                 "dbo.Reservations",
@@ -162,10 +174,6 @@
                 .Index(t => t.Role_ID)
                 .Index(t => t.Member_ID);
             
-            AddColumn("dbo.Boats", "BoatStatus", c => c.Int(nullable: false));
-            AddColumn("dbo.Boats", "BoatType_ID", c => c.Int(nullable: false));
-            CreateIndex("dbo.Boats", "BoatType_ID");
-            AddForeignKey("dbo.Boats", "BoatType_ID", "dbo.BoatTypes", "ID", cascadeDelete: true);
         }
         
         public override void Down()
@@ -202,8 +210,6 @@
             DropIndex("dbo.BoatTypes", new[] { "ID" });
             DropIndex("dbo.Users", new[] { "Team_ID" });
             DropIndex("dbo.Addresses", new[] { "ID" });
-            DropColumn("dbo.Boats", "BoatType_ID");
-            DropColumn("dbo.Boats", "BoatStatus");
             DropTable("dbo.RoleMembers");
             DropTable("dbo.UserCertificates");
             DropTable("dbo.Roles");
@@ -211,6 +217,7 @@
             DropTable("dbo.Matches");
             DropTable("dbo.Teams");
             DropTable("dbo.Reservations");
+            DropTable("dbo.Boats");
             DropTable("dbo.BoatTypes");
             DropTable("dbo.Certificates");
             DropTable("dbo.Users");

@@ -18,7 +18,7 @@ namespace Reserveringssysteem
         public BoatStatus BoatStatus { get; set; }
 
         [Required]
-        public BoatType BoatType { get; set; }
+        public virtual BoatType BoatType { get; set; }
 
         public List<Reservation> Reservations { get; set; }
 

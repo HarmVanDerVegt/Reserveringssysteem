@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Reserveringssysteem;
+using System.Data.Entity;
 
 namespace ReserveringssysteemWF
 {
@@ -31,6 +32,8 @@ namespace ReserveringssysteemWF
             Datagrid_Members.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Datagrid_Teams.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            ShowBoatsTable();
+
 
         }
 
@@ -45,9 +48,29 @@ namespace ReserveringssysteemWF
             CreateBoatDialog.Show();
         }
 
-        public void ShowBoatsTable(Boat boat)
+        private void ShowBoatsTable()
         {
-            //Datagrid_Boats[0]
+            string hasCoxswain = "";
+            using (var db = new ReserveringssysteemContext())
+            {        
+                foreach (var boat in db.Boats.Include(b => b.BoatType))
+                {
+                    if (boat.BoatType.HasCoxswain)
+                    {
+                        hasCoxswain = "ja";
+                    }
+                    else
+                    {
+                        hasCoxswain = "nee";
+                    }
+                    Datagrid_Boats.Rows.Add(boat.BoatType.Name, boat.BoatType.Size, hasCoxswain, AmountOfBoats(boat));
+                }
+            }
+        }
+
+        private int AmountOfBoats(Boat boat)
+        {
+            return boat.BoatType.Boats.Count;
         }
     }
 }

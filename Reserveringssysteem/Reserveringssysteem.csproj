@@ -60,21 +60,9 @@
     <Compile Include="Match.cs" />
     <Compile Include="MatchTeam.cs" />
     <Compile Include="Member.cs" />
-    <Compile Include="Migrations\201911191318158_RebuildingStructure.cs" />
-    <Compile Include="Migrations\201911191318158_RebuildingStructure.designer.cs">
-      <DependentUpon>201911191318158_RebuildingStructure.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911191323398_ForeignKeyOnBoatTypes.cs" />
-    <Compile Include="Migrations\201911191323398_ForeignKeyOnBoatTypes.designer.cs">
-      <DependentUpon>201911191323398_ForeignKeyOnBoatTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911191329386_ForeignKeyOnCertificates.cs" />
-    <Compile Include="Migrations\201911191329386_ForeignKeyOnCertificates.designer.cs">
-      <DependentUpon>201911191329386_ForeignKeyOnCertificates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911191342197_ForeignKeyOnBoatType.cs" />
-    <Compile Include="Migrations\201911191342197_ForeignKeyOnBoatType.designer.cs">
-      <DependentUpon>201911191342197_ForeignKeyOnBoatType.cs</DependentUpon>
+    <Compile Include="Migrations\201911200932383_Rebuild.cs" />
+    <Compile Include="Migrations\201911200932383_Rebuild.designer.cs">
+      <DependentUpon>201911200932383_Rebuild.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -92,17 +80,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911191318158_RebuildingStructure.resx">
-      <DependentUpon>201911191318158_RebuildingStructure.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911191323398_ForeignKeyOnBoatTypes.resx">
-      <DependentUpon>201911191323398_ForeignKeyOnBoatTypes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911191329386_ForeignKeyOnCertificates.resx">
-      <DependentUpon>201911191329386_ForeignKeyOnCertificates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911191342197_ForeignKeyOnBoatType.resx">
-      <DependentUpon>201911191342197_ForeignKeyOnBoatType.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911200932383_Rebuild.resx">
+      <DependentUpon>201911200932383_Rebuild.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

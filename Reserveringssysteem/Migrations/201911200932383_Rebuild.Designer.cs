@@ -7,13 +7,13 @@ namespace Reserveringssysteem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0")]
-    public sealed partial class ForeignKeyOnBoatType : IMigrationMetadata
+    public sealed partial class Rebuild : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ForeignKeyOnBoatType));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Rebuild));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911191342197_ForeignKeyOnBoatType"; }
+            get { return "201911200932383_Rebuild"; }
         }
         
         string IMigrationMetadata.Source

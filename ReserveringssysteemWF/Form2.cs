@@ -35,6 +35,7 @@ namespace ReserveringssysteemWF
 
         private void Bt_Add_AddBoats_Click(object sender, EventArgs e)
         {
+            Boat boat = null;
             using(var db = new ReserveringssysteemContext())
             {
                 var boatTypes = from boatType in db.BoatTypes
@@ -43,10 +44,9 @@ namespace ReserveringssysteemWF
 
                 foreach (var boatType in boatTypes)
                 {
-                    Boat boat = new Boat(boatType);
+                    boat = new Boat(boatType);
                     Dispose();
                 }
-
                 db.SaveChanges();
             }
         }

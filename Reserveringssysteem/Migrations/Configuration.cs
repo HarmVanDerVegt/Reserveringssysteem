@@ -41,6 +41,44 @@
                 Organisation = "HBO-ICT"
             });
 
+            context.Users.AddOrUpdate(new Member()
+            {
+                Name = "Beau ter Ham",
+                DateOfBirth = DateTime.Now,
+                Gender = Gender.Male,
+                Organisation = "Roeivereniging",
+                Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
+                Email = "beauterham@gmail.com",
+                Password = "#",
+            }, new Member()
+            {
+                Name = "Harry Snotter",
+                DateOfBirth = DateTime.Now,
+                Gender = Gender.Male,
+                Organisation = "Roeivereniging",
+                Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
+                Email = "harrysnotter@gmail.com",
+                Password = "#",
+            }, new Member()
+            {
+                Name = "Pieter Post",
+                DateOfBirth = DateTime.Now,
+                Gender = Gender.Male,
+                Organisation = "Roeivereniging",
+                Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
+                Email = "pieterpost@gmail.com",
+                Password = "#",
+            }, new Member()
+            {
+                Name = "Prog Ramma",
+                DateOfBirth = DateTime.Now,
+                Gender = Gender.Male,
+                Organisation = "Roeivereniging",
+                Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
+                Email = "programma@gmail.com",
+                Password = "#",
+            });
+
             context.SaveChanges();
         }
     }

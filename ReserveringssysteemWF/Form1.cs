@@ -14,6 +14,7 @@ namespace ReserveringssysteemWF
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -33,8 +34,6 @@ namespace ReserveringssysteemWF
             Datagrid_Teams.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             ShowBoatsTable();
-
-
         }
 
         private void Bt_AddBoat_Click(object sender, EventArgs e)
@@ -44,33 +43,42 @@ namespace ReserveringssysteemWF
 
         private void ShowCreateBoatDialog()
         {
-            Form2 CreateBoatDialog = new Form2();
+            Form2 CreateBoatDialog = new Form2(this);
             CreateBoatDialog.Show();
+            //ShowBoatsTable();
         }
 
-        private void ShowBoatsTable()
+        public void ShowBoatsTable()
         {
+            Datagrid_Boats.Rows.Clear();
+
             string hasCoxswain = "";
             using (var db = new ReserveringssysteemContext())
-            {        
+            {
                 foreach (var boat in db.Boats.Include(b => b.BoatType))
                 {
+                    for (int i = 0; i < Datagrid_Boats.Rows.Count; i++)
+                    {
+                        if ((string)Datagrid_Boats.Rows[i].Cells[0].Value == boat.BoatType.Name)
+                        {
+                            Datagrid_Boats.Rows.RemoveAt(i);
+                        }
+                    }
+
                     if (boat.BoatType.HasCoxswain)
-                    {
                         hasCoxswain = "ja";
-                    }
                     else
-                    {
                         hasCoxswain = "nee";
-                    }
+
                     Datagrid_Boats.Rows.Add(boat.BoatType.Name, boat.BoatType.Size, hasCoxswain, AmountOfBoats(boat));
+                    Datagrid_Boats.Sort(Datagrid_Boats.Columns[0], ListSortDirection.Ascending);
                 }
             }
-        }
+        }    
 
-        private int AmountOfBoats(Boat boat)
-        {
-            return boat.BoatType.Boats.Count;
-        }
+    private int AmountOfBoats(Boat boat)
+    {
+        return boat.BoatType.Boats.Count;
     }
+}
 }

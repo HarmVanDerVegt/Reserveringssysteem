@@ -13,12 +13,10 @@ namespace ReserveringssysteemWF
 {
     public partial class Form2 : Form
     {
-        private Form1 Mainscreen;
-        public Form2(Form1 mainscreen)
+        public Form2()
         {
             InitializeComponent();
             FillComboBox();
-            Mainscreen = mainscreen;
         }
 
         private void FillComboBox()
@@ -37,7 +35,6 @@ namespace ReserveringssysteemWF
 
         private void Bt_Add_AddBoats_Click(object sender, EventArgs e)
         {
-
             Boat boat = null;
             using(var db = new ReserveringssysteemContext())
             {
@@ -48,18 +45,14 @@ namespace ReserveringssysteemWF
                 foreach (var boatType in boatTypes)
                 {
                     boat = new Boat(boatType);
-                    Dispose();
                 }
                 db.SaveChanges();
             }
-
-            Mainscreen.ShowBoatsTable();
         }
 
-        private void Bt_Cancel_AddBoats_Click(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
-            Mainscreen.ShowBoatsTable();
-            Dispose();
+            Cb_AddBoats.Text = "Skiff";
         }
     }
 }

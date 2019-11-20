@@ -45,6 +45,7 @@
             // 
             // Bt_Add_AddBoats
             // 
+            this.Bt_Add_AddBoats.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Bt_Add_AddBoats.Location = new System.Drawing.Point(111, 137);
             this.Bt_Add_AddBoats.Name = "Bt_Add_AddBoats";
             this.Bt_Add_AddBoats.Size = new System.Drawing.Size(100, 28);
@@ -64,18 +65,20 @@
             // 
             // Bt_Cancel_AddBoats
             // 
+            this.Bt_Cancel_AddBoats.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Bt_Cancel_AddBoats.Location = new System.Drawing.Point(229, 137);
             this.Bt_Cancel_AddBoats.Name = "Bt_Cancel_AddBoats";
             this.Bt_Cancel_AddBoats.Size = new System.Drawing.Size(100, 28);
             this.Bt_Cancel_AddBoats.TabIndex = 3;
             this.Bt_Cancel_AddBoats.Text = "Annuleren";
             this.Bt_Cancel_AddBoats.UseVisualStyleBackColor = true;
-            this.Bt_Cancel_AddBoats.Click += new System.EventHandler(this.Bt_Cancel_AddBoats_Click);
             // 
             // Form2
             // 
+            this.AcceptButton = this.Bt_Add_AddBoats;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.Bt_Cancel_AddBoats;
             this.ClientSize = new System.Drawing.Size(432, 253);
             this.Controls.Add(this.Bt_Cancel_AddBoats);
             this.Controls.Add(this.label1);
@@ -84,6 +87,7 @@
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Boot toevoegen";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

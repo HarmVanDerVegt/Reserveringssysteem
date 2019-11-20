@@ -43,9 +43,9 @@ namespace ReserveringssysteemWF
 
         private void ShowCreateBoatDialog()
         {
-            Form2 CreateBoatDialog = new Form2(this);
-            CreateBoatDialog.Show();
-            //ShowBoatsTable();
+            Form2 CreateBoatDialog = new Form2();
+            CreateBoatDialog.ShowDialog();
+            ShowBoatsTable();
         }
 
         public void ShowBoatsTable()
@@ -74,11 +74,11 @@ namespace ReserveringssysteemWF
                     Datagrid_Boats.Sort(Datagrid_Boats.Columns[0], ListSortDirection.Ascending);
                 }
             }
-        }    
+        }
 
-    private int AmountOfBoats(Boat boat)
-    {
-        return boat.BoatType.Boats.Count;
+        private int AmountOfBoats(Boat boat)
+        {
+            return boat.BoatType.Boats.Count;
+        }
     }
-}
 }

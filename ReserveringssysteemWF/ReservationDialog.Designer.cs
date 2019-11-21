@@ -39,6 +39,12 @@
             this.teamLabel = new System.Windows.Forms.Label();
             this.addMemberButton = new System.Windows.Forms.Button();
             this.teamListBox = new System.Windows.Forms.ListBox();
+            this.datePicker = new System.Windows.Forms.MonthCalendar();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.durationLabel = new System.Windows.Forms.Label();
+            this.durationComboBox = new System.Windows.Forms.ComboBox();
+            this.startTimeLabel = new System.Windows.Forms.Label();
+            this.startTimeComboBox = new System.Windows.Forms.ComboBox();
             this.reservePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +52,7 @@
             // 
             this.reserveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.reserveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.reserveButton.Location = new System.Drawing.Point(309, 418);
+            this.reserveButton.Location = new System.Drawing.Point(250, 425);
             this.reserveButton.Name = "reserveButton";
             this.reserveButton.Size = new System.Drawing.Size(75, 23);
             this.reserveButton.TabIndex = 0;
@@ -57,7 +63,7 @@
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(390, 418);
+            this.cancelButton.Location = new System.Drawing.Point(331, 425);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 1;
@@ -70,6 +76,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.reservePanel.BackColor = System.Drawing.SystemColors.Window;
+            this.reservePanel.Controls.Add(this.startTimeComboBox);
+            this.reservePanel.Controls.Add(this.startTimeLabel);
+            this.reservePanel.Controls.Add(this.durationComboBox);
+            this.reservePanel.Controls.Add(this.durationLabel);
+            this.reservePanel.Controls.Add(this.dateLabel);
+            this.reservePanel.Controls.Add(this.datePicker);
             this.reservePanel.Controls.Add(this.coxswainComboBox);
             this.reservePanel.Controls.Add(this.coxswainLabel);
             this.reservePanel.Controls.Add(this.boatTypeComboBox);
@@ -80,7 +92,7 @@
             this.reservePanel.Controls.Add(this.teamListBox);
             this.reservePanel.Location = new System.Drawing.Point(0, 0);
             this.reservePanel.Name = "reservePanel";
-            this.reservePanel.Size = new System.Drawing.Size(477, 412);
+            this.reservePanel.Size = new System.Drawing.Size(418, 419);
             this.reservePanel.TabIndex = 0;
             // 
             // coxswainComboBox
@@ -91,7 +103,7 @@
             this.coxswainComboBox.FormattingEnabled = true;
             this.coxswainComboBox.Location = new System.Drawing.Point(12, 208);
             this.coxswainComboBox.Name = "coxswainComboBox";
-            this.coxswainComboBox.Size = new System.Drawing.Size(453, 21);
+            this.coxswainComboBox.Size = new System.Drawing.Size(394, 21);
             this.coxswainComboBox.TabIndex = 7;
             // 
             // coxswainLabel
@@ -111,7 +123,7 @@
             this.boatTypeComboBox.FormattingEnabled = true;
             this.boatTypeComboBox.Location = new System.Drawing.Point(12, 168);
             this.boatTypeComboBox.Name = "boatTypeComboBox";
-            this.boatTypeComboBox.Size = new System.Drawing.Size(453, 21);
+            this.boatTypeComboBox.Size = new System.Drawing.Size(394, 21);
             this.boatTypeComboBox.TabIndex = 5;
             // 
             // removeMemberButton
@@ -159,8 +171,69 @@
             this.teamListBox.FormattingEnabled = true;
             this.teamListBox.Location = new System.Drawing.Point(12, 25);
             this.teamListBox.Name = "teamListBox";
-            this.teamListBox.Size = new System.Drawing.Size(453, 95);
+            this.teamListBox.Size = new System.Drawing.Size(394, 95);
             this.teamListBox.TabIndex = 1;
+            // 
+            // datePicker
+            // 
+            this.datePicker.Location = new System.Drawing.Point(9, 254);
+            this.datePicker.MaxSelectionCount = 1;
+            this.datePicker.Name = "datePicker";
+            this.datePicker.ShowToday = false;
+            this.datePicker.ShowTodayCircle = false;
+            this.datePicker.ShowWeekNumbers = true;
+            this.datePicker.TabIndex = 8;
+            this.datePicker.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.datePicker_DateChanged);
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Location = new System.Drawing.Point(12, 232);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(38, 13);
+            this.dateLabel.TabIndex = 9;
+            this.dateLabel.Text = "Datum";
+            // 
+            // durationLabel
+            // 
+            this.durationLabel.AutoSize = true;
+            this.durationLabel.Location = new System.Drawing.Point(270, 254);
+            this.durationLabel.Name = "durationLabel";
+            this.durationLabel.Size = new System.Drawing.Size(44, 13);
+            this.durationLabel.TabIndex = 10;
+            this.durationLabel.Text = "Looptijd";
+            // 
+            // durationComboBox
+            // 
+            this.durationComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.durationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.durationComboBox.FormattingEnabled = true;
+            this.durationComboBox.Location = new System.Drawing.Point(273, 270);
+            this.durationComboBox.Name = "durationComboBox";
+            this.durationComboBox.Size = new System.Drawing.Size(133, 21);
+            this.durationComboBox.TabIndex = 11;
+            this.durationComboBox.SelectedIndexChanged += new System.EventHandler(this.durationComboBox_SelectedIndexChanged);
+            // 
+            // startTimeLabel
+            // 
+            this.startTimeLabel.AutoSize = true;
+            this.startTimeLabel.Location = new System.Drawing.Point(270, 294);
+            this.startTimeLabel.Name = "startTimeLabel";
+            this.startTimeLabel.Size = new System.Drawing.Size(42, 13);
+            this.startTimeLabel.TabIndex = 12;
+            this.startTimeLabel.Text = "Starttijd";
+            // 
+            // startTimeComboBox
+            // 
+            this.startTimeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.startTimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.startTimeComboBox.FormattingEnabled = true;
+            this.startTimeComboBox.Location = new System.Drawing.Point(273, 310);
+            this.startTimeComboBox.Name = "startTimeComboBox";
+            this.startTimeComboBox.Size = new System.Drawing.Size(133, 21);
+            this.startTimeComboBox.TabIndex = 13;
             // 
             // ReservationDialog
             // 
@@ -168,7 +241,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(477, 453);
+            this.ClientSize = new System.Drawing.Size(418, 460);
             this.Controls.Add(this.reservePanel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.reserveButton);
@@ -201,5 +274,11 @@
         private System.Windows.Forms.ComboBox boatTypeComboBox;
         private System.Windows.Forms.ComboBox coxswainComboBox;
         private System.Windows.Forms.Label coxswainLabel;
+        private System.Windows.Forms.MonthCalendar datePicker;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Label durationLabel;
+        private System.Windows.Forms.ComboBox durationComboBox;
+        private System.Windows.Forms.ComboBox startTimeComboBox;
+        private System.Windows.Forms.Label startTimeLabel;
     }
 }

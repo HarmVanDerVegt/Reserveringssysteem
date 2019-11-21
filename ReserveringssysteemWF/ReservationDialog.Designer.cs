@@ -31,10 +31,14 @@
             this.reserveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.reservePanel = new System.Windows.Forms.Panel();
+            this.coxswainComboBox = new System.Windows.Forms.ComboBox();
+            this.coxswainLabel = new System.Windows.Forms.Label();
+            this.boatTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.removeMemberButton = new System.Windows.Forms.Button();
+            this.boatLabel = new System.Windows.Forms.Label();
             this.teamLabel = new System.Windows.Forms.Label();
             this.addMemberButton = new System.Windows.Forms.Button();
             this.teamListBox = new System.Windows.Forms.ListBox();
-            this.boatLabel = new System.Windows.Forms.Label();
             this.reservePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +46,7 @@
             // 
             this.reserveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.reserveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.reserveButton.Location = new System.Drawing.Point(340, 331);
+            this.reserveButton.Location = new System.Drawing.Point(309, 418);
             this.reserveButton.Name = "reserveButton";
             this.reserveButton.Size = new System.Drawing.Size(75, 23);
             this.reserveButton.TabIndex = 0;
@@ -53,7 +57,7 @@
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(421, 331);
+            this.cancelButton.Location = new System.Drawing.Point(390, 418);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 1;
@@ -66,14 +70,68 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.reservePanel.BackColor = System.Drawing.SystemColors.Window;
+            this.reservePanel.Controls.Add(this.coxswainComboBox);
+            this.reservePanel.Controls.Add(this.coxswainLabel);
+            this.reservePanel.Controls.Add(this.boatTypeComboBox);
+            this.reservePanel.Controls.Add(this.removeMemberButton);
             this.reservePanel.Controls.Add(this.boatLabel);
             this.reservePanel.Controls.Add(this.teamLabel);
             this.reservePanel.Controls.Add(this.addMemberButton);
             this.reservePanel.Controls.Add(this.teamListBox);
             this.reservePanel.Location = new System.Drawing.Point(0, 0);
             this.reservePanel.Name = "reservePanel";
-            this.reservePanel.Size = new System.Drawing.Size(508, 325);
+            this.reservePanel.Size = new System.Drawing.Size(477, 412);
             this.reservePanel.TabIndex = 0;
+            // 
+            // coxswainComboBox
+            // 
+            this.coxswainComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.coxswainComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.coxswainComboBox.FormattingEnabled = true;
+            this.coxswainComboBox.Location = new System.Drawing.Point(12, 208);
+            this.coxswainComboBox.Name = "coxswainComboBox";
+            this.coxswainComboBox.Size = new System.Drawing.Size(453, 21);
+            this.coxswainComboBox.TabIndex = 7;
+            // 
+            // coxswainLabel
+            // 
+            this.coxswainLabel.AutoSize = true;
+            this.coxswainLabel.Location = new System.Drawing.Point(12, 192);
+            this.coxswainLabel.Name = "coxswainLabel";
+            this.coxswainLabel.Size = new System.Drawing.Size(52, 13);
+            this.coxswainLabel.TabIndex = 6;
+            this.coxswainLabel.Text = "Stuurman";
+            // 
+            // boatTypeComboBox
+            // 
+            this.boatTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.boatTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.boatTypeComboBox.FormattingEnabled = true;
+            this.boatTypeComboBox.Location = new System.Drawing.Point(12, 168);
+            this.boatTypeComboBox.Name = "boatTypeComboBox";
+            this.boatTypeComboBox.Size = new System.Drawing.Size(453, 21);
+            this.boatTypeComboBox.TabIndex = 5;
+            // 
+            // removeMemberButton
+            // 
+            this.removeMemberButton.Location = new System.Drawing.Point(139, 126);
+            this.removeMemberButton.Name = "removeMemberButton";
+            this.removeMemberButton.Size = new System.Drawing.Size(121, 23);
+            this.removeMemberButton.TabIndex = 4;
+            this.removeMemberButton.Text = "Teamlid verwijderen";
+            this.removeMemberButton.UseVisualStyleBackColor = true;
+            this.removeMemberButton.Click += new System.EventHandler(this.removeMemberButton_Click);
+            // 
+            // boatLabel
+            // 
+            this.boatLabel.AutoSize = true;
+            this.boatLabel.Location = new System.Drawing.Point(12, 152);
+            this.boatLabel.Name = "boatLabel";
+            this.boatLabel.Size = new System.Drawing.Size(49, 13);
+            this.boatLabel.TabIndex = 3;
+            this.boatLabel.Text = "Boottype";
             // 
             // teamLabel
             // 
@@ -88,7 +146,7 @@
             // 
             this.addMemberButton.Location = new System.Drawing.Point(12, 126);
             this.addMemberButton.Name = "addMemberButton";
-            this.addMemberButton.Size = new System.Drawing.Size(106, 23);
+            this.addMemberButton.Size = new System.Drawing.Size(121, 23);
             this.addMemberButton.TabIndex = 2;
             this.addMemberButton.Text = "Teamlid toevoegen";
             this.addMemberButton.UseVisualStyleBackColor = true;
@@ -101,17 +159,8 @@
             this.teamListBox.FormattingEnabled = true;
             this.teamListBox.Location = new System.Drawing.Point(12, 25);
             this.teamListBox.Name = "teamListBox";
-            this.teamListBox.Size = new System.Drawing.Size(484, 95);
+            this.teamListBox.Size = new System.Drawing.Size(453, 95);
             this.teamListBox.TabIndex = 1;
-            // 
-            // boatLabel
-            // 
-            this.boatLabel.AutoSize = true;
-            this.boatLabel.Location = new System.Drawing.Point(12, 152);
-            this.boatLabel.Name = "boatLabel";
-            this.boatLabel.Size = new System.Drawing.Size(29, 13);
-            this.boatLabel.TabIndex = 3;
-            this.boatLabel.Text = "Boot";
             // 
             // ReservationDialog
             // 
@@ -119,7 +168,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(508, 366);
+            this.ClientSize = new System.Drawing.Size(477, 453);
             this.Controls.Add(this.reservePanel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.reserveButton);
@@ -132,6 +181,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Reserveren";
+            this.Load += new System.EventHandler(this.ReservationDialog_Load);
             this.reservePanel.ResumeLayout(false);
             this.reservePanel.PerformLayout();
             this.ResumeLayout(false);
@@ -147,5 +197,9 @@
         private System.Windows.Forms.Button addMemberButton;
         private System.Windows.Forms.ListBox teamListBox;
         private System.Windows.Forms.Label boatLabel;
+        private System.Windows.Forms.Button removeMemberButton;
+        private System.Windows.Forms.ComboBox boatTypeComboBox;
+        private System.Windows.Forms.ComboBox coxswainComboBox;
+        private System.Windows.Forms.Label coxswainLabel;
     }
 }

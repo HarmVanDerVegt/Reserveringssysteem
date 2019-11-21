@@ -48,7 +48,7 @@ namespace ReserveringssysteemWF
             ShowBoatsTable();
         }
 
-        public void ShowBoatsTable()
+        private void ShowBoatsTable()
         {
             Datagrid_Boats.Rows.Clear();
 
@@ -62,10 +62,10 @@ namespace ReserveringssysteemWF
                 foreach (var b in sortBoats.Include(b => b.BoatType))
                 {
                     if (b.BoatType.HasCoxswain)
-                        hasCoxswain = "ja";
+                        hasCoxswain = "Ja";
                     else
-                        hasCoxswain = "nee";
-
+                        hasCoxswain = "Nee";
+                      
                     for (int i = 0; i < Datagrid_Boats.Rows.Count; i++)
                     {
                         if ((string)Datagrid_Boats.Rows[i].Cells[0].Value == b.BoatType.Name)

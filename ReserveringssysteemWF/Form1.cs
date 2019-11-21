@@ -80,5 +80,24 @@ namespace ReserveringssysteemWF
         {
             return boat.BoatType.Boats.Count;
         }
+
+        private void Bt_DeleteBoat_Click(object sender, EventArgs e)
+        {
+            using (var db = new ReserveringssysteemContext())
+            {
+                foreach (DataGridViewRow row in Datagrid_Boats.SelectedRows)
+                {
+                    string typeName = (string)row.Cells[0].Value;
+
+                    db.Boats.Remove(
+                        db.Boats.Include(b => b.BoatType).Where(b => b.BoatType.Name == typeName).First()
+                        );
+
+                    db.SaveChanges();
+
+                    ShowBoatsTable();
+                }
+            }
+        }
     }
 }

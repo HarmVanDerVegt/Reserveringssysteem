@@ -221,8 +221,7 @@
             // 
             // Bt_ReportDamage
             // 
-            this.Bt_ReportDamage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_ReportDamage.Location = new System.Drawing.Point(287, 24);
+            this.Bt_ReportDamage.Location = new System.Drawing.Point(16, 24);
             this.Bt_ReportDamage.Name = "Bt_ReportDamage";
             this.Bt_ReportDamage.Size = new System.Drawing.Size(127, 31);
             this.Bt_ReportDamage.TabIndex = 4;
@@ -238,6 +237,7 @@
             this.Bt_DeleteBoat.TabIndex = 3;
             this.Bt_DeleteBoat.Text = "Boot verwijderen";
             this.Bt_DeleteBoat.UseVisualStyleBackColor = true;
+            this.Bt_DeleteBoat.Click += new System.EventHandler(this.Bt_DeleteBoat_Click);
             // 
             // Bt_ModifyBoat
             // 
@@ -251,7 +251,8 @@
             // 
             // Bt_AddBoat
             // 
-            this.Bt_AddBoat.Location = new System.Drawing.Point(16, 24);
+            this.Bt_AddBoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Bt_AddBoat.Location = new System.Drawing.Point(287, 24);
             this.Bt_AddBoat.Name = "Bt_AddBoat";
             this.Bt_AddBoat.Size = new System.Drawing.Size(127, 31);
             this.Bt_AddBoat.TabIndex = 1;
@@ -277,6 +278,7 @@
             this.Datagrid_Boats.RowHeadersVisible = false;
             this.Datagrid_Boats.RowHeadersWidth = 51;
             this.Datagrid_Boats.RowTemplate.Height = 24;
+            this.Datagrid_Boats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Datagrid_Boats.Size = new System.Drawing.Size(760, 311);
             this.Datagrid_Boats.TabIndex = 0;
             // 

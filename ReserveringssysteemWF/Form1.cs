@@ -55,7 +55,7 @@ namespace ReserveringssysteemWF
             string hasCoxswain = "";
             using (var db = new ReserveringssysteemContext())
             {
-                foreach (var boat in db.Boats.Include(b => b.BoatType))
+                foreach (var boat in db.Boats.Include(b => b.BoatType).Where(b => b.BoatStatus == BoatStatus.Whole))
                 {
                     for (int i = 0; i < Datagrid_Boats.Rows.Count; i++)
                     {
@@ -98,6 +98,12 @@ namespace ReserveringssysteemWF
                     ShowBoatsTable();
                 }
             }
+        }
+
+        private void Bt_RemoveBoatFromUse_Click(object sender, EventArgs e)
+        {
+            Form_RemoveBoatFromUse Dialog_RemoveBoatFromUse = new Form_RemoveBoatFromUse();
+            Dialog_RemoveBoatFromUse.ShowDialog();
         }
     }
 }

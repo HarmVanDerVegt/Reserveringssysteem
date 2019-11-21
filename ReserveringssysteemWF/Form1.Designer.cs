@@ -89,6 +89,7 @@
             this.Bt_ModifyTeam = new System.Windows.Forms.Button();
             this.Bt_CreateTeam = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.Bt_RemoveBoatFromUse = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_News.SuspendLayout();
@@ -116,26 +117,26 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1034, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // tabControl1
@@ -153,7 +154,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(768, 413);
+            this.tabControl1.Size = new System.Drawing.Size(1002, 413);
             this.tabControl1.TabIndex = 1;
             // 
             // tab_News
@@ -206,6 +207,7 @@
             // 
             // Tab_Boats
             // 
+            this.Tab_Boats.Controls.Add(this.Bt_RemoveBoatFromUse);
             this.Tab_Boats.Controls.Add(this.Bt_ReportDamage);
             this.Tab_Boats.Controls.Add(this.Bt_DeleteBoat);
             this.Tab_Boats.Controls.Add(this.Bt_ModifyBoat);
@@ -214,7 +216,7 @@
             this.Tab_Boats.Location = new System.Drawing.Point(4, 25);
             this.Tab_Boats.Name = "Tab_Boats";
             this.Tab_Boats.Padding = new System.Windows.Forms.Padding(3);
-            this.Tab_Boats.Size = new System.Drawing.Size(760, 384);
+            this.Tab_Boats.Size = new System.Drawing.Size(994, 384);
             this.Tab_Boats.TabIndex = 1;
             this.Tab_Boats.Text = "Boten";
             this.Tab_Boats.UseVisualStyleBackColor = true;
@@ -231,7 +233,7 @@
             // Bt_DeleteBoat
             // 
             this.Bt_DeleteBoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_DeleteBoat.Location = new System.Drawing.Point(617, 24);
+            this.Bt_DeleteBoat.Location = new System.Drawing.Point(851, 24);
             this.Bt_DeleteBoat.Name = "Bt_DeleteBoat";
             this.Bt_DeleteBoat.Size = new System.Drawing.Size(127, 31);
             this.Bt_DeleteBoat.TabIndex = 3;
@@ -242,7 +244,7 @@
             // Bt_ModifyBoat
             // 
             this.Bt_ModifyBoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_ModifyBoat.Location = new System.Drawing.Point(455, 24);
+            this.Bt_ModifyBoat.Location = new System.Drawing.Point(689, 24);
             this.Bt_ModifyBoat.Name = "Bt_ModifyBoat";
             this.Bt_ModifyBoat.Size = new System.Drawing.Size(127, 31);
             this.Bt_ModifyBoat.TabIndex = 2;
@@ -252,7 +254,7 @@
             // Bt_AddBoat
             // 
             this.Bt_AddBoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_AddBoat.Location = new System.Drawing.Point(287, 24);
+            this.Bt_AddBoat.Location = new System.Drawing.Point(521, 24);
             this.Bt_AddBoat.Name = "Bt_AddBoat";
             this.Bt_AddBoat.Size = new System.Drawing.Size(127, 31);
             this.Bt_AddBoat.TabIndex = 1;
@@ -279,7 +281,7 @@
             this.Datagrid_Boats.RowHeadersWidth = 51;
             this.Datagrid_Boats.RowTemplate.Height = 24;
             this.Datagrid_Boats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Datagrid_Boats.Size = new System.Drawing.Size(760, 311);
+            this.Datagrid_Boats.Size = new System.Drawing.Size(994, 311);
             this.Datagrid_Boats.TabIndex = 0;
             // 
             // Name_BoatTab
@@ -756,11 +758,22 @@
             this.Bt_CreateTeam.Text = "Team aanmaken";
             this.Bt_CreateTeam.UseVisualStyleBackColor = true;
             // 
+            // Bt_RemoveBoatFromUse
+            // 
+            this.Bt_RemoveBoatFromUse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Bt_RemoveBoatFromUse.Location = new System.Drawing.Point(330, 24);
+            this.Bt_RemoveBoatFromUse.Name = "Bt_RemoveBoatFromUse";
+            this.Bt_RemoveBoatFromUse.Size = new System.Drawing.Size(153, 31);
+            this.Bt_RemoveBoatFromUse.TabIndex = 5;
+            this.Bt_RemoveBoatFromUse.Text = "Boot uit vaart nemen";
+            this.Bt_RemoveBoatFromUse.UseVisualStyleBackColor = true;
+            this.Bt_RemoveBoatFromUse.Click += new System.EventHandler(this.Bt_RemoveBoatFromUse_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1034, 450);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -852,6 +865,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date_NewsTab;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title_NewsTab;
         private System.Windows.Forms.Button Bt_ReportDamage;
+        private System.Windows.Forms.Button Bt_RemoveBoatFromUse;
     }
 }
 

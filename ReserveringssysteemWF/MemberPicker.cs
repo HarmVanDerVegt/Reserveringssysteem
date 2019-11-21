@@ -37,7 +37,7 @@ namespace ReserveringssysteemWF
         private void MemberPicker_Load(object sender, EventArgs e)
         {
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
-                foreach (User user in context.Users)
+                foreach (User user in context.Users.Include("Levels"))
                     if (user.GetType().IsEquivalentTo(typeof(Member)))
                         members.Add((Member)user);
 

@@ -33,6 +33,10 @@
             context.BoatTypes.AddOrUpdate(new BoatType("Vier Met", 4, true));
             context.BoatTypes.AddOrUpdate(new BoatType("Acht", 8, true));
 
+            Boat test = new Boat(new BoatType("brokenBoat", 2, false));
+            test.BoatStatus = BoatStatus.Broken;
+            context.Boats.AddOrUpdate(test);
+
             context.Users.AddOrUpdate(new User()
             {
                 Name = "Harm",

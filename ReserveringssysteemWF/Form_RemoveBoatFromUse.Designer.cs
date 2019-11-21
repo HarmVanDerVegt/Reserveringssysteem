@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             this.Datagrid_RemoveBoatFromUse1 = new System.Windows.Forms.DataGridView();
+            this.Name_RemoveBoatFromUseTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status_RemoveBoatFromUseTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datagrid_RemoveBoatFromUse2 = new System.Windows.Forms.DataGridView();
+            this.Name_BrokenBoats = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status_BrokenBoats = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Bt_RemoveBoatFromUse = new System.Windows.Forms.Button();
             this.Bt_Cancel = new System.Windows.Forms.Button();
-            this.Name_RemoveBoatFromUseTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status_RemoveBoatFromUseTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name_BrokenBoats = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status_BrokenBoats = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_RemoveBoatFromUse1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_RemoveBoatFromUse2)).BeginInit();
             this.SuspendLayout();
             // 
             // Datagrid_RemoveBoatFromUse1
             // 
+            this.Datagrid_RemoveBoatFromUse1.AllowUserToResizeColumns = false;
+            this.Datagrid_RemoveBoatFromUse1.AllowUserToResizeRows = false;
             this.Datagrid_RemoveBoatFromUse1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Datagrid_RemoveBoatFromUse1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -55,11 +57,30 @@
             this.Datagrid_RemoveBoatFromUse1.RowHeadersVisible = false;
             this.Datagrid_RemoveBoatFromUse1.RowHeadersWidth = 51;
             this.Datagrid_RemoveBoatFromUse1.RowTemplate.Height = 24;
+            this.Datagrid_RemoveBoatFromUse1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Datagrid_RemoveBoatFromUse1.Size = new System.Drawing.Size(431, 150);
             this.Datagrid_RemoveBoatFromUse1.TabIndex = 0;
             // 
+            // Name_RemoveBoatFromUseTab
+            // 
+            this.Name_RemoveBoatFromUseTab.HeaderText = "Naam";
+            this.Name_RemoveBoatFromUseTab.MinimumWidth = 6;
+            this.Name_RemoveBoatFromUseTab.Name = "Name_RemoveBoatFromUseTab";
+            this.Name_RemoveBoatFromUseTab.ReadOnly = true;
+            this.Name_RemoveBoatFromUseTab.Width = 214;
+            // 
+            // Status_RemoveBoatFromUseTab
+            // 
+            this.Status_RemoveBoatFromUseTab.HeaderText = "Bootstatus";
+            this.Status_RemoveBoatFromUseTab.MinimumWidth = 6;
+            this.Status_RemoveBoatFromUseTab.Name = "Status_RemoveBoatFromUseTab";
+            this.Status_RemoveBoatFromUseTab.ReadOnly = true;
+            this.Status_RemoveBoatFromUseTab.Width = 214;
+            // 
             // Datagrid_RemoveBoatFromUse2
             // 
+            this.Datagrid_RemoveBoatFromUse2.AllowUserToResizeColumns = false;
+            this.Datagrid_RemoveBoatFromUse2.AllowUserToResizeRows = false;
             this.Datagrid_RemoveBoatFromUse2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_RemoveBoatFromUse2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Name_BrokenBoats,
@@ -69,8 +90,25 @@
             this.Datagrid_RemoveBoatFromUse2.RowHeadersVisible = false;
             this.Datagrid_RemoveBoatFromUse2.RowHeadersWidth = 51;
             this.Datagrid_RemoveBoatFromUse2.RowTemplate.Height = 24;
+            this.Datagrid_RemoveBoatFromUse2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Datagrid_RemoveBoatFromUse2.Size = new System.Drawing.Size(431, 150);
             this.Datagrid_RemoveBoatFromUse2.TabIndex = 1;
+            // 
+            // Name_BrokenBoats
+            // 
+            this.Name_BrokenBoats.HeaderText = "Naam";
+            this.Name_BrokenBoats.MinimumWidth = 6;
+            this.Name_BrokenBoats.Name = "Name_BrokenBoats";
+            this.Name_BrokenBoats.ReadOnly = true;
+            this.Name_BrokenBoats.Width = 214;
+            // 
+            // Status_BrokenBoats
+            // 
+            this.Status_BrokenBoats.HeaderText = "Bootstatus";
+            this.Status_BrokenBoats.MinimumWidth = 6;
+            this.Status_BrokenBoats.Name = "Status_BrokenBoats";
+            this.Status_BrokenBoats.ReadOnly = true;
+            this.Status_BrokenBoats.Width = 214;
             // 
             // label1
             // 
@@ -98,6 +136,7 @@
             this.Bt_RemoveBoatFromUse.TabIndex = 4;
             this.Bt_RemoveBoatFromUse.Text = "Uit vaart nemen";
             this.Bt_RemoveBoatFromUse.UseVisualStyleBackColor = true;
+            this.Bt_RemoveBoatFromUse.Click += new System.EventHandler(this.Bt_RemoveBoatFromUse_Click);
             // 
             // Bt_Cancel
             // 
@@ -108,38 +147,6 @@
             this.Bt_Cancel.TabIndex = 5;
             this.Bt_Cancel.Text = "Annuleren";
             this.Bt_Cancel.UseVisualStyleBackColor = true;
-            // 
-            // Name_RemoveBoatFromUseTab
-            // 
-            this.Name_RemoveBoatFromUseTab.HeaderText = "Naam";
-            this.Name_RemoveBoatFromUseTab.MinimumWidth = 6;
-            this.Name_RemoveBoatFromUseTab.Name = "Name_RemoveBoatFromUseTab";
-            this.Name_RemoveBoatFromUseTab.ReadOnly = true;
-            this.Name_RemoveBoatFromUseTab.Width = 214;
-            // 
-            // Status_RemoveBoatFromUseTab
-            // 
-            this.Status_RemoveBoatFromUseTab.HeaderText = "Bootstatus";
-            this.Status_RemoveBoatFromUseTab.MinimumWidth = 6;
-            this.Status_RemoveBoatFromUseTab.Name = "Status_RemoveBoatFromUseTab";
-            this.Status_RemoveBoatFromUseTab.ReadOnly = true;
-            this.Status_RemoveBoatFromUseTab.Width = 214;
-            // 
-            // Name_BrokenBoats
-            // 
-            this.Name_BrokenBoats.HeaderText = "Naam";
-            this.Name_BrokenBoats.MinimumWidth = 6;
-            this.Name_BrokenBoats.Name = "Name_BrokenBoats";
-            this.Name_BrokenBoats.ReadOnly = true;
-            this.Name_BrokenBoats.Width = 214;
-            // 
-            // Status_BrokenBoats
-            // 
-            this.Status_BrokenBoats.HeaderText = "Bootstatus";
-            this.Status_BrokenBoats.MinimumWidth = 6;
-            this.Status_BrokenBoats.Name = "Status_BrokenBoats";
-            this.Status_BrokenBoats.ReadOnly = true;
-            this.Status_BrokenBoats.Width = 214;
             // 
             // Form_RemoveBoatFromUse
             // 
@@ -153,6 +160,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Datagrid_RemoveBoatFromUse2);
             this.Controls.Add(this.Datagrid_RemoveBoatFromUse1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form_RemoveBoatFromUse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Boot uit vaart nemen";

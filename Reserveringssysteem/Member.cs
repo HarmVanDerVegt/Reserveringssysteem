@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -22,23 +23,55 @@ namespace Reserveringssysteem
         public List<Role> Roles { get; set; }
 
         [NotMapped]
-        public static Member CurrentMember { get; set; }
+        public static Member CurrentMember { get; private set; }
 
-        public static void Login(string Email, string Password)
+        public static bool Login(string email, string password)
         {
-            string HashedPassword;
+            //CurrentMember = null;
 
+            if (email == null)
+            {
+                throw new ArgumentNullException("Email must not be null");
+            }
+
+            if (password == null)
+            {
+                throw new ArgumentNullException("Password must not be null");
+            }
+
+
+            string HashedPassword;
 
             using (var db = new ReserveringssysteemContext())
             {
                 using (SHA256 SHA = SHA256.Create())
                 {
-                    HashedPassword = Encoding.ASCII.GetString(
-                        SHA.ComputeHash(Encoding.ASCII.GetBytes(Password)));
+                    StringBuilder stringBuilder = new StringBuilder();
 
-                    CurrentMember = (from user in db.Users
-                                     where Password == HashedPassword
-                                     select user).First() as Member;
+                    //We turn our given password into its hashed form
+                    //which we'll compare with the stored password in the database
+                    foreach (byte b in SHA.ComputeHash(Encoding.UTF8.GetBytes(password)))
+                    {
+                        stringBuilder.Append(b.ToString("x2"));
+                    }
+
+                    HashedPassword = stringBuilder.ToString();
+
+                    var query = from member in db.Members
+                                where member.Email == email
+                                && member.Password == HashedPassword
+                                select member;
+
+                    //We've found a user with this login and password
+                    if (query.FirstOrDefault() != null)
+                    {
+                        CurrentMember = query.First();
+                        return true;
+                    }
+
+                    //Our list is empty, there are no users with this email and password
+                    return false;
+
                 }
             }
         }

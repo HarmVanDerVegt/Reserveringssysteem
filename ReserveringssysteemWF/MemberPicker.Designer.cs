@@ -31,10 +31,10 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.pickButton = new System.Windows.Forms.Button();
             this.pickPanel = new System.Windows.Forms.Panel();
-            this.membersLabel = new System.Windows.Forms.Label();
-            this.memberListBox = new System.Windows.Forms.ListBox();
-            this.filterLabel = new System.Windows.Forms.Label();
             this.filterTextBox = new System.Windows.Forms.TextBox();
+            this.filterLabel = new System.Windows.Forms.Label();
+            this.memberListBox = new System.Windows.Forms.ListBox();
+            this.membersLabel = new System.Windows.Forms.Label();
             this.pickPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,7 @@
             this.pickButton.TabIndex = 2;
             this.pickButton.Text = "Kiezen";
             this.pickButton.UseVisualStyleBackColor = true;
+            this.pickButton.Click += new System.EventHandler(this.pickButton_Click);
             // 
             // pickPanel
             // 
@@ -75,25 +76,15 @@
             this.pickPanel.Size = new System.Drawing.Size(300, 184);
             this.pickPanel.TabIndex = 0;
             // 
-            // membersLabel
+            // filterTextBox
             // 
-            this.membersLabel.AutoSize = true;
-            this.membersLabel.Location = new System.Drawing.Point(12, 9);
-            this.membersLabel.Name = "membersLabel";
-            this.membersLabel.Size = new System.Drawing.Size(125, 13);
-            this.membersLabel.TabIndex = 0;
-            this.membersLabel.Text = "Leden van de vereniging";
-            // 
-            // memberListBox
-            // 
-            this.memberListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.filterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.memberListBox.FormattingEnabled = true;
-            this.memberListBox.Location = new System.Drawing.Point(12, 25);
-            this.memberListBox.Name = "memberListBox";
-            this.memberListBox.Size = new System.Drawing.Size(276, 108);
-            this.memberListBox.TabIndex = 1;
+            this.filterTextBox.Location = new System.Drawing.Point(12, 161);
+            this.filterTextBox.Name = "filterTextBox";
+            this.filterTextBox.Size = new System.Drawing.Size(276, 20);
+            this.filterTextBox.TabIndex = 3;
+            this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
             // 
             // filterLabel
             // 
@@ -105,15 +96,27 @@
             this.filterLabel.TabIndex = 2;
             this.filterLabel.Text = "Filter";
             // 
-            // filterTextBox
+            // memberListBox
             // 
-            this.filterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.memberListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.filterTextBox.Location = new System.Drawing.Point(12, 161);
-            this.filterTextBox.Name = "filterTextBox";
-            this.filterTextBox.Size = new System.Drawing.Size(276, 20);
-            this.filterTextBox.TabIndex = 3;
-            this.filterTextBox.TextChanged += new System.EventHandler(this.filterTextBox_TextChanged);
+            this.memberListBox.FormattingEnabled = true;
+            this.memberListBox.Location = new System.Drawing.Point(12, 25);
+            this.memberListBox.Name = "memberListBox";
+            this.memberListBox.Size = new System.Drawing.Size(276, 108);
+            this.memberListBox.TabIndex = 1;
+            this.memberListBox.SelectedIndexChanged += new System.EventHandler(this.memberListBox_SelectedIndexChanged);
+            this.memberListBox.SelectedValueChanged += new System.EventHandler(this.memberListBox_SelectedValueChanged);
+            // 
+            // membersLabel
+            // 
+            this.membersLabel.AutoSize = true;
+            this.membersLabel.Location = new System.Drawing.Point(12, 9);
+            this.membersLabel.Name = "membersLabel";
+            this.membersLabel.Size = new System.Drawing.Size(125, 13);
+            this.membersLabel.TabIndex = 0;
+            this.membersLabel.Text = "Leden van de vereniging";
             // 
             // MemberPicker
             // 

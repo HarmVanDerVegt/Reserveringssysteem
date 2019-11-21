@@ -108,5 +108,11 @@ namespace ReserveringssysteemWF
             Form_RemoveBoatFromUse Dialog_RemoveBoatFromUse = new Form_RemoveBoatFromUse();
             Dialog_RemoveBoatFromUse.ShowDialog();
         }
+
+        private void Bt_ReportDamage_Click(object sender, EventArgs e)
+        {
+            Form_ReportDamage Dialog_ReportDamage = new Form_ReportDamage();
+            Dialog_ReportDamage.ShowDialog();
+        }
     }
 }

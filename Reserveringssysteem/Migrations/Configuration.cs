@@ -33,9 +33,18 @@
             context.BoatTypes.AddOrUpdate(new BoatType("Vier Met", 4, true));
             context.BoatTypes.AddOrUpdate(new BoatType("Acht", 8, true));
 
+
             Boat test = new Boat(new BoatType("brokenBoat", 2, false));
             test.BoatStatus = BoatStatus.Broken;
             context.Boats.AddOrUpdate(test);
+
+            Reservation r = new Reservation(new Boat(new BoatType("Skiff", 1, false)), DateTime.Now);
+            RecreationalTeam team = new RecreationalTeam();
+            r.Team = team;
+            r.Duration = new TimeSpan(2, 0, 0);
+
+            context.Reservations.Add(r);
+
 
             context.Users.AddOrUpdate(new User()
             {
@@ -46,6 +55,11 @@
             });
 
             context.SaveChanges();
+
+            if (!System.Diagnostics.Debugger.IsAttached)
+            {
+                System.Diagnostics.Debugger.Launch();
+            }
         }
     }
 }

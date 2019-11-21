@@ -24,5 +24,12 @@ namespace Reserveringssysteem
 
         [Required]
         public Boat Boat { get; set; }
+
+        public Reservation(Boat b, DateTime d)
+        {
+            DateTime = d;
+            Boat = b;
+        }
+        public Reservation() { }
     }
 }

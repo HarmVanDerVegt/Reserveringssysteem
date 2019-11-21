@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Reserveringssysteem
 {
-    public enum BoatStatus { Whole, Maintenance, Broken };
+    public enum BoatStatus { Whole, Notified, Maintenance, Broken };
 
     public class Boat
     {

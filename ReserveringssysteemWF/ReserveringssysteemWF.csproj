@@ -45,6 +45,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -77,6 +78,12 @@
     <Compile Include="Form_RemoveBoatFromUse.Designer.cs">
       <DependentUpon>Form_RemoveBoatFromUse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_ReportDamage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ReportDamage.Designer.cs">
+      <DependentUpon>Form_ReportDamage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -87,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_RemoveBoatFromUse.resx">
       <DependentUpon>Form_RemoveBoatFromUse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ReportDamage.resx">
+      <DependentUpon>Form_ReportDamage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

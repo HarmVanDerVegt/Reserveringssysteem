@@ -55,23 +55,26 @@ namespace ReserveringssysteemWF
             string hasCoxswain = "";
             using (var db = new ReserveringssysteemContext())
             {
-                foreach (var boat in db.Boats.Include(b => b.BoatType).Where(b => b.BoatStatus == BoatStatus.Whole))
-                {
-                    for (int i = 0; i < Datagrid_Boats.Rows.Count; i++)
-                    {
-                        if ((string)Datagrid_Boats.Rows[i].Cells[0].Value == boat.BoatType.Name)
-                        {
-                            Datagrid_Boats.Rows.RemoveAt(i);
-                        }
-                    }
+                var sortBoats = (from b in db.Boats
+                                 orderby b.BoatType.Size, b.BoatType.HasCoxswain, b.BoatType.Name
+                                 select b);
 
-                    if (boat.BoatType.HasCoxswain)
+                foreach (var b in sortBoats.Include(b => b.BoatType))
+                {
+                    if (b.BoatType.HasCoxswain)
                         hasCoxswain = "ja";
                     else
                         hasCoxswain = "nee";
 
-                    Datagrid_Boats.Rows.Add(boat.BoatType.Name, boat.BoatType.Size, hasCoxswain, AmountOfBoats(boat));
-                    Datagrid_Boats.Sort(Datagrid_Boats.Columns[0], ListSortDirection.Ascending);
+                    for (int i = 0; i < Datagrid_Boats.Rows.Count; i++)
+                    {
+                        if ((string)Datagrid_Boats.Rows[i].Cells[0].Value == b.BoatType.Name)
+                        {
+                            Datagrid_Boats.Rows.RemoveAt(i);
+                        }
+                    }
+                    if(b.BoatStatus == BoatStatus.Whole)
+                    Datagrid_Boats.Rows.Add(b.BoatType.Name, b.BoatType.Size, hasCoxswain, AmountOfBoats(b));
                 }
             }
         }

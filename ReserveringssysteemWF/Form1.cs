@@ -56,7 +56,7 @@ namespace ReserveringssysteemWF
             using (var db = new ReserveringssysteemContext())
             {
                 var sortBoats = (from b in db.Boats
-                                 orderby b.BoatType.Size, b.BoatType.Name
+                                 orderby b.BoatType.Size, b.BoatType.HasCoxswain, b.BoatType.Name
                                  select b);
 
                 foreach (var b in sortBoats.Include(b => b.BoatType))

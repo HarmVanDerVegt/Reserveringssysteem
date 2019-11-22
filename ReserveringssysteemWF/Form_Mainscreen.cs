@@ -217,5 +217,10 @@ namespace ReserveringssysteemWF
                 Lb_WelcomeMessage.Text = "";
             }
         }
+
+        private void Bt_AddReservation_Click(object sender, EventArgs e)
+        {
+            new ReservationDialog().ShowDialog();
+        }
     }
 }

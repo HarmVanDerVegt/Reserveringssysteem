@@ -68,6 +68,13 @@
             this.Date_ReservationTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTime_ReservationTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndTime_ReservationTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab_Teams = new System.Windows.Forms.TabPage();
+            this.Datagrid_Teams = new System.Windows.Forms.DataGridView();
+            this.Teamname_TeamsTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeamMembers_TeamsTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bt_RemoveTeam = new System.Windows.Forms.Button();
+            this.Bt_ModifyTeam = new System.Windows.Forms.Button();
+            this.Bt_CreateTeam = new System.Windows.Forms.Button();
             this.tab_Profiles = new System.Windows.Forms.TabPage();
             this.Bt_RemoveProfile = new System.Windows.Forms.Button();
             this.Bt_ModifyProfile = new System.Windows.Forms.Button();
@@ -84,13 +91,6 @@
             this.Bt_RemoveMember = new System.Windows.Forms.Button();
             this.Bt_ModifyMember = new System.Windows.Forms.Button();
             this.Bt_AddMember = new System.Windows.Forms.Button();
-            this.tab_Teams = new System.Windows.Forms.TabPage();
-            this.Datagrid_Teams = new System.Windows.Forms.DataGridView();
-            this.Teamname_TeamsTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeamMembers_TeamsTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bt_RemoveTeam = new System.Windows.Forms.Button();
-            this.Bt_ModifyTeam = new System.Windows.Forms.Button();
-            this.Bt_CreateTeam = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Lb_WelcomeMessage = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -103,12 +103,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Games)).BeginInit();
             this.tab_Reservations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Reservations)).BeginInit();
+            this.tab_Teams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Teams)).BeginInit();
             this.tab_Profiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Profiles)).BeginInit();
             this.tab_Members.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Members)).BeginInit();
-            this.tab_Teams.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Teams)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -500,6 +500,7 @@
             this.Bt_AddReservation.Text = "Reserveren";
             this.Bt_AddReservation.UseVisualStyleBackColor = true;
             this.Bt_AddReservation.Visible = false;
+            this.Bt_AddReservation.Click += new System.EventHandler(this.Bt_AddReservation_Click);
             // 
             // Datagrid_Reservations
             // 
@@ -544,6 +545,87 @@
             this.EndTime_ReservationTab.Name = "EndTime_ReservationTab";
             this.EndTime_ReservationTab.ReadOnly = true;
             this.EndTime_ReservationTab.Width = 253;
+            // 
+            // tab_Teams
+            // 
+            this.tab_Teams.Controls.Add(this.Datagrid_Teams);
+            this.tab_Teams.Controls.Add(this.Bt_RemoveTeam);
+            this.tab_Teams.Controls.Add(this.Bt_ModifyTeam);
+            this.tab_Teams.Controls.Add(this.Bt_CreateTeam);
+            this.tab_Teams.Location = new System.Drawing.Point(4, 25);
+            this.tab_Teams.Name = "tab_Teams";
+            this.tab_Teams.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_Teams.Size = new System.Drawing.Size(994, 384);
+            this.tab_Teams.TabIndex = 6;
+            this.tab_Teams.Text = "Teams";
+            this.tab_Teams.UseVisualStyleBackColor = true;
+            // 
+            // Datagrid_Teams
+            // 
+            this.Datagrid_Teams.AllowUserToResizeColumns = false;
+            this.Datagrid_Teams.AllowUserToResizeRows = false;
+            this.Datagrid_Teams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Datagrid_Teams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Datagrid_Teams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Teamname_TeamsTab,
+            this.TeamMembers_TeamsTab});
+            this.Datagrid_Teams.Location = new System.Drawing.Point(0, 77);
+            this.Datagrid_Teams.Name = "Datagrid_Teams";
+            this.Datagrid_Teams.RowHeadersVisible = false;
+            this.Datagrid_Teams.RowHeadersWidth = 51;
+            this.Datagrid_Teams.RowTemplate.Height = 24;
+            this.Datagrid_Teams.Size = new System.Drawing.Size(994, 311);
+            this.Datagrid_Teams.TabIndex = 13;
+            // 
+            // Teamname_TeamsTab
+            // 
+            this.Teamname_TeamsTab.HeaderText = "Teamnaam";
+            this.Teamname_TeamsTab.MinimumWidth = 6;
+            this.Teamname_TeamsTab.Name = "Teamname_TeamsTab";
+            this.Teamname_TeamsTab.ReadOnly = true;
+            this.Teamname_TeamsTab.Width = 380;
+            // 
+            // TeamMembers_TeamsTab
+            // 
+            this.TeamMembers_TeamsTab.HeaderText = "Teamleden";
+            this.TeamMembers_TeamsTab.MinimumWidth = 6;
+            this.TeamMembers_TeamsTab.Name = "TeamMembers_TeamsTab";
+            this.TeamMembers_TeamsTab.ReadOnly = true;
+            this.TeamMembers_TeamsTab.Width = 380;
+            // 
+            // Bt_RemoveTeam
+            // 
+            this.Bt_RemoveTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Bt_RemoveTeam.Location = new System.Drawing.Point(818, 24);
+            this.Bt_RemoveTeam.Name = "Bt_RemoveTeam";
+            this.Bt_RemoveTeam.Size = new System.Drawing.Size(140, 31);
+            this.Bt_RemoveTeam.TabIndex = 12;
+            this.Bt_RemoveTeam.Text = "Team verwijderen";
+            this.Bt_RemoveTeam.UseVisualStyleBackColor = true;
+            this.Bt_RemoveTeam.Visible = false;
+            // 
+            // Bt_ModifyTeam
+            // 
+            this.Bt_ModifyTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Bt_ModifyTeam.Location = new System.Drawing.Point(659, 24);
+            this.Bt_ModifyTeam.Name = "Bt_ModifyTeam";
+            this.Bt_ModifyTeam.Size = new System.Drawing.Size(127, 31);
+            this.Bt_ModifyTeam.TabIndex = 11;
+            this.Bt_ModifyTeam.Text = "Team wijzigen";
+            this.Bt_ModifyTeam.UseVisualStyleBackColor = true;
+            this.Bt_ModifyTeam.Visible = false;
+            // 
+            // Bt_CreateTeam
+            // 
+            this.Bt_CreateTeam.Location = new System.Drawing.Point(16, 24);
+            this.Bt_CreateTeam.Name = "Bt_CreateTeam";
+            this.Bt_CreateTeam.Size = new System.Drawing.Size(133, 31);
+            this.Bt_CreateTeam.TabIndex = 10;
+            this.Bt_CreateTeam.Text = "Team aanmaken";
+            this.Bt_CreateTeam.UseVisualStyleBackColor = true;
+            this.Bt_CreateTeam.Visible = false;
             // 
             // tab_Profiles
             // 
@@ -725,87 +807,6 @@
             this.Bt_AddMember.UseVisualStyleBackColor = true;
             this.Bt_AddMember.Visible = false;
             // 
-            // tab_Teams
-            // 
-            this.tab_Teams.Controls.Add(this.Datagrid_Teams);
-            this.tab_Teams.Controls.Add(this.Bt_RemoveTeam);
-            this.tab_Teams.Controls.Add(this.Bt_ModifyTeam);
-            this.tab_Teams.Controls.Add(this.Bt_CreateTeam);
-            this.tab_Teams.Location = new System.Drawing.Point(4, 25);
-            this.tab_Teams.Name = "tab_Teams";
-            this.tab_Teams.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Teams.Size = new System.Drawing.Size(994, 384);
-            this.tab_Teams.TabIndex = 6;
-            this.tab_Teams.Text = "Teams";
-            this.tab_Teams.UseVisualStyleBackColor = true;
-            // 
-            // Datagrid_Teams
-            // 
-            this.Datagrid_Teams.AllowUserToResizeColumns = false;
-            this.Datagrid_Teams.AllowUserToResizeRows = false;
-            this.Datagrid_Teams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Datagrid_Teams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Datagrid_Teams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Teamname_TeamsTab,
-            this.TeamMembers_TeamsTab});
-            this.Datagrid_Teams.Location = new System.Drawing.Point(0, 77);
-            this.Datagrid_Teams.Name = "Datagrid_Teams";
-            this.Datagrid_Teams.RowHeadersVisible = false;
-            this.Datagrid_Teams.RowHeadersWidth = 51;
-            this.Datagrid_Teams.RowTemplate.Height = 24;
-            this.Datagrid_Teams.Size = new System.Drawing.Size(994, 311);
-            this.Datagrid_Teams.TabIndex = 13;
-            // 
-            // Teamname_TeamsTab
-            // 
-            this.Teamname_TeamsTab.HeaderText = "Teamnaam";
-            this.Teamname_TeamsTab.MinimumWidth = 6;
-            this.Teamname_TeamsTab.Name = "Teamname_TeamsTab";
-            this.Teamname_TeamsTab.ReadOnly = true;
-            this.Teamname_TeamsTab.Width = 380;
-            // 
-            // TeamMembers_TeamsTab
-            // 
-            this.TeamMembers_TeamsTab.HeaderText = "Teamleden";
-            this.TeamMembers_TeamsTab.MinimumWidth = 6;
-            this.TeamMembers_TeamsTab.Name = "TeamMembers_TeamsTab";
-            this.TeamMembers_TeamsTab.ReadOnly = true;
-            this.TeamMembers_TeamsTab.Width = 380;
-            // 
-            // Bt_RemoveTeam
-            // 
-            this.Bt_RemoveTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_RemoveTeam.Location = new System.Drawing.Point(818, 24);
-            this.Bt_RemoveTeam.Name = "Bt_RemoveTeam";
-            this.Bt_RemoveTeam.Size = new System.Drawing.Size(140, 31);
-            this.Bt_RemoveTeam.TabIndex = 12;
-            this.Bt_RemoveTeam.Text = "Team verwijderen";
-            this.Bt_RemoveTeam.UseVisualStyleBackColor = true;
-            this.Bt_RemoveTeam.Visible = false;
-            // 
-            // Bt_ModifyTeam
-            // 
-            this.Bt_ModifyTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_ModifyTeam.Location = new System.Drawing.Point(659, 24);
-            this.Bt_ModifyTeam.Name = "Bt_ModifyTeam";
-            this.Bt_ModifyTeam.Size = new System.Drawing.Size(127, 31);
-            this.Bt_ModifyTeam.TabIndex = 11;
-            this.Bt_ModifyTeam.Text = "Team wijzigen";
-            this.Bt_ModifyTeam.UseVisualStyleBackColor = true;
-            this.Bt_ModifyTeam.Visible = false;
-            // 
-            // Bt_CreateTeam
-            // 
-            this.Bt_CreateTeam.Location = new System.Drawing.Point(16, 24);
-            this.Bt_CreateTeam.Name = "Bt_CreateTeam";
-            this.Bt_CreateTeam.Size = new System.Drawing.Size(133, 31);
-            this.Bt_CreateTeam.TabIndex = 10;
-            this.Bt_CreateTeam.Text = "Team aanmaken";
-            this.Bt_CreateTeam.UseVisualStyleBackColor = true;
-            this.Bt_CreateTeam.Visible = false;
-            // 
             // Lb_WelcomeMessage
             // 
             this.Lb_WelcomeMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -839,12 +840,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Games)).EndInit();
             this.tab_Reservations.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Reservations)).EndInit();
+            this.tab_Teams.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Teams)).EndInit();
             this.tab_Profiles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Profiles)).EndInit();
             this.tab_Members.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Members)).EndInit();
-            this.tab_Teams.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Teams)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

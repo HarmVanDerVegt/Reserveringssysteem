@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CE387885-8A9F-44EA-8396-18B9EE8AEE98}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>ReserveringssysteemWF</RootNamespace>
     <AssemblyName>ReserveringssysteemWF</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -45,7 +45,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -60,12 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form_Mainscreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_Mainscreen.Designer.cs">
-      <DependentUpon>Form_Mainscreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form_AddBoat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +70,12 @@
     </Compile>
     <Compile Include="Form_Login.Designer.cs">
       <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Mainscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Mainscreen.Designer.cs">
+      <DependentUpon>Form_Mainscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_RemoveBoatFromUse.cs">
       <SubType>Form</SubType>
@@ -90,22 +89,37 @@
     <Compile Include="Form_ReportDamage.Designer.cs">
       <DependentUpon>Form_ReportDamage.cs</DependentUpon>
     </Compile>
+    <Compile Include="MemberPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberPicker.Designer.cs">
+      <DependentUpon>MemberPicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationDialog.Designer.cs">
+      <DependentUpon>ReservationDialog.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form_AddBoat.resx">
+      <DependentUpon>Form_AddBoat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Mainscreen.resx">
       <DependentUpon>Form_Mainscreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_AddBoat.resx">
-      <DependentUpon>Form_AddBoat.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form_RemoveBoatFromUse.resx">
       <DependentUpon>Form_RemoveBoatFromUse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_ReportDamage.resx">
       <DependentUpon>Form_ReportDamage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberPicker.resx">
+      <DependentUpon>MemberPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,6 +130,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReservationDialog.resx">
+      <DependentUpon>ReservationDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

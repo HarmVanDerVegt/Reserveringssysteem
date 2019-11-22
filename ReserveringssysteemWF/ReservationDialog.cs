@@ -209,10 +209,5 @@ namespace ReserveringssysteemWF
         {
             UpdateStartTimes();
         }
-
-        private void startTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

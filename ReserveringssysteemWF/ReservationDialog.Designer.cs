@@ -106,7 +106,6 @@
             this.startTimeComboBox.Name = "startTimeComboBox";
             this.startTimeComboBox.Size = new System.Drawing.Size(133, 21);
             this.startTimeComboBox.TabIndex = 13;
-            this.startTimeComboBox.SelectedIndexChanged += new System.EventHandler(this.startTimeComboBox_SelectedIndexChanged);
             // 
             // startTimeLabel
             // 

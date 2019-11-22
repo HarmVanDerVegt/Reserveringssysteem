@@ -77,5 +77,10 @@ namespace ReserveringssysteemWF
         {
             new ReservationDialog().ShowDialog();
         }
+
+        private void Bt_AddGame_Click(object sender, EventArgs e)
+        {
+            new MatchCreatorDialog().ShowDialog();
+        }
     }
 }

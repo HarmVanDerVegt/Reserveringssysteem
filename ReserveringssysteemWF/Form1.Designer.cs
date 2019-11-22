@@ -152,7 +152,7 @@
             this.tabControl1.Controls.Add(this.tab_Members);
             this.tabControl1.Controls.Add(this.tab_Teams);
             this.tabControl1.Location = new System.Drawing.Point(9, 25);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(576, 336);
@@ -162,9 +162,9 @@
             // 
             this.tab_News.Controls.Add(this.Datagrid_News);
             this.tab_News.Location = new System.Drawing.Point(4, 22);
-            this.tab_News.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_News.Margin = new System.Windows.Forms.Padding(2);
             this.tab_News.Name = "tab_News";
-            this.tab_News.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_News.Padding = new System.Windows.Forms.Padding(2);
             this.tab_News.Size = new System.Drawing.Size(568, 310);
             this.tab_News.TabIndex = 0;
             this.tab_News.Text = "Nieuws";
@@ -183,7 +183,7 @@
             this.Date_NewsTab,
             this.Title_NewsTab});
             this.Datagrid_News.Location = new System.Drawing.Point(0, 6);
-            this.Datagrid_News.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Datagrid_News.Margin = new System.Windows.Forms.Padding(2);
             this.Datagrid_News.Name = "Datagrid_News";
             this.Datagrid_News.ReadOnly = true;
             this.Datagrid_News.RowHeadersVisible = false;
@@ -216,9 +216,9 @@
             this.Tab_Boats.Controls.Add(this.Bt_AddBoat);
             this.Tab_Boats.Controls.Add(this.Datagrid_Boats);
             this.Tab_Boats.Location = new System.Drawing.Point(4, 22);
-            this.Tab_Boats.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Tab_Boats.Margin = new System.Windows.Forms.Padding(2);
             this.Tab_Boats.Name = "Tab_Boats";
-            this.Tab_Boats.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Tab_Boats.Padding = new System.Windows.Forms.Padding(2);
             this.Tab_Boats.Size = new System.Drawing.Size(568, 310);
             this.Tab_Boats.TabIndex = 1;
             this.Tab_Boats.Text = "Boten";
@@ -228,7 +228,7 @@
             // 
             this.Bt_ReportDamage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_ReportDamage.Location = new System.Drawing.Point(215, 20);
-            this.Bt_ReportDamage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_ReportDamage.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_ReportDamage.Name = "Bt_ReportDamage";
             this.Bt_ReportDamage.Size = new System.Drawing.Size(95, 25);
             this.Bt_ReportDamage.TabIndex = 4;
@@ -239,7 +239,7 @@
             // 
             this.Bt_DeleteBoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_DeleteBoat.Location = new System.Drawing.Point(463, 20);
-            this.Bt_DeleteBoat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_DeleteBoat.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_DeleteBoat.Name = "Bt_DeleteBoat";
             this.Bt_DeleteBoat.Size = new System.Drawing.Size(95, 25);
             this.Bt_DeleteBoat.TabIndex = 3;
@@ -250,7 +250,7 @@
             // 
             this.Bt_ModifyBoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_ModifyBoat.Location = new System.Drawing.Point(341, 20);
-            this.Bt_ModifyBoat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_ModifyBoat.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_ModifyBoat.Name = "Bt_ModifyBoat";
             this.Bt_ModifyBoat.Size = new System.Drawing.Size(95, 25);
             this.Bt_ModifyBoat.TabIndex = 2;
@@ -260,7 +260,7 @@
             // Bt_AddBoat
             // 
             this.Bt_AddBoat.Location = new System.Drawing.Point(12, 20);
-            this.Bt_AddBoat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_AddBoat.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_AddBoat.Name = "Bt_AddBoat";
             this.Bt_AddBoat.Size = new System.Drawing.Size(95, 25);
             this.Bt_AddBoat.TabIndex = 1;
@@ -282,7 +282,7 @@
             this.Coxswain_BoatTab,
             this.Amount_BoatTab});
             this.Datagrid_Boats.Location = new System.Drawing.Point(0, 63);
-            this.Datagrid_Boats.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Datagrid_Boats.Margin = new System.Windows.Forms.Padding(2);
             this.Datagrid_Boats.Name = "Datagrid_Boats";
             this.Datagrid_Boats.RowHeadersVisible = false;
             this.Datagrid_Boats.RowHeadersWidth = 51;
@@ -329,9 +329,9 @@
             this.tab_Reservations.Controls.Add(this.Bt_AddReservation);
             this.tab_Reservations.Controls.Add(this.Datagrid_Reservations);
             this.tab_Reservations.Location = new System.Drawing.Point(4, 22);
-            this.tab_Reservations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_Reservations.Margin = new System.Windows.Forms.Padding(2);
             this.tab_Reservations.Name = "tab_Reservations";
-            this.tab_Reservations.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_Reservations.Padding = new System.Windows.Forms.Padding(2);
             this.tab_Reservations.Size = new System.Drawing.Size(568, 310);
             this.tab_Reservations.TabIndex = 2;
             this.tab_Reservations.Text = "Reserveringen";
@@ -341,7 +341,7 @@
             // 
             this.Bt_RemoveReservation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_RemoveReservation.Location = new System.Drawing.Point(428, 20);
-            this.Bt_RemoveReservation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_RemoveReservation.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_RemoveReservation.Name = "Bt_RemoveReservation";
             this.Bt_RemoveReservation.Size = new System.Drawing.Size(130, 25);
             this.Bt_RemoveReservation.TabIndex = 6;
@@ -352,7 +352,7 @@
             // 
             this.Bt_ModifyReservation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_ModifyReservation.Location = new System.Drawing.Point(305, 20);
-            this.Bt_ModifyReservation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_ModifyReservation.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_ModifyReservation.Name = "Bt_ModifyReservation";
             this.Bt_ModifyReservation.Size = new System.Drawing.Size(112, 25);
             this.Bt_ModifyReservation.TabIndex = 5;
@@ -362,7 +362,7 @@
             // Bt_AddReservation
             // 
             this.Bt_AddReservation.Location = new System.Drawing.Point(12, 20);
-            this.Bt_AddReservation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_AddReservation.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_AddReservation.Name = "Bt_AddReservation";
             this.Bt_AddReservation.Size = new System.Drawing.Size(95, 25);
             this.Bt_AddReservation.TabIndex = 4;
@@ -383,7 +383,7 @@
             this.StartTime_ReservationTab,
             this.EndTime_ReservationTab});
             this.Datagrid_Reservations.Location = new System.Drawing.Point(0, 63);
-            this.Datagrid_Reservations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Datagrid_Reservations.Margin = new System.Windows.Forms.Padding(2);
             this.Datagrid_Reservations.Name = "Datagrid_Reservations";
             this.Datagrid_Reservations.RowHeadersVisible = false;
             this.Datagrid_Reservations.RowHeadersWidth = 51;
@@ -421,9 +421,9 @@
             this.tab_Games.Controls.Add(this.Bt_AddGame);
             this.tab_Games.Controls.Add(this.Datagrid_Games);
             this.tab_Games.Location = new System.Drawing.Point(4, 22);
-            this.tab_Games.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_Games.Margin = new System.Windows.Forms.Padding(2);
             this.tab_Games.Name = "tab_Games";
-            this.tab_Games.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_Games.Padding = new System.Windows.Forms.Padding(2);
             this.tab_Games.Size = new System.Drawing.Size(568, 310);
             this.tab_Games.TabIndex = 3;
             this.tab_Games.Text = "Wedstrijden";
@@ -433,7 +433,7 @@
             // 
             this.Bt_RemoveGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_RemoveGame.Location = new System.Drawing.Point(438, 20);
-            this.Bt_RemoveGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_RemoveGame.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_RemoveGame.Name = "Bt_RemoveGame";
             this.Bt_RemoveGame.Size = new System.Drawing.Size(117, 25);
             this.Bt_RemoveGame.TabIndex = 6;
@@ -443,12 +443,13 @@
             // Bt_AddGame
             // 
             this.Bt_AddGame.Location = new System.Drawing.Point(12, 20);
-            this.Bt_AddGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_AddGame.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_AddGame.Name = "Bt_AddGame";
             this.Bt_AddGame.Size = new System.Drawing.Size(118, 25);
             this.Bt_AddGame.TabIndex = 4;
             this.Bt_AddGame.Text = "Wedstrijd toevoegen";
             this.Bt_AddGame.UseVisualStyleBackColor = true;
+            this.Bt_AddGame.Click += new System.EventHandler(this.Bt_AddGame_Click);
             // 
             // Datagrid_Games
             // 
@@ -466,7 +467,7 @@
             this.Distance_GameTab,
             this.Gender_GameTab});
             this.Datagrid_Games.Location = new System.Drawing.Point(0, 63);
-            this.Datagrid_Games.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Datagrid_Games.Margin = new System.Windows.Forms.Padding(2);
             this.Datagrid_Games.Name = "Datagrid_Games";
             this.Datagrid_Games.RowHeadersVisible = false;
             this.Datagrid_Games.RowHeadersWidth = 51;
@@ -529,9 +530,9 @@
             this.tab_Profiles.Controls.Add(this.Bt_MakeProfile);
             this.tab_Profiles.Controls.Add(this.Datagrid_Profiles);
             this.tab_Profiles.Location = new System.Drawing.Point(4, 22);
-            this.tab_Profiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_Profiles.Margin = new System.Windows.Forms.Padding(2);
             this.tab_Profiles.Name = "tab_Profiles";
-            this.tab_Profiles.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_Profiles.Padding = new System.Windows.Forms.Padding(2);
             this.tab_Profiles.Size = new System.Drawing.Size(568, 310);
             this.tab_Profiles.TabIndex = 4;
             this.tab_Profiles.Text = "Profielen";
@@ -541,7 +542,7 @@
             // 
             this.Bt_RemoveProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_RemoveProfile.Location = new System.Drawing.Point(453, 20);
-            this.Bt_RemoveProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_RemoveProfile.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_RemoveProfile.Name = "Bt_RemoveProfile";
             this.Bt_RemoveProfile.Size = new System.Drawing.Size(105, 25);
             this.Bt_RemoveProfile.TabIndex = 6;
@@ -552,7 +553,7 @@
             // 
             this.Bt_ModifyProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_ModifyProfile.Location = new System.Drawing.Point(341, 20);
-            this.Bt_ModifyProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_ModifyProfile.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_ModifyProfile.Name = "Bt_ModifyProfile";
             this.Bt_ModifyProfile.Size = new System.Drawing.Size(95, 25);
             this.Bt_ModifyProfile.TabIndex = 5;
@@ -562,7 +563,7 @@
             // Bt_MakeProfile
             // 
             this.Bt_MakeProfile.Location = new System.Drawing.Point(12, 20);
-            this.Bt_MakeProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_MakeProfile.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_MakeProfile.Name = "Bt_MakeProfile";
             this.Bt_MakeProfile.Size = new System.Drawing.Size(100, 25);
             this.Bt_MakeProfile.TabIndex = 4;
@@ -583,7 +584,7 @@
             this.DateOfBirth_ProfilesTab,
             this.Gender_ProfilesTab});
             this.Datagrid_Profiles.Location = new System.Drawing.Point(0, 63);
-            this.Datagrid_Profiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Datagrid_Profiles.Margin = new System.Windows.Forms.Padding(2);
             this.Datagrid_Profiles.Name = "Datagrid_Profiles";
             this.Datagrid_Profiles.RowHeadersVisible = false;
             this.Datagrid_Profiles.RowHeadersWidth = 51;
@@ -630,9 +631,9 @@
             this.tab_Members.Controls.Add(this.Bt_ModifyMember);
             this.tab_Members.Controls.Add(this.Bt_AddMember);
             this.tab_Members.Location = new System.Drawing.Point(4, 22);
-            this.tab_Members.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_Members.Margin = new System.Windows.Forms.Padding(2);
             this.tab_Members.Name = "tab_Members";
-            this.tab_Members.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_Members.Padding = new System.Windows.Forms.Padding(2);
             this.tab_Members.Size = new System.Drawing.Size(568, 310);
             this.tab_Members.TabIndex = 5;
             this.tab_Members.Text = "Leden";
@@ -650,7 +651,7 @@
             this.Email_MembersTab,
             this.Adress_MembersTab});
             this.Datagrid_Members.Location = new System.Drawing.Point(0, 63);
-            this.Datagrid_Members.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Datagrid_Members.Margin = new System.Windows.Forms.Padding(2);
             this.Datagrid_Members.Name = "Datagrid_Members";
             this.Datagrid_Members.RowHeadersVisible = false;
             this.Datagrid_Members.RowHeadersWidth = 51;
@@ -678,7 +679,7 @@
             // 
             this.Bt_RemoveMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_RemoveMember.Location = new System.Drawing.Point(452, 20);
-            this.Bt_RemoveMember.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_RemoveMember.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_RemoveMember.Name = "Bt_RemoveMember";
             this.Bt_RemoveMember.Size = new System.Drawing.Size(105, 25);
             this.Bt_RemoveMember.TabIndex = 9;
@@ -689,7 +690,7 @@
             // 
             this.Bt_ModifyMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_ModifyMember.Location = new System.Drawing.Point(340, 20);
-            this.Bt_ModifyMember.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_ModifyMember.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_ModifyMember.Name = "Bt_ModifyMember";
             this.Bt_ModifyMember.Size = new System.Drawing.Size(95, 25);
             this.Bt_ModifyMember.TabIndex = 8;
@@ -699,7 +700,7 @@
             // Bt_AddMember
             // 
             this.Bt_AddMember.Location = new System.Drawing.Point(12, 20);
-            this.Bt_AddMember.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_AddMember.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_AddMember.Name = "Bt_AddMember";
             this.Bt_AddMember.Size = new System.Drawing.Size(100, 25);
             this.Bt_AddMember.TabIndex = 7;
@@ -713,9 +714,9 @@
             this.tab_Teams.Controls.Add(this.Bt_ModifyTeam);
             this.tab_Teams.Controls.Add(this.Bt_CreateTeam);
             this.tab_Teams.Location = new System.Drawing.Point(4, 22);
-            this.tab_Teams.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_Teams.Margin = new System.Windows.Forms.Padding(2);
             this.tab_Teams.Name = "tab_Teams";
-            this.tab_Teams.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_Teams.Padding = new System.Windows.Forms.Padding(2);
             this.tab_Teams.Size = new System.Drawing.Size(568, 310);
             this.tab_Teams.TabIndex = 6;
             this.tab_Teams.Text = "Teams";
@@ -733,7 +734,7 @@
             this.Teamname_TeamsTab,
             this.TeamMembers_TeamsTab});
             this.Datagrid_Teams.Location = new System.Drawing.Point(0, 63);
-            this.Datagrid_Teams.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Datagrid_Teams.Margin = new System.Windows.Forms.Padding(2);
             this.Datagrid_Teams.Name = "Datagrid_Teams";
             this.Datagrid_Teams.RowHeadersVisible = false;
             this.Datagrid_Teams.RowHeadersWidth = 51;
@@ -761,7 +762,7 @@
             // 
             this.Bt_RemoveTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_RemoveTeam.Location = new System.Drawing.Point(452, 20);
-            this.Bt_RemoveTeam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_RemoveTeam.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_RemoveTeam.Name = "Bt_RemoveTeam";
             this.Bt_RemoveTeam.Size = new System.Drawing.Size(105, 25);
             this.Bt_RemoveTeam.TabIndex = 12;
@@ -772,7 +773,7 @@
             // 
             this.Bt_ModifyTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Bt_ModifyTeam.Location = new System.Drawing.Point(340, 20);
-            this.Bt_ModifyTeam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_ModifyTeam.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_ModifyTeam.Name = "Bt_ModifyTeam";
             this.Bt_ModifyTeam.Size = new System.Drawing.Size(95, 25);
             this.Bt_ModifyTeam.TabIndex = 11;
@@ -782,7 +783,7 @@
             // Bt_CreateTeam
             // 
             this.Bt_CreateTeam.Location = new System.Drawing.Point(12, 20);
-            this.Bt_CreateTeam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Bt_CreateTeam.Margin = new System.Windows.Forms.Padding(2);
             this.Bt_CreateTeam.Name = "Bt_CreateTeam";
             this.Bt_CreateTeam.Size = new System.Drawing.Size(100, 25);
             this.Bt_CreateTeam.TabIndex = 10;
@@ -797,7 +798,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Reserveringssyteem";
             this.Load += new System.EventHandler(this.Form1_Load);

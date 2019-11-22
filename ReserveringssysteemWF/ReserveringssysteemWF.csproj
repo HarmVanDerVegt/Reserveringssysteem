@@ -71,6 +71,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="MatchCreatorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatchCreatorDialog.Designer.cs">
+      <DependentUpon>MatchCreatorDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="MemberPicker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatchCreatorDialog.resx">
+      <DependentUpon>MatchCreatorDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MemberPicker.resx">
       <DependentUpon>MemberPicker.cs</DependentUpon>

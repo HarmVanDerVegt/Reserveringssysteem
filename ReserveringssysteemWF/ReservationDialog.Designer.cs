@@ -31,6 +31,12 @@
             this.reserveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.reservePanel = new System.Windows.Forms.Panel();
+            this.startTimeComboBox = new System.Windows.Forms.ComboBox();
+            this.startTimeLabel = new System.Windows.Forms.Label();
+            this.durationComboBox = new System.Windows.Forms.ComboBox();
+            this.durationLabel = new System.Windows.Forms.Label();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.datePicker = new System.Windows.Forms.MonthCalendar();
             this.coxswainComboBox = new System.Windows.Forms.ComboBox();
             this.coxswainLabel = new System.Windows.Forms.Label();
             this.boatTypeComboBox = new System.Windows.Forms.ComboBox();
@@ -39,12 +45,6 @@
             this.teamLabel = new System.Windows.Forms.Label();
             this.addMemberButton = new System.Windows.Forms.Button();
             this.teamListBox = new System.Windows.Forms.ListBox();
-            this.datePicker = new System.Windows.Forms.MonthCalendar();
-            this.dateLabel = new System.Windows.Forms.Label();
-            this.durationLabel = new System.Windows.Forms.Label();
-            this.durationComboBox = new System.Windows.Forms.ComboBox();
-            this.startTimeLabel = new System.Windows.Forms.Label();
-            this.startTimeComboBox = new System.Windows.Forms.ComboBox();
             this.reservePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +94,68 @@
             this.reservePanel.Name = "reservePanel";
             this.reservePanel.Size = new System.Drawing.Size(418, 419);
             this.reservePanel.TabIndex = 0;
+            // 
+            // startTimeComboBox
+            // 
+            this.startTimeComboBox.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.startTimeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.startTimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.startTimeComboBox.FormattingEnabled = true;
+            this.startTimeComboBox.Location = new System.Drawing.Point(273, 310);
+            this.startTimeComboBox.Name = "startTimeComboBox";
+            this.startTimeComboBox.Size = new System.Drawing.Size(133, 21);
+            this.startTimeComboBox.TabIndex = 13;
+            // 
+            // startTimeLabel
+            // 
+            this.startTimeLabel.AutoSize = true;
+            this.startTimeLabel.Location = new System.Drawing.Point(270, 294);
+            this.startTimeLabel.Name = "startTimeLabel";
+            this.startTimeLabel.Size = new System.Drawing.Size(42, 13);
+            this.startTimeLabel.TabIndex = 12;
+            this.startTimeLabel.Text = "Starttijd";
+            // 
+            // durationComboBox
+            // 
+            this.durationComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.durationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.durationComboBox.FormattingEnabled = true;
+            this.durationComboBox.Location = new System.Drawing.Point(273, 270);
+            this.durationComboBox.Name = "durationComboBox";
+            this.durationComboBox.Size = new System.Drawing.Size(133, 21);
+            this.durationComboBox.TabIndex = 11;
+            this.durationComboBox.SelectedIndexChanged += new System.EventHandler(this.durationComboBox_SelectedIndexChanged);
+            // 
+            // durationLabel
+            // 
+            this.durationLabel.AutoSize = true;
+            this.durationLabel.Location = new System.Drawing.Point(270, 254);
+            this.durationLabel.Name = "durationLabel";
+            this.durationLabel.Size = new System.Drawing.Size(44, 13);
+            this.durationLabel.TabIndex = 10;
+            this.durationLabel.Text = "Looptijd";
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Location = new System.Drawing.Point(12, 232);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(38, 13);
+            this.dateLabel.TabIndex = 9;
+            this.dateLabel.Text = "Datum";
+            // 
+            // datePicker
+            // 
+            this.datePicker.Location = new System.Drawing.Point(9, 254);
+            this.datePicker.MaxSelectionCount = 1;
+            this.datePicker.Name = "datePicker";
+            this.datePicker.ShowToday = false;
+            this.datePicker.ShowTodayCircle = false;
+            this.datePicker.ShowWeekNumbers = true;
+            this.datePicker.TabIndex = 8;
+            this.datePicker.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.datePicker_DateChanged);
             // 
             // coxswainComboBox
             // 
@@ -173,67 +235,6 @@
             this.teamListBox.Name = "teamListBox";
             this.teamListBox.Size = new System.Drawing.Size(394, 95);
             this.teamListBox.TabIndex = 1;
-            // 
-            // datePicker
-            // 
-            this.datePicker.Location = new System.Drawing.Point(9, 254);
-            this.datePicker.MaxSelectionCount = 1;
-            this.datePicker.Name = "datePicker";
-            this.datePicker.ShowToday = false;
-            this.datePicker.ShowTodayCircle = false;
-            this.datePicker.ShowWeekNumbers = true;
-            this.datePicker.TabIndex = 8;
-            this.datePicker.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.datePicker_DateChanged);
-            // 
-            // dateLabel
-            // 
-            this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(12, 232);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(38, 13);
-            this.dateLabel.TabIndex = 9;
-            this.dateLabel.Text = "Datum";
-            // 
-            // durationLabel
-            // 
-            this.durationLabel.AutoSize = true;
-            this.durationLabel.Location = new System.Drawing.Point(270, 254);
-            this.durationLabel.Name = "durationLabel";
-            this.durationLabel.Size = new System.Drawing.Size(44, 13);
-            this.durationLabel.TabIndex = 10;
-            this.durationLabel.Text = "Looptijd";
-            // 
-            // durationComboBox
-            // 
-            this.durationComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.durationComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.durationComboBox.FormattingEnabled = true;
-            this.durationComboBox.Location = new System.Drawing.Point(273, 270);
-            this.durationComboBox.Name = "durationComboBox";
-            this.durationComboBox.Size = new System.Drawing.Size(133, 21);
-            this.durationComboBox.TabIndex = 11;
-            this.durationComboBox.SelectedIndexChanged += new System.EventHandler(this.durationComboBox_SelectedIndexChanged);
-            // 
-            // startTimeLabel
-            // 
-            this.startTimeLabel.AutoSize = true;
-            this.startTimeLabel.Location = new System.Drawing.Point(270, 294);
-            this.startTimeLabel.Name = "startTimeLabel";
-            this.startTimeLabel.Size = new System.Drawing.Size(42, 13);
-            this.startTimeLabel.TabIndex = 12;
-            this.startTimeLabel.Text = "Starttijd";
-            // 
-            // startTimeComboBox
-            // 
-            this.startTimeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.startTimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.startTimeComboBox.FormattingEnabled = true;
-            this.startTimeComboBox.Location = new System.Drawing.Point(273, 310);
-            this.startTimeComboBox.Name = "startTimeComboBox";
-            this.startTimeComboBox.Size = new System.Drawing.Size(133, 21);
-            this.startTimeComboBox.TabIndex = 13;
             // 
             // ReservationDialog
             // 

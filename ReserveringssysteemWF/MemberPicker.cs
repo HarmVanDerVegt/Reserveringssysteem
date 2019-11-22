@@ -37,9 +37,8 @@ namespace ReserveringssysteemWF
         private void MemberPicker_Load(object sender, EventArgs e)
         {
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
-                foreach (User user in context.Users.Include("Levels"))
-                    if (user.GetType().IsEquivalentTo(typeof(Member)))
-                        members.Add((Member)user);
+                foreach (Member member in context.Members.Include("Levels").Include("Address"))
+                        members.Add(member);
 
             memberListBox.DataSource = displayMembers;
             memberListBox.DisplayMember = "Name";

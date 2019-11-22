@@ -80,6 +80,11 @@
             });
 
             context.SaveChanges();
+
+            System.Collections.Generic.List<Certificate> certificates = new System.Collections.Generic.List<Certificate>();
+            certificates.Add(context.Certificates.Where(c => c.Name == "Certificate Skiff").First());
+            context.Users.Where(u => u.Name == "Prog Ramma").First().Levels = certificates;
+            context.SaveChanges();
         }
     }
 }

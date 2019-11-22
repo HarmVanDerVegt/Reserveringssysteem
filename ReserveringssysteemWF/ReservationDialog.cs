@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -64,24 +65,36 @@ namespace ReserveringssysteemWF
             {
                 bool available = true;
 
-                if (boatTypeComboBox.SelectedItem != null)
-                    foreach (Boat boat in ((BoatType)boatTypeComboBox.SelectedItem).Boats)
-                        foreach (Reservation reservation in boat.Reservations)
-                        {
-                            DateTime aStart = reservation.DateTime;
-                            DateTime aEnd = reservation.DateTime + reservation.Duration + new TimeSpan(0, 15, 0);
-                            DateTime bStart = startTime;
-                            DateTime bEnd = startTime + (TimeSpan)durationComboBox.SelectedItem;
+                DateTime aStart = startTime;
+                DateTime aEnd = startTime + (TimeSpan)durationComboBox.SelectedItem;
 
-                            available = !(aStart < bEnd && bStart < aEnd);
+                if (boatTypeComboBox.SelectedItem != null && ((BoatType)boatTypeComboBox.SelectedItem).Boats.Count > 0)
+                    foreach (Boat boat in ((BoatType)boatTypeComboBox.SelectedItem).Boats)
+                        if (available)
+                            foreach (Reservation reservation in boat.Reservations)
+                            {
+                                DateTime bStart = reservation.DateTime;
+                                DateTime bEnd = reservation.DateTime + reservation.Duration;
+
+                                if (aStart <= bEnd && bStart <= aEnd)
+                                {
+                                    available = false;
+                                    break;
+                                }
+                            }
+                        else
                             break;
-                        }
+                else
+                    available = false;
 
                 if (available)
                     startTimes.Add(startTime);
 
                 startTime += new TimeSpan(0, 15, 0);
             }
+
+            startTimeComboBox.Enabled = startTimes.Count > 0;
+            reserveButton.Enabled = startTimeComboBox.SelectedIndex != -1;
         }
 
         private void UpdateDisplay()
@@ -98,6 +111,7 @@ namespace ReserveringssysteemWF
             coxswainComboBox.Enabled = (BoatType)boatTypeComboBox.SelectedItem != null && ((BoatType)boatTypeComboBox.SelectedItem).HasCoxswain;
             removeMemberButton.Enabled = teamListBox.SelectedIndex != -1;
             boatTypeComboBox.Enabled = displayBoatTypes.Count > 0;
+            reserveButton.Enabled = startTimeComboBox.SelectedIndex != -1;
         }
 
         public ReservationDialog()
@@ -164,39 +178,41 @@ namespace ReserveringssysteemWF
 
         private void datePicker_DateChanged(object sender, DateRangeEventArgs e)
         {
-            UpdateDisplay();
+            UpdateStartTimes();
         }
 
         private void reserveButton_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
-            RecreationalTeam recreationalTeam = new RecreationalTeam();
-            recreationalTeam.Users = new List<User>();
-
-            foreach (Member member in members)
-                recreationalTeam.Users.Add(member);
-
-            recreationalTeam.Coxswain = (User)coxswainComboBox.SelectedItem;
-
-            reservation.Team = recreationalTeam;
-            reservation.Boat = ((BoatType)boatTypeComboBox.SelectedItem).Boats.First();
-            reservation.DateTime = (DateTime)startTimeComboBox.SelectedItem;
-            reservation.Duration = (TimeSpan)durationComboBox.SelectedItem;
-
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
             {
-                context.Reservations.Add(reservation);
+                Reservation reservation = new Reservation();
+                RecreationalTeam recreationalTeam = new RecreationalTeam();
+                recreationalTeam.Users = new List<User>();
 
-                foreach (var foo in context.GetValidationErrors())
-                {
-                    foreach (var bar in foo.ValidationErrors)
-                    {
-                        MessageBox.Show(bar.PropertyName + " " + bar.ErrorMessage);
-                    }
-                }
+                foreach (Member member in members)
+                    recreationalTeam.Users.Add(context.Members.Find(member.ID));
 
+                if (coxswainComboBox.SelectedItem != null)
+                    recreationalTeam.Coxswain = context.Members.Find(((Member)coxswainComboBox.SelectedItem).ID);
+
+                reservation.Team = recreationalTeam;
+                reservation.Boat = context.Boats.Find(1);
+                reservation.DateTime = (DateTime)startTimeComboBox.SelectedItem;
+                reservation.Duration = (TimeSpan)durationComboBox.SelectedItem;
+
+                context.Reservations.AddOrUpdate(reservation);
                 context.SaveChanges();
             }
+        }
+
+        private void durationComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateStartTimes();
+        }
+
+        private void startTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

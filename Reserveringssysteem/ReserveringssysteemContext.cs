@@ -11,7 +11,7 @@ namespace Reserveringssysteem
         public DbSet<Match> Matches { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
         public DbSet<User> Users { get; set; }
-        //public DbSet<Member> Members { get; set; }
+        public DbSet<Member> Members { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Result> Results { get; set; }

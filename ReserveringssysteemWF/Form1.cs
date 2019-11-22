@@ -48,7 +48,7 @@ namespace ReserveringssysteemWF
             ShowBoatsTable();
         }
 
-        private void ShowBoatsTable()
+        public void ShowBoatsTable()
         {
             Datagrid_Boats.Rows.Clear();
 
@@ -105,7 +105,7 @@ namespace ReserveringssysteemWF
 
         private void Bt_RemoveBoatFromUse_Click(object sender, EventArgs e)
         {
-            Form_RemoveBoatFromUse Dialog_RemoveBoatFromUse = new Form_RemoveBoatFromUse();
+            Form_RemoveBoatFromUse Dialog_RemoveBoatFromUse = new Form_RemoveBoatFromUse(this);
             Dialog_RemoveBoatFromUse.ShowDialog();
         }
 

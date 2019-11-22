@@ -14,8 +14,10 @@ namespace ReserveringssysteemWF
 {
     public partial class Form_RemoveBoatFromUse : Form
     {
-        public Form_RemoveBoatFromUse()
+        private Form1 UpdateScreen;
+        public Form_RemoveBoatFromUse(Form1 updateScreen)
         {
+            UpdateScreen = updateScreen;
             InitializeComponent();
             Datagrid_RemoveBoatFromUse1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Datagrid_RemoveBoatFromUse2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -78,6 +80,31 @@ namespace ReserveringssysteemWF
             }
             ShowBoatsInMaintenance();
             ShowBrokenBoats();
+        }
+
+        private void Bt_PutBoatInUse_Click(object sender, EventArgs e)
+        {
+            using (var db = new ReserveringssysteemContext())
+            {
+                foreach (DataGridViewRow row in Datagrid_RemoveBoatFromUse1.SelectedRows)
+                {
+                    string typeName = (string)row.Cells[0].Value;
+
+                    var boats = (from b in db.Boats
+                                 where b.BoatType.Name == typeName && b.BoatStatus == BoatStatus.Maintenance
+                                 select b);
+
+                    foreach (var boat in boats)
+                    {
+                        boat.BoatStatus = BoatStatus.Whole;
+                    }
+
+                    db.SaveChanges();
+                }
+            }
+            ShowBoatsInMaintenance();
+            ShowBrokenBoats();
+            UpdateScreen.ShowBoatsTable();
         }
     }
 }

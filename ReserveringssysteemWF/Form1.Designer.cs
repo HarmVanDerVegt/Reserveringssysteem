@@ -41,7 +41,6 @@
             this.Bt_RemoveBoatFromUse = new System.Windows.Forms.Button();
             this.Bt_ReportDamage = new System.Windows.Forms.Button();
             this.Bt_DeleteBoat = new System.Windows.Forms.Button();
-            this.Bt_ModifyBoat = new System.Windows.Forms.Button();
             this.Bt_AddBoat = new System.Windows.Forms.Button();
             this.Datagrid_Boats = new System.Windows.Forms.DataGridView();
             this.Name_BoatTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -210,7 +209,6 @@
             this.Tab_Boats.Controls.Add(this.Bt_RemoveBoatFromUse);
             this.Tab_Boats.Controls.Add(this.Bt_ReportDamage);
             this.Tab_Boats.Controls.Add(this.Bt_DeleteBoat);
-            this.Tab_Boats.Controls.Add(this.Bt_ModifyBoat);
             this.Tab_Boats.Controls.Add(this.Bt_AddBoat);
             this.Tab_Boats.Controls.Add(this.Datagrid_Boats);
             this.Tab_Boats.Location = new System.Drawing.Point(4, 25);
@@ -224,11 +222,11 @@
             // Bt_RemoveBoatFromUse
             // 
             this.Bt_RemoveBoatFromUse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_RemoveBoatFromUse.Location = new System.Drawing.Point(330, 24);
+            this.Bt_RemoveBoatFromUse.Location = new System.Drawing.Point(505, 24);
             this.Bt_RemoveBoatFromUse.Name = "Bt_RemoveBoatFromUse";
-            this.Bt_RemoveBoatFromUse.Size = new System.Drawing.Size(153, 31);
+            this.Bt_RemoveBoatFromUse.Size = new System.Drawing.Size(127, 31);
             this.Bt_RemoveBoatFromUse.TabIndex = 5;
-            this.Bt_RemoveBoatFromUse.Text = "Boot uit vaart nemen";
+            this.Bt_RemoveBoatFromUse.Text = "Onderhoud";
             this.Bt_RemoveBoatFromUse.UseVisualStyleBackColor = true;
             this.Bt_RemoveBoatFromUse.Click += new System.EventHandler(this.Bt_RemoveBoatFromUse_Click);
             // 
@@ -253,20 +251,10 @@
             this.Bt_DeleteBoat.UseVisualStyleBackColor = true;
             this.Bt_DeleteBoat.Click += new System.EventHandler(this.Bt_DeleteBoat_Click);
             // 
-            // Bt_ModifyBoat
-            // 
-            this.Bt_ModifyBoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_ModifyBoat.Location = new System.Drawing.Point(689, 24);
-            this.Bt_ModifyBoat.Name = "Bt_ModifyBoat";
-            this.Bt_ModifyBoat.Size = new System.Drawing.Size(127, 31);
-            this.Bt_ModifyBoat.TabIndex = 2;
-            this.Bt_ModifyBoat.Text = "Boot wijzigen";
-            this.Bt_ModifyBoat.UseVisualStyleBackColor = true;
-            // 
             // Bt_AddBoat
             // 
             this.Bt_AddBoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_AddBoat.Location = new System.Drawing.Point(521, 24);
+            this.Bt_AddBoat.Location = new System.Drawing.Point(682, 24);
             this.Bt_AddBoat.Name = "Bt_AddBoat";
             this.Bt_AddBoat.Size = new System.Drawing.Size(127, 31);
             this.Bt_AddBoat.TabIndex = 1;
@@ -820,7 +808,6 @@
         private System.Windows.Forms.TabPage tab_Teams;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button Bt_DeleteBoat;
-        private System.Windows.Forms.Button Bt_ModifyBoat;
         private System.Windows.Forms.Button Bt_AddBoat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name_BoatTab;
         private System.Windows.Forms.DataGridViewTextBoxColumn Capacity_BoatTab;

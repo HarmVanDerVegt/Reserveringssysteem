@@ -75,7 +75,19 @@ namespace ReserveringssysteemWF
 
         private void Bt_AddReservation_Click(object sender, EventArgs e)
         {
-            new ReservationDialog().ShowDialog();
+          //  new ReservationDialog().ShowDialog();
+        }
+
+        private void Bt_AddGame_Click(object sender, EventArgs e)
+        {
+            MatchCreatorDialog matchCreator = new MatchCreatorDialog();
+            if (matchCreator.ShowDialog() == DialogResult.OK)
+            {
+                /*if (!members.Select(m => m.ID).ToList().Contains(memberPicker.SelectedMember.ID))
+                    members.Add(memberPicker.SelectedMember);
+                else
+                    MessageBox.Show("Dit lid zit al in uw team!", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);*/
+            }
         }
     }
 }

@@ -42,6 +42,7 @@
             this.Cb_AddBoats.Name = "Cb_AddBoats";
             this.Cb_AddBoats.Size = new System.Drawing.Size(218, 24);
             this.Cb_AddBoats.TabIndex = 0;
+            this.Cb_AddBoats.SelectedIndexChanged += new System.EventHandler(this.Cb_AddBoats_SelectedIndexChanged);
             // 
             // Bt_Add_AddBoats
             // 

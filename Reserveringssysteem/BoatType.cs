@@ -12,6 +12,7 @@ namespace Reserveringssysteem
 {
     public class BoatType
     {
+        [ForeignKey("Certificate")]
         public int ID { get; set; }
 
         [Required]
@@ -24,10 +25,33 @@ namespace Reserveringssysteem
         public bool HasCoxswain { get; set; }
 
         [Required]
-        public Certificate Certificate { get; set; }
+        public virtual Certificate Certificate { get; set; }
 
         public List<Match> Matches { get; set; }
         public List<Boat> Boats { get; set; }
 
+        public BoatType(string name, int size, bool hasCoxswain)
+        {
+            Name = name;
+            Size = size;
+            HasCoxswain = hasCoxswain;
+            Certificate temp = new Certificate($"Certificate {name}");
+            temp.BoatType = this;
+
+            using (var db = new ReserveringssysteemContext())
+            {
+                db.Certificates.Add(temp);
+                //db.SaveChanges();
+            }
+
+            Certificate = temp;
+        }
+
+        private BoatType() { }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

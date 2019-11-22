@@ -16,22 +16,27 @@ namespace ReserveringssysteemWF
     {
         private List<BoatType> boatTypes = new List<BoatType>();
         private List<Certificate> certificates = new List<Certificate>();
-
         private BindingList<Member> members = new BindingList<Member>();
         private BindingList<BoatType> displayBoatTypes = new BindingList<BoatType>();
         private BindingList<Member> coxswains = new BindingList<Member>();
         private BindingList<DateTime> startTimes = new BindingList<DateTime>();
         private BindingList<TimeSpan> durations = new BindingList<TimeSpan>();
 
+        /// <summary>
+        /// Algorithm to show all available boat types based on the team's certificates.
+        /// </summary>
         private void UpdateDisplayBoatTypes()
         {
             displayBoatTypes.Clear();
+
             foreach (BoatType boatType in boatTypes)
+                // Get boats with the size of the ammount of members in the current team.
                 if (boatType.Size + (boatType.HasCoxswain ? 1 : 0) == members.Count)
                 {
                     bool available = true;
 
                     foreach (Member member in members)
+                        // If there is a member that does not have the certificate of the current boat then don't show the current boat.
                         if (member.Levels == null || !member.Levels.Select(c => c.ID).ToList().Contains(boatType.ID))
                         {
                             available = false;
@@ -43,15 +48,24 @@ namespace ReserveringssysteemWF
                 }
         }
 
+        /// <summary>
+        /// Algorithm to show all available coxswains based on the team's certificates.
+        /// </summary>
         private void UpdateCoxswain()
         {
             coxswains.Clear();
+            // Get the coxswain certificate.
             Certificate coxswainCertificate = certificates.Find(c => c.Name == "Certificate Stuurman");
+
             foreach (Member member in members)
+                // Check if the current member has the coxswain certificate.
                 if (member.Levels != null && coxswainCertificate != null && member.Levels.Select(c => c.ID).ToList().Contains(coxswainCertificate.ID))
                     coxswains.Add(member);
         }
 
+        /// <summary>
+        /// Algorithm to show all available start times based on the boat type boats availability (start time & duration).
+        /// </summary>
         private void UpdateStartTimes()
         {
             startTimes.Clear();
@@ -59,25 +73,30 @@ namespace ReserveringssysteemWF
             DateTime dateTime = datePicker.SelectionStart;
             dateTime = dateTime.Date + new TimeSpan(0, 0, 0);
 
-            DateTime startTime = dateTime.AddHours(12);
+            DateTime startTime = dateTime.AddHours(12); // Start enumerating from 12:00 ...
 
-            while (startTime <= dateTime.AddHours(17))
+            while (startTime <= dateTime.AddHours(17)) // ... to 17:00
             {
                 bool available = true;
 
+                // Current time range.
                 DateTime aStart = startTime;
                 DateTime aEnd = startTime + (TimeSpan)durationComboBox.SelectedItem;
 
+                // Check if a boat type is selected and has boats associated with it.
                 if (boatTypeComboBox.SelectedItem != null && ((BoatType)boatTypeComboBox.SelectedItem).Boats.Count > 0)
                     foreach (Boat boat in ((BoatType)boatTypeComboBox.SelectedItem).Boats)
                         if (available)
                             foreach (Reservation reservation in boat.Reservations)
                             {
+                                // Time range of the current reservation
                                 DateTime bStart = reservation.DateTime;
                                 DateTime bEnd = reservation.DateTime + reservation.Duration;
 
+                                // Check if the current time range (from the enumeration) conflicts the time range of the current reservation.
                                 if (aStart <= bEnd && bStart <= aEnd)
                                 {
+                                    // If it does then don't show the current start time.
                                     available = false;
                                     break;
                                 }

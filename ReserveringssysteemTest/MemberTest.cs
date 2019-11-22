@@ -16,7 +16,6 @@ namespace ReserveringssysteemTest
         [TestInitialize]
         public void MemberTestSetup()
         {
-            Program.TestMode = true;
 
             Member member1 = new Member
             {

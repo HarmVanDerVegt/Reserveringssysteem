@@ -108,6 +108,7 @@
             this.Controls.Add(this.Bt_Cancel);
             this.Controls.Add(this.Bt_ReportDamagedBoat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form_ReportDamage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_ReportDamage";

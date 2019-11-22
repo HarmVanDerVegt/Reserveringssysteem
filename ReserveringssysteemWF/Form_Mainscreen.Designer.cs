@@ -1,6 +1,6 @@
 ﻿namespace ReserveringssysteemWF
 {
-    partial class Form1
+    partial class Form_Mainscreen
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,9 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Login_AccountMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Register_AccountMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Logout_AccountMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -47,14 +50,6 @@
             this.Capacity_BoatTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coxswain_BoatTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount_BoatTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tab_Reservations = new System.Windows.Forms.TabPage();
-            this.Bt_RemoveReservation = new System.Windows.Forms.Button();
-            this.Bt_ModifyReservation = new System.Windows.Forms.Button();
-            this.Bt_AddReservation = new System.Windows.Forms.Button();
-            this.Datagrid_Reservations = new System.Windows.Forms.DataGridView();
-            this.Date_ReservationTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartTime_ReservationTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndTime_ReservationTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_Games = new System.Windows.Forms.TabPage();
             this.Bt_RemoveGame = new System.Windows.Forms.Button();
             this.Bt_AddGame = new System.Windows.Forms.Button();
@@ -65,6 +60,14 @@
             this.Boat_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Distance_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gender_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab_Reservations = new System.Windows.Forms.TabPage();
+            this.Bt_RemoveReservation = new System.Windows.Forms.Button();
+            this.Bt_ModifyReservation = new System.Windows.Forms.Button();
+            this.Bt_AddReservation = new System.Windows.Forms.Button();
+            this.Datagrid_Reservations = new System.Windows.Forms.DataGridView();
+            this.Date_ReservationTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartTime_ReservationTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndTime_ReservationTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_Profiles = new System.Windows.Forms.TabPage();
             this.Bt_RemoveProfile = new System.Windows.Forms.Button();
             this.Bt_ModifyProfile = new System.Windows.Forms.Button();
@@ -89,16 +92,17 @@
             this.Bt_ModifyTeam = new System.Windows.Forms.Button();
             this.Bt_CreateTeam = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.Lb_WelcomeMessage = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_News.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_News)).BeginInit();
             this.Tab_Boats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Boats)).BeginInit();
-            this.tab_Reservations.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Reservations)).BeginInit();
             this.tab_Games.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Games)).BeginInit();
+            this.tab_Reservations.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Reservations)).BeginInit();
             this.tab_Profiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Profiles)).BeginInit();
             this.tab_Members.SuspendLayout();
@@ -122,9 +126,35 @@
             // 
             // accountToolStripMenuItem
             // 
+            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Login_AccountMenuItem,
+            this.Register_AccountMenuItem,
+            this.Logout_AccountMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.accountToolStripMenuItem.Text = "Account";
+            // 
+            // Login_AccountMenuItem
+            // 
+            this.Login_AccountMenuItem.Name = "Login_AccountMenuItem";
+            this.Login_AccountMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.Login_AccountMenuItem.Text = "Inloggen";
+            this.Login_AccountMenuItem.Click += new System.EventHandler(this.Login_AccountMenuItem_Click);
+            // 
+            // Register_AccountMenuItem
+            // 
+            this.Register_AccountMenuItem.Name = "Register_AccountMenuItem";
+            this.Register_AccountMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.Register_AccountMenuItem.Text = "Registreren";
+            this.Register_AccountMenuItem.Visible = false;
+            // 
+            // Logout_AccountMenuItem
+            // 
+            this.Logout_AccountMenuItem.Name = "Logout_AccountMenuItem";
+            this.Logout_AccountMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.Logout_AccountMenuItem.Text = "Uitloggen";
+            this.Logout_AccountMenuItem.Visible = false;
+            this.Logout_AccountMenuItem.Click += new System.EventHandler(this.Logout_AccountMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -145,11 +175,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tab_News);
             this.tabControl1.Controls.Add(this.Tab_Boats);
-            this.tabControl1.Controls.Add(this.tab_Reservations);
             this.tabControl1.Controls.Add(this.tab_Games);
+            this.tabControl1.Controls.Add(this.tab_Reservations);
+            this.tabControl1.Controls.Add(this.tab_Teams);
             this.tabControl1.Controls.Add(this.tab_Profiles);
             this.tabControl1.Controls.Add(this.tab_Members);
-            this.tabControl1.Controls.Add(this.tab_Teams);
             this.tabControl1.Location = new System.Drawing.Point(12, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -179,13 +209,13 @@
             this.Datagrid_News.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Date_NewsTab,
             this.Title_NewsTab});
-            this.Datagrid_News.Location = new System.Drawing.Point(0, 7);
+            this.Datagrid_News.Location = new System.Drawing.Point(0, 77);
             this.Datagrid_News.Name = "Datagrid_News";
             this.Datagrid_News.ReadOnly = true;
             this.Datagrid_News.RowHeadersVisible = false;
             this.Datagrid_News.RowHeadersWidth = 51;
             this.Datagrid_News.RowTemplate.Height = 24;
-            this.Datagrid_News.Size = new System.Drawing.Size(760, 371);
+            this.Datagrid_News.Size = new System.Drawing.Size(994, 371);
             this.Datagrid_News.TabIndex = 0;
             // 
             // Date_NewsTab
@@ -228,6 +258,7 @@
             this.Bt_RemoveBoatFromUse.TabIndex = 5;
             this.Bt_RemoveBoatFromUse.Text = "Onderhoud";
             this.Bt_RemoveBoatFromUse.UseVisualStyleBackColor = true;
+            this.Bt_RemoveBoatFromUse.Visible = false;
             this.Bt_RemoveBoatFromUse.Click += new System.EventHandler(this.Bt_RemoveBoatFromUse_Click);
             // 
             // Bt_ReportDamage
@@ -238,28 +269,31 @@
             this.Bt_ReportDamage.TabIndex = 4;
             this.Bt_ReportDamage.Text = "Schade melden";
             this.Bt_ReportDamage.UseVisualStyleBackColor = true;
+            this.Bt_ReportDamage.Visible = false;
             this.Bt_ReportDamage.Click += new System.EventHandler(this.Bt_ReportDamage_Click);
             // 
             // Bt_DeleteBoat
             // 
             this.Bt_DeleteBoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_DeleteBoat.Location = new System.Drawing.Point(851, 24);
+            this.Bt_DeleteBoat.Location = new System.Drawing.Point(818, 24);
             this.Bt_DeleteBoat.Name = "Bt_DeleteBoat";
             this.Bt_DeleteBoat.Size = new System.Drawing.Size(127, 31);
             this.Bt_DeleteBoat.TabIndex = 3;
             this.Bt_DeleteBoat.Text = "Boot verwijderen";
             this.Bt_DeleteBoat.UseVisualStyleBackColor = true;
+            this.Bt_DeleteBoat.Visible = false;
             this.Bt_DeleteBoat.Click += new System.EventHandler(this.Bt_DeleteBoat_Click);
             // 
             // Bt_AddBoat
             // 
             this.Bt_AddBoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_AddBoat.Location = new System.Drawing.Point(682, 24);
+            this.Bt_AddBoat.Location = new System.Drawing.Point(659, 24);
             this.Bt_AddBoat.Name = "Bt_AddBoat";
             this.Bt_AddBoat.Size = new System.Drawing.Size(127, 31);
             this.Bt_AddBoat.TabIndex = 1;
             this.Bt_AddBoat.Text = "Boot toevoegen";
             this.Bt_AddBoat.UseVisualStyleBackColor = true;
+            this.Bt_AddBoat.Visible = false;
             this.Bt_AddBoat.Click += new System.EventHandler(this.Bt_AddBoat_Click);
             // 
             // Datagrid_Boats
@@ -316,93 +350,6 @@
             this.Amount_BoatTab.ReadOnly = true;
             this.Amount_BoatTab.Width = 190;
             // 
-            // tab_Reservations
-            // 
-            this.tab_Reservations.Controls.Add(this.Bt_RemoveReservation);
-            this.tab_Reservations.Controls.Add(this.Bt_ModifyReservation);
-            this.tab_Reservations.Controls.Add(this.Bt_AddReservation);
-            this.tab_Reservations.Controls.Add(this.Datagrid_Reservations);
-            this.tab_Reservations.Location = new System.Drawing.Point(4, 25);
-            this.tab_Reservations.Name = "tab_Reservations";
-            this.tab_Reservations.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Reservations.Size = new System.Drawing.Size(994, 384);
-            this.tab_Reservations.TabIndex = 2;
-            this.tab_Reservations.Text = "Reserveringen";
-            this.tab_Reservations.UseVisualStyleBackColor = true;
-            // 
-            // Bt_RemoveReservation
-            // 
-            this.Bt_RemoveReservation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_RemoveReservation.Location = new System.Drawing.Point(571, 24);
-            this.Bt_RemoveReservation.Name = "Bt_RemoveReservation";
-            this.Bt_RemoveReservation.Size = new System.Drawing.Size(173, 31);
-            this.Bt_RemoveReservation.TabIndex = 6;
-            this.Bt_RemoveReservation.Text = "Reservering annuleren";
-            this.Bt_RemoveReservation.UseVisualStyleBackColor = true;
-            // 
-            // Bt_ModifyReservation
-            // 
-            this.Bt_ModifyReservation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_ModifyReservation.Location = new System.Drawing.Point(407, 24);
-            this.Bt_ModifyReservation.Name = "Bt_ModifyReservation";
-            this.Bt_ModifyReservation.Size = new System.Drawing.Size(149, 31);
-            this.Bt_ModifyReservation.TabIndex = 5;
-            this.Bt_ModifyReservation.Text = "Reservering wijzigen";
-            this.Bt_ModifyReservation.UseVisualStyleBackColor = true;
-            // 
-            // Bt_AddReservation
-            // 
-            this.Bt_AddReservation.Location = new System.Drawing.Point(16, 24);
-            this.Bt_AddReservation.Name = "Bt_AddReservation";
-            this.Bt_AddReservation.Size = new System.Drawing.Size(127, 31);
-            this.Bt_AddReservation.TabIndex = 4;
-            this.Bt_AddReservation.Text = "Reserveren";
-            this.Bt_AddReservation.UseVisualStyleBackColor = true;
-            // 
-            // Datagrid_Reservations
-            // 
-            this.Datagrid_Reservations.AllowUserToResizeColumns = false;
-            this.Datagrid_Reservations.AllowUserToResizeRows = false;
-            this.Datagrid_Reservations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Datagrid_Reservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Datagrid_Reservations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Date_ReservationTab,
-            this.StartTime_ReservationTab,
-            this.EndTime_ReservationTab});
-            this.Datagrid_Reservations.Location = new System.Drawing.Point(0, 77);
-            this.Datagrid_Reservations.Name = "Datagrid_Reservations";
-            this.Datagrid_Reservations.RowHeadersVisible = false;
-            this.Datagrid_Reservations.RowHeadersWidth = 51;
-            this.Datagrid_Reservations.RowTemplate.Height = 24;
-            this.Datagrid_Reservations.Size = new System.Drawing.Size(761, 314);
-            this.Datagrid_Reservations.TabIndex = 0;
-            // 
-            // Date_ReservationTab
-            // 
-            this.Date_ReservationTab.HeaderText = "Datum";
-            this.Date_ReservationTab.MinimumWidth = 6;
-            this.Date_ReservationTab.Name = "Date_ReservationTab";
-            this.Date_ReservationTab.ReadOnly = true;
-            this.Date_ReservationTab.Width = 253;
-            // 
-            // StartTime_ReservationTab
-            // 
-            this.StartTime_ReservationTab.HeaderText = "Starttijd";
-            this.StartTime_ReservationTab.MinimumWidth = 6;
-            this.StartTime_ReservationTab.Name = "StartTime_ReservationTab";
-            this.StartTime_ReservationTab.ReadOnly = true;
-            this.StartTime_ReservationTab.Width = 253;
-            // 
-            // EndTime_ReservationTab
-            // 
-            this.EndTime_ReservationTab.HeaderText = "Eindtijd";
-            this.EndTime_ReservationTab.MinimumWidth = 6;
-            this.EndTime_ReservationTab.Name = "EndTime_ReservationTab";
-            this.EndTime_ReservationTab.ReadOnly = true;
-            this.EndTime_ReservationTab.Width = 253;
-            // 
             // tab_Games
             // 
             this.tab_Games.Controls.Add(this.Bt_RemoveGame);
@@ -419,12 +366,13 @@
             // Bt_RemoveGame
             // 
             this.Bt_RemoveGame.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_RemoveGame.Location = new System.Drawing.Point(584, 24);
+            this.Bt_RemoveGame.Location = new System.Drawing.Point(818, 24);
             this.Bt_RemoveGame.Name = "Bt_RemoveGame";
             this.Bt_RemoveGame.Size = new System.Drawing.Size(156, 31);
             this.Bt_RemoveGame.TabIndex = 6;
             this.Bt_RemoveGame.Text = "Wedstrijd annuleren";
             this.Bt_RemoveGame.UseVisualStyleBackColor = true;
+            this.Bt_RemoveGame.Visible = false;
             // 
             // Bt_AddGame
             // 
@@ -434,6 +382,7 @@
             this.Bt_AddGame.TabIndex = 4;
             this.Bt_AddGame.Text = "Wedstrijd toevoegen";
             this.Bt_AddGame.UseVisualStyleBackColor = true;
+            this.Bt_AddGame.Visible = false;
             // 
             // Datagrid_Games
             // 
@@ -455,7 +404,7 @@
             this.Datagrid_Games.RowHeadersVisible = false;
             this.Datagrid_Games.RowHeadersWidth = 51;
             this.Datagrid_Games.RowTemplate.Height = 24;
-            this.Datagrid_Games.Size = new System.Drawing.Size(760, 311);
+            this.Datagrid_Games.Size = new System.Drawing.Size(994, 311);
             this.Datagrid_Games.TabIndex = 0;
             // 
             // Date_GameTab
@@ -506,6 +455,96 @@
             this.Gender_GameTab.ReadOnly = true;
             this.Gender_GameTab.Width = 126;
             // 
+            // tab_Reservations
+            // 
+            this.tab_Reservations.Controls.Add(this.Bt_RemoveReservation);
+            this.tab_Reservations.Controls.Add(this.Bt_ModifyReservation);
+            this.tab_Reservations.Controls.Add(this.Bt_AddReservation);
+            this.tab_Reservations.Controls.Add(this.Datagrid_Reservations);
+            this.tab_Reservations.Location = new System.Drawing.Point(4, 25);
+            this.tab_Reservations.Name = "tab_Reservations";
+            this.tab_Reservations.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_Reservations.Size = new System.Drawing.Size(994, 384);
+            this.tab_Reservations.TabIndex = 2;
+            this.tab_Reservations.Text = "Reserveringen";
+            this.tab_Reservations.UseVisualStyleBackColor = true;
+            // 
+            // Bt_RemoveReservation
+            // 
+            this.Bt_RemoveReservation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Bt_RemoveReservation.Location = new System.Drawing.Point(818, 24);
+            this.Bt_RemoveReservation.Name = "Bt_RemoveReservation";
+            this.Bt_RemoveReservation.Size = new System.Drawing.Size(173, 31);
+            this.Bt_RemoveReservation.TabIndex = 6;
+            this.Bt_RemoveReservation.Text = "Reservering annuleren";
+            this.Bt_RemoveReservation.UseVisualStyleBackColor = true;
+            this.Bt_RemoveReservation.Visible = false;
+            // 
+            // Bt_ModifyReservation
+            // 
+            this.Bt_ModifyReservation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Bt_ModifyReservation.Location = new System.Drawing.Point(659, 24);
+            this.Bt_ModifyReservation.Name = "Bt_ModifyReservation";
+            this.Bt_ModifyReservation.Size = new System.Drawing.Size(149, 31);
+            this.Bt_ModifyReservation.TabIndex = 5;
+            this.Bt_ModifyReservation.Text = "Reservering wijzigen";
+            this.Bt_ModifyReservation.UseVisualStyleBackColor = true;
+            this.Bt_ModifyReservation.Visible = false;
+            // 
+            // Bt_AddReservation
+            // 
+            this.Bt_AddReservation.Location = new System.Drawing.Point(16, 24);
+            this.Bt_AddReservation.Name = "Bt_AddReservation";
+            this.Bt_AddReservation.Size = new System.Drawing.Size(127, 31);
+            this.Bt_AddReservation.TabIndex = 4;
+            this.Bt_AddReservation.Text = "Reserveren";
+            this.Bt_AddReservation.UseVisualStyleBackColor = true;
+            this.Bt_AddReservation.Visible = false;
+            // 
+            // Datagrid_Reservations
+            // 
+            this.Datagrid_Reservations.AllowUserToResizeColumns = false;
+            this.Datagrid_Reservations.AllowUserToResizeRows = false;
+            this.Datagrid_Reservations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Datagrid_Reservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Datagrid_Reservations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Date_ReservationTab,
+            this.StartTime_ReservationTab,
+            this.EndTime_ReservationTab});
+            this.Datagrid_Reservations.Location = new System.Drawing.Point(0, 77);
+            this.Datagrid_Reservations.Name = "Datagrid_Reservations";
+            this.Datagrid_Reservations.RowHeadersVisible = false;
+            this.Datagrid_Reservations.RowHeadersWidth = 51;
+            this.Datagrid_Reservations.RowTemplate.Height = 24;
+            this.Datagrid_Reservations.Size = new System.Drawing.Size(994, 314);
+            this.Datagrid_Reservations.TabIndex = 0;
+            // 
+            // Date_ReservationTab
+            // 
+            this.Date_ReservationTab.HeaderText = "Datum";
+            this.Date_ReservationTab.MinimumWidth = 6;
+            this.Date_ReservationTab.Name = "Date_ReservationTab";
+            this.Date_ReservationTab.ReadOnly = true;
+            this.Date_ReservationTab.Width = 253;
+            // 
+            // StartTime_ReservationTab
+            // 
+            this.StartTime_ReservationTab.HeaderText = "Starttijd";
+            this.StartTime_ReservationTab.MinimumWidth = 6;
+            this.StartTime_ReservationTab.Name = "StartTime_ReservationTab";
+            this.StartTime_ReservationTab.ReadOnly = true;
+            this.StartTime_ReservationTab.Width = 253;
+            // 
+            // EndTime_ReservationTab
+            // 
+            this.EndTime_ReservationTab.HeaderText = "Eindtijd";
+            this.EndTime_ReservationTab.MinimumWidth = 6;
+            this.EndTime_ReservationTab.Name = "EndTime_ReservationTab";
+            this.EndTime_ReservationTab.ReadOnly = true;
+            this.EndTime_ReservationTab.Width = 253;
+            // 
             // tab_Profiles
             // 
             this.tab_Profiles.Controls.Add(this.Bt_RemoveProfile);
@@ -523,22 +562,24 @@
             // Bt_RemoveProfile
             // 
             this.Bt_RemoveProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_RemoveProfile.Location = new System.Drawing.Point(604, 24);
+            this.Bt_RemoveProfile.Location = new System.Drawing.Point(818, 24);
             this.Bt_RemoveProfile.Name = "Bt_RemoveProfile";
             this.Bt_RemoveProfile.Size = new System.Drawing.Size(140, 31);
             this.Bt_RemoveProfile.TabIndex = 6;
             this.Bt_RemoveProfile.Text = "Profiel verwijderen";
             this.Bt_RemoveProfile.UseVisualStyleBackColor = true;
+            this.Bt_RemoveProfile.Visible = false;
             // 
             // Bt_ModifyProfile
             // 
             this.Bt_ModifyProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_ModifyProfile.Location = new System.Drawing.Point(455, 24);
+            this.Bt_ModifyProfile.Location = new System.Drawing.Point(659, 24);
             this.Bt_ModifyProfile.Name = "Bt_ModifyProfile";
             this.Bt_ModifyProfile.Size = new System.Drawing.Size(127, 31);
             this.Bt_ModifyProfile.TabIndex = 5;
             this.Bt_ModifyProfile.Text = "Profiel wijzigen";
             this.Bt_ModifyProfile.UseVisualStyleBackColor = true;
+            this.Bt_ModifyProfile.Visible = false;
             // 
             // Bt_MakeProfile
             // 
@@ -548,6 +589,7 @@
             this.Bt_MakeProfile.TabIndex = 4;
             this.Bt_MakeProfile.Text = "Profiel aanmaken";
             this.Bt_MakeProfile.UseVisualStyleBackColor = true;
+            this.Bt_MakeProfile.Visible = false;
             // 
             // Datagrid_Profiles
             // 
@@ -567,7 +609,7 @@
             this.Datagrid_Profiles.RowHeadersVisible = false;
             this.Datagrid_Profiles.RowHeadersWidth = 51;
             this.Datagrid_Profiles.RowTemplate.Height = 24;
-            this.Datagrid_Profiles.Size = new System.Drawing.Size(757, 307);
+            this.Datagrid_Profiles.Size = new System.Drawing.Size(994, 307);
             this.Datagrid_Profiles.TabIndex = 0;
             // 
             // Club_ProfilesTab
@@ -632,7 +674,7 @@
             this.Datagrid_Members.RowHeadersVisible = false;
             this.Datagrid_Members.RowHeadersWidth = 51;
             this.Datagrid_Members.RowTemplate.Height = 24;
-            this.Datagrid_Members.Size = new System.Drawing.Size(760, 311);
+            this.Datagrid_Members.Size = new System.Drawing.Size(994, 311);
             this.Datagrid_Members.TabIndex = 10;
             // 
             // Email_MembersTab
@@ -654,22 +696,24 @@
             // Bt_RemoveMember
             // 
             this.Bt_RemoveMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_RemoveMember.Location = new System.Drawing.Point(603, 24);
+            this.Bt_RemoveMember.Location = new System.Drawing.Point(818, 24);
             this.Bt_RemoveMember.Name = "Bt_RemoveMember";
             this.Bt_RemoveMember.Size = new System.Drawing.Size(140, 31);
             this.Bt_RemoveMember.TabIndex = 9;
             this.Bt_RemoveMember.Text = "Lid verwijderen";
             this.Bt_RemoveMember.UseVisualStyleBackColor = true;
+            this.Bt_RemoveMember.Visible = false;
             // 
             // Bt_ModifyMember
             // 
             this.Bt_ModifyMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_ModifyMember.Location = new System.Drawing.Point(454, 24);
+            this.Bt_ModifyMember.Location = new System.Drawing.Point(659, 24);
             this.Bt_ModifyMember.Name = "Bt_ModifyMember";
             this.Bt_ModifyMember.Size = new System.Drawing.Size(127, 31);
             this.Bt_ModifyMember.TabIndex = 8;
             this.Bt_ModifyMember.Text = "Lid wijzigen";
             this.Bt_ModifyMember.UseVisualStyleBackColor = true;
+            this.Bt_ModifyMember.Visible = false;
             // 
             // Bt_AddMember
             // 
@@ -679,6 +723,7 @@
             this.Bt_AddMember.TabIndex = 7;
             this.Bt_AddMember.Text = "Lid toevoegen";
             this.Bt_AddMember.UseVisualStyleBackColor = true;
+            this.Bt_AddMember.Visible = false;
             // 
             // tab_Teams
             // 
@@ -710,7 +755,7 @@
             this.Datagrid_Teams.RowHeadersVisible = false;
             this.Datagrid_Teams.RowHeadersWidth = 51;
             this.Datagrid_Teams.RowTemplate.Height = 24;
-            this.Datagrid_Teams.Size = new System.Drawing.Size(760, 311);
+            this.Datagrid_Teams.Size = new System.Drawing.Size(994, 311);
             this.Datagrid_Teams.TabIndex = 13;
             // 
             // Teamname_TeamsTab
@@ -732,22 +777,24 @@
             // Bt_RemoveTeam
             // 
             this.Bt_RemoveTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_RemoveTeam.Location = new System.Drawing.Point(603, 24);
+            this.Bt_RemoveTeam.Location = new System.Drawing.Point(818, 24);
             this.Bt_RemoveTeam.Name = "Bt_RemoveTeam";
             this.Bt_RemoveTeam.Size = new System.Drawing.Size(140, 31);
             this.Bt_RemoveTeam.TabIndex = 12;
             this.Bt_RemoveTeam.Text = "Team verwijderen";
             this.Bt_RemoveTeam.UseVisualStyleBackColor = true;
+            this.Bt_RemoveTeam.Visible = false;
             // 
             // Bt_ModifyTeam
             // 
             this.Bt_ModifyTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bt_ModifyTeam.Location = new System.Drawing.Point(454, 24);
+            this.Bt_ModifyTeam.Location = new System.Drawing.Point(659, 24);
             this.Bt_ModifyTeam.Name = "Bt_ModifyTeam";
             this.Bt_ModifyTeam.Size = new System.Drawing.Size(127, 31);
             this.Bt_ModifyTeam.TabIndex = 11;
             this.Bt_ModifyTeam.Text = "Team wijzigen";
             this.Bt_ModifyTeam.UseVisualStyleBackColor = true;
+            this.Bt_ModifyTeam.Visible = false;
             // 
             // Bt_CreateTeam
             // 
@@ -757,16 +804,28 @@
             this.Bt_CreateTeam.TabIndex = 10;
             this.Bt_CreateTeam.Text = "Team aanmaken";
             this.Bt_CreateTeam.UseVisualStyleBackColor = true;
+            this.Bt_CreateTeam.Visible = false;
             // 
-            // Form1
+            // Lb_WelcomeMessage
+            // 
+            this.Lb_WelcomeMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Lb_WelcomeMessage.AutoSize = true;
+            this.Lb_WelcomeMessage.Location = new System.Drawing.Point(910, 10);
+            this.Lb_WelcomeMessage.Name = "Lb_WelcomeMessage";
+            this.Lb_WelcomeMessage.Size = new System.Drawing.Size(0, 17);
+            this.Lb_WelcomeMessage.TabIndex = 2;
+            this.Lb_WelcomeMessage.Paint += new System.Windows.Forms.PaintEventHandler(this.Lb_WelcomeMessage_Paint);
+            // 
+            // Form_Mainscreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 450);
+            this.Controls.Add(this.Lb_WelcomeMessage);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "Form_Mainscreen";
             this.Text = "Reserveringssyteem";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -776,10 +835,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_News)).EndInit();
             this.Tab_Boats.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Boats)).EndInit();
-            this.tab_Reservations.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Reservations)).EndInit();
             this.tab_Games.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Games)).EndInit();
+            this.tab_Reservations.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Reservations)).EndInit();
             this.tab_Profiles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Datagrid_Profiles)).EndInit();
             this.tab_Members.ResumeLayout(false);
@@ -854,6 +913,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Title_NewsTab;
         private System.Windows.Forms.Button Bt_ReportDamage;
         private System.Windows.Forms.Button Bt_RemoveBoatFromUse;
+        private System.Windows.Forms.ToolStripMenuItem Login_AccountMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Logout_AccountMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Register_AccountMenuItem;
+        private System.Windows.Forms.Label Lb_WelcomeMessage;
     }
 }
 

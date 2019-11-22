@@ -46,12 +46,21 @@
             context.Reservations.Add(r);
 
 
-            context.Users.AddOrUpdate(new User()
+            context.Members.AddOrUpdate(new Member()
             {
                 Name = "Harm",
                 DateOfBirth = DateTime.Now,
                 Gender = Gender.Male,
-                Organisation = "HBO-ICT"
+                Organisation = "HBO-ICT",
+                Email = "test@example",
+                Address = new Address()
+                {
+                    Street = "Sesamstraat",
+                    HouseNumber = 37,
+                    ZIP = "9999ZZ",
+                    City = "Den Haag"
+                },
+                Password = "7bca025eff4fb877bea86faac56c909b65c97adfba23b7c1fb6b9772d34b420e" //Welkom123
             });
 
             context.SaveChanges();

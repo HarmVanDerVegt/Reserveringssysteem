@@ -1,6 +1,6 @@
 ﻿namespace ReserveringssysteemWF
 {
-    partial class Form2
+    partial class Form_AddBoat
     {
         /// <summary>
         /// Required designer variable.
@@ -73,7 +73,7 @@
             this.Bt_Cancel_AddBoats.Text = "Annuleren";
             this.Bt_Cancel_AddBoats.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // Form_AddBoat
             // 
             this.AcceptButton = this.Bt_Add_AddBoats;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -84,7 +84,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Bt_Add_AddBoats);
             this.Controls.Add(this.Cb_AddBoats);
-            this.Name = "Form2";
+            this.MaximizeBox = false;
+            this.Name = "Form_AddBoat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Boot toevoegen";
             this.Load += new System.EventHandler(this.Form2_Load);

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
+//using System.Windows;
 using System.Windows.Forms;
 using Reserveringssysteem;
 using System.Data.Entity;
@@ -60,12 +60,12 @@ namespace ReserveringssysteemWF
 
                 string messageBoxText = "De schade is succesvol gemeld";
                 string caption = "Schade gemeld";
-                MessageBoxButton button = MessageBoxButton.OK;
-                MessageBoxImage icon = MessageBoxImage.Information;
-                MessageBoxResult result;
-                result = System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Information;
+                DialogResult result;
+                result = MessageBox.Show(messageBoxText, caption, button, icon);
 
-                if (result == MessageBoxResult.OK)
+                if (result == DialogResult.OK)
                 {
                     Close();
                 }

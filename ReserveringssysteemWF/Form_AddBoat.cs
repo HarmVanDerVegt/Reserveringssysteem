@@ -11,9 +11,9 @@ using Reserveringssysteem;
 
 namespace ReserveringssysteemWF
 {
-    public partial class Form2 : Form
+    public partial class Form_AddBoat : Form
     {
-        public Form2()
+        public Form_AddBoat()
         {
             InitializeComponent();
             FillComboBox();

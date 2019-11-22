@@ -12,13 +12,17 @@ using System.Data.Entity;
 
 namespace ReserveringssysteemWF
 {
-    public partial class Form1 : Form
+    public partial class Form_Mainscreen : Form
     {
 
-        public Form1()
+        public Form_Mainscreen()
         {
             InitializeComponent();
             this.MinimumSize = new Size(600, 300);
+            tabControl1.TabPages.Remove(tab_Reservations);
+            tabControl1.TabPages.Remove(tab_Profiles);
+            tabControl1.TabPages.Remove(tab_Members);
+            tabControl1.TabPages.Remove(tab_Teams);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,7 +47,7 @@ namespace ReserveringssysteemWF
 
         private void ShowCreateBoatDialog()
         {
-            Form2 CreateBoatDialog = new Form2();
+            Form_AddBoat CreateBoatDialog = new Form_AddBoat();
             CreateBoatDialog.ShowDialog();
             ShowBoatsTable();
         }
@@ -113,6 +117,105 @@ namespace ReserveringssysteemWF
         {
             Form_ReportDamage Dialog_ReportDamage = new Form_ReportDamage();
             Dialog_ReportDamage.ShowDialog();
+        }
+
+        private void Login_AccountMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Login LoginForm = new Form_Login(this);
+            LoginForm.ShowDialog();
+        }
+
+        private void Logout_AccountMenuItem_Click(object sender, EventArgs e)
+        {
+            Member.Logout();
+            MemberActions();
+        }
+
+        public void LoginScreen()
+        {
+            MemberActions();
+        }
+
+        public void MemberActions()
+        {
+
+            if (Member.CurrentMember == null)
+            {
+                Lb_WelcomeMessage.Text = "";
+                Login_AccountMenuItem.Visible = true;
+                Logout_AccountMenuItem.Visible = false;
+            }
+            else
+            {
+                Lb_WelcomeMessage.Text = $"Welkom, {Member.CurrentMember.Name}";
+                Logout_AccountMenuItem.Visible = true;
+                Login_AccountMenuItem.Visible = false;
+            }
+
+            if (tabControl1.Contains(tab_Reservations))
+                tabControl1.TabPages.Remove(tab_Reservations);
+            else
+                tabControl1.TabPages.Add(tab_Reservations);
+
+            Bt_ReportDamage.Visible = !Bt_ReportDamage.Visible;
+            Bt_AddReservation.Visible = !Bt_AddReservation.Visible;
+            Bt_ModifyReservation.Visible = !Bt_ModifyReservation.Visible;
+            Bt_RemoveReservation.Visible = !Bt_RemoveReservation.Visible;
+        }
+
+        public void ChiefOfEquipmentActions()
+        {
+            Bt_RemoveBoatFromUse.Visible = !Bt_RemoveBoatFromUse.Visible;
+            Bt_AddBoat.Visible = !Bt_AddBoat.Visible;
+            Bt_DeleteBoat.Visible = !Bt_DeleteBoat.Visible;
+        }
+
+        public void TournamantOrganizerActions()
+        {
+            Bt_AddGame.Visible = !Bt_AddGame.Visible;
+            Bt_RemoveGame.Visible = !Bt_RemoveGame.Visible;
+
+            if (tabControl1.Contains(tab_Teams))
+                tabControl1.TabPages.Remove(tab_Teams);
+            else
+                tabControl1.TabPages.Add(tab_Teams);
+
+            Bt_CreateTeam.Visible = !Bt_CreateTeam.Visible;
+            Bt_ModifyTeam.Visible = !Bt_ModifyTeam.Visible;
+            Bt_RemoveTeam.Visible = !Bt_RemoveTeam.Visible;
+        }
+
+        public void Admin()
+        {
+            if (tabControl1.Contains(tab_Profiles))
+                tabControl1.TabPages.Remove(tab_Profiles);
+            else
+                tabControl1.TabPages.Add(tab_Profiles);
+
+            Bt_MakeProfile.Visible = !Bt_MakeProfile.Visible;
+            Bt_ModifyProfile.Visible = !Bt_ModifyProfile.Visible;
+            Bt_RemoveProfile.Visible = !Bt_RemoveProfile.Visible;
+
+            if (tabControl1.Contains(tab_Members))
+                tabControl1.TabPages.Remove(tab_Members);
+            else
+                tabControl1.TabPages.Add(tab_Members);
+
+            Bt_AddMember.Visible = !Bt_AddMember.Visible;
+            Bt_ModifyMember.Visible = !Bt_ModifyMember.Visible;
+            Bt_RemoveMember.Visible = !Bt_RemoveMember.Visible;
+        }
+
+        private void Lb_WelcomeMessage_Paint(object sender, PaintEventArgs e)
+        {
+            if (Member.CurrentMember != null)
+            {
+                Lb_WelcomeMessage.Text = "Welkom " + Member.CurrentMember.Name;
+            }
+            else
+            {
+                Lb_WelcomeMessage.Text = "";
+            }
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Reserveringssysteem
 
         public static bool Login(string email, string password)
         {
-            //CurrentMember = null;
+            CurrentMember = null;
 
             if (email == null)
             {
@@ -74,6 +74,11 @@ namespace Reserveringssysteem
 
                 }
             }
+        }
+
+        public static void Logout()
+        {
+            CurrentMember = null;
         }
 
     }

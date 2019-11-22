@@ -14,8 +14,8 @@ namespace ReserveringssysteemWF
 {
     public partial class Form_RemoveBoatFromUse : Form
     {
-        private Form1 UpdateScreen;
-        public Form_RemoveBoatFromUse(Form1 updateScreen)
+        private Form_Mainscreen UpdateScreen;
+        public Form_RemoveBoatFromUse(Form_Mainscreen updateScreen)
         {
             UpdateScreen = updateScreen;
             InitializeComponent();

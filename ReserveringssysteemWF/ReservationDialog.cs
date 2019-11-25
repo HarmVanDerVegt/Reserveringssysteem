@@ -16,6 +16,7 @@ namespace ReserveringssysteemWF
     {
         private RecreationalTeam recreationalTeam = new RecreationalTeam() { Users = new List<User>() };
         private bool coxswainRequired = false;
+        private Boat reservedBoat = null;
 
         private void UpdateDisplay()
         {
@@ -33,6 +34,10 @@ namespace ReserveringssysteemWF
             if (coxswainRequired)
                 coxswainComboBox.DataSource = recreationalTeam.GetAvailableCoxswains();
 
+            removeMemberButton.Enabled = teamListBox.SelectedIndex != -1;
+            boatTypeComboBox.Enabled = boatTypeComboBox.Items.Count > 0;
+            coxswainComboBox.Enabled = coxswainComboBox.Items.Count > 0;
+
             UpdateStartTimes();
         }
 
@@ -44,7 +49,14 @@ namespace ReserveringssysteemWF
             DateTime date = datePicker.SelectionStart.Date;
             TimeSpan duration = (TimeSpan)durationComboBox.SelectedItem;
 
-            startTimeComboBox.DataSource = Reservation.GetAvailableStartTimes(boatType, date, duration);
+            startTimeComboBox.DataSource = Reservation.GetAvailableStartTimes(boatType, date, duration, out reservedBoat);
+
+            startTimeComboBox.Enabled = startTimeComboBox.Items.Count > 0;
+
+            if (coxswainRequired)
+                reserveButton.Enabled = startTimeComboBox.SelectedIndex != -1 && coxswainComboBox.SelectedIndex != -1;
+            else
+                reserveButton.Enabled = startTimeComboBox.SelectedIndex != -1;
         }
 
         public ReservationDialog()
@@ -74,6 +86,9 @@ namespace ReserveringssysteemWF
 
             durationComboBox.DataSource = durations.ToArray();
 
+            datePicker.MinDate = DateTime.Now.AddDays(2);
+            datePicker.MaxDate = DateTime.Now.AddDays(14);
+
             UpdateDisplay();
         }
 
@@ -92,7 +107,7 @@ namespace ReserveringssysteemWF
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
             {
                 Reservation reservation = new Reservation();
-                reservation.Boat = context.Boats.Find(((BoatType)boatTypeComboBox.SelectedItem).Boats.First().ID);
+                reservation.Boat = context.Boats.Find(reservedBoat.ID);
                 reservation.DateTime = (DateTime)startTimeComboBox.SelectedItem;
                 reservation.Duration = (TimeSpan)durationComboBox.SelectedItem;
 

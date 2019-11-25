@@ -30,7 +30,7 @@ namespace Reserveringssysteem
             List<BoatType> boatTypes = new List<BoatType>();
 
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
-                foreach (BoatType boatType in context.BoatTypes.Include("Certificate"))
+                foreach (BoatType boatType in context.BoatTypes.Include("Certificate").Include("Boats.Reservations"))
                     // Check if this boat type has the same size as the team.
                     if (boatType.Size + (boatType.HasCoxswain ? 1 : 0) == Users.Count)
                     {

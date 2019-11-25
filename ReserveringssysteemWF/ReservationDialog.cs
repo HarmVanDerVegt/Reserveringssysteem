@@ -15,10 +15,36 @@ namespace ReserveringssysteemWF
     public partial class ReservationDialog : Form
     {
         private RecreationalTeam recreationalTeam = new RecreationalTeam() { Users = new List<User>() };
+        private bool coxswainRequired = false;
 
         private void UpdateDisplay()
         {
+            teamListBox.DataSource = null;
+            teamListBox.DataSource = recreationalTeam.Users;
+            teamListBox.DisplayMember = "Name";
 
+            boatTypeComboBox.DataSource = null;
+            boatTypeComboBox.DataSource = recreationalTeam.GetAvailableBoatTypes();
+            boatTypeComboBox.DisplayMember = "Name";
+
+            coxswainComboBox.DataSource = null;
+            coxswainRequired = boatTypeComboBox.SelectedValue != null && ((BoatType)boatTypeComboBox.SelectedValue).HasCoxswain;
+
+            if (coxswainRequired)
+                coxswainComboBox.DataSource = recreationalTeam.GetAvailableCoxswains();
+
+            UpdateStartTimes();
+        }
+
+        private void UpdateStartTimes()
+        {
+            startTimeComboBox.DataSource = null;
+
+            BoatType boatType = (BoatType)boatTypeComboBox.SelectedItem;
+            DateTime date = datePicker.SelectionStart.Date;
+            TimeSpan duration = (TimeSpan)durationComboBox.SelectedItem;
+
+            startTimeComboBox.DataSource = Reservation.GetAvailableStartTimes(boatType, date, duration);
         }
 
         public ReservationDialog()
@@ -41,8 +67,12 @@ namespace ReserveringssysteemWF
 
         private void ReservationDialog_Load(object sender, EventArgs e)
         {
-            teamListBox.DataSource = recreationalTeam.Users;
-            teamListBox.DisplayMember = "Name";
+            List<TimeSpan> durations = new List<TimeSpan>();
+
+            for (TimeSpan duration = new TimeSpan(0, 15, 0); duration <= new TimeSpan(2, 0, 0); duration += new TimeSpan(0, 15, 0))
+                durations.Add(duration);
+
+            durationComboBox.DataSource = durations.ToArray();
 
             UpdateDisplay();
         }
@@ -54,20 +84,33 @@ namespace ReserveringssysteemWF
 
         private void datePicker_DateChanged(object sender, DateRangeEventArgs e)
         {
-
+            UpdateStartTimes();
         }
 
         private void reserveButton_Click(object sender, EventArgs e)
         {
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
             {
+                Reservation reservation = new Reservation();
+                reservation.Boat = context.Boats.Find(((BoatType)boatTypeComboBox.SelectedItem).Boats.First().ID);
+                reservation.DateTime = (DateTime)startTimeComboBox.SelectedItem;
+                reservation.Duration = (TimeSpan)durationComboBox.SelectedItem;
+
+                RecreationalTeam team = new RecreationalTeam() { Users = new List<User>() };
+
+                foreach (User user in recreationalTeam.Users)
+                    team.Users.Add(context.Users.Find(user.ID));
+
+                reservation.Team = team;
+
+                context.Reservations.Add(reservation);
                 context.SaveChanges();
             }
         }
 
         private void durationComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            UpdateStartTimes();
         }
     }
 }

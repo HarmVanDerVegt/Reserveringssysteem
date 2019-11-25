@@ -112,5 +112,20 @@ namespace Reserveringssysteem.Tests
                 Assert.AreEqual(context.BoatTypes.Where(b => b.Name.Equals("Skiff")).First().ID, boatTypes.First().ID);
             }
         }
+
+        [TestMethod()]
+        public void GetAvailableCoxswains_4_User_0_Coxswain_Certificate()
+        {
+            RecreationalTeam recreationalTeam = new RecreationalTeam();
+            recreationalTeam.Users = new List<User>();
+
+            using (ReserveringssysteemContext context = new ReserveringssysteemContext())
+                foreach (Member member in context.Members.Include("Levels"))
+                    recreationalTeam.Users.Add(member);
+
+            User[] coxswains = recreationalTeam.GetAvailableCoxswains();
+
+            Assert.AreEqual(0, coxswains.Length);
+        }
     }
 }

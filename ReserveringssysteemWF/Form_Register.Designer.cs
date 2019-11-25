@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,38 +37,54 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.Tb_EmailRegister = new System.Windows.Forms.TextBox();
+            this.Tb_PasswordRegister = new System.Windows.Forms.TextBox();
+            this.Tb_Password2Register = new System.Windows.Forms.TextBox();
+            this.Tb_StreetRegister = new System.Windows.Forms.TextBox();
+            this.Tb_ZipcodeRegister = new System.Windows.Forms.TextBox();
+            this.Tb_HousenumberRegister = new System.Windows.Forms.TextBox();
+            this.Tb_CityRegister = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Tb_NameRegister = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Tb_AnnexRegister = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.Tb_OrganisationRegister = new System.Windows.Forms.TextBox();
+            this.Rb_MaleGender = new System.Windows.Forms.RadioButton();
+            this.Rb_FemaleGender = new System.Windows.Forms.RadioButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.DTP_DateRegister = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LB_ErrorMessageRegister = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(61, 338);
+            this.button1.Location = new System.Drawing.Point(48, 354);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 40);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 23;
             this.button1.Text = "Registreren";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 26);
+            this.label1.Location = new System.Drawing.Point(45, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 17);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Email";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 71);
+            this.label2.Location = new System.Drawing.Point(45, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 17);
             this.label2.TabIndex = 2;
@@ -76,106 +93,218 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(58, 120);
+            this.label3.Location = new System.Drawing.Point(254, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 17);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Herhaling wachtwoord";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(58, 170);
+            this.label4.Location = new System.Drawing.Point(45, 243);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
-            this.label4.TabIndex = 4;
+            this.label4.TabIndex = 14;
             this.label4.Text = "Straat";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(58, 218);
+            this.label5.Location = new System.Drawing.Point(45, 293);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 17);
-            this.label5.TabIndex = 5;
+            this.label5.TabIndex = 19;
             this.label5.Text = "Postcode";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(61, 268);
+            this.label6.Location = new System.Drawing.Point(254, 293);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 17);
-            this.label6.TabIndex = 6;
+            this.label6.TabIndex = 21;
             this.label6.Text = "Woonplaats";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(254, 170);
+            this.label7.Location = new System.Drawing.Point(254, 243);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(167, 17);
-            this.label7.TabIndex = 7;
+            this.label7.TabIndex = 16;
             this.label7.Text = "Huisnummer + bijvoeging";
             // 
-            // textBox1
+            // Tb_EmailRegister
             // 
-            this.textBox1.Location = new System.Drawing.Point(61, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 22);
-            this.textBox1.TabIndex = 8;
+            this.Tb_EmailRegister.Location = new System.Drawing.Point(48, 29);
+            this.Tb_EmailRegister.Name = "Tb_EmailRegister";
+            this.Tb_EmailRegister.Size = new System.Drawing.Size(180, 22);
+            this.Tb_EmailRegister.TabIndex = 1;
             // 
-            // textBox2
+            // Tb_PasswordRegister
             // 
-            this.textBox2.Location = new System.Drawing.Point(61, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 22);
-            this.textBox2.TabIndex = 9;
+            this.Tb_PasswordRegister.Location = new System.Drawing.Point(48, 74);
+            this.Tb_PasswordRegister.Name = "Tb_PasswordRegister";
+            this.Tb_PasswordRegister.PasswordChar = '*';
+            this.Tb_PasswordRegister.Size = new System.Drawing.Size(180, 22);
+            this.Tb_PasswordRegister.TabIndex = 3;
             // 
-            // textBox3
+            // Tb_Password2Register
             // 
-            this.textBox3.Location = new System.Drawing.Point(61, 140);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(180, 22);
-            this.textBox3.TabIndex = 10;
+            this.Tb_Password2Register.Location = new System.Drawing.Point(257, 74);
+            this.Tb_Password2Register.Name = "Tb_Password2Register";
+            this.Tb_Password2Register.PasswordChar = '*';
+            this.Tb_Password2Register.Size = new System.Drawing.Size(180, 22);
+            this.Tb_Password2Register.TabIndex = 5;
             // 
-            // textBox4
+            // Tb_StreetRegister
             // 
-            this.textBox4.Location = new System.Drawing.Point(61, 193);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(180, 22);
-            this.textBox4.TabIndex = 11;
+            this.Tb_StreetRegister.Location = new System.Drawing.Point(48, 263);
+            this.Tb_StreetRegister.Name = "Tb_StreetRegister";
+            this.Tb_StreetRegister.Size = new System.Drawing.Size(180, 22);
+            this.Tb_StreetRegister.TabIndex = 15;
             // 
-            // textBox5
+            // Tb_ZipcodeRegister
             // 
-            this.textBox5.Location = new System.Drawing.Point(61, 243);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(180, 22);
-            this.textBox5.TabIndex = 12;
+            this.Tb_ZipcodeRegister.Location = new System.Drawing.Point(48, 313);
+            this.Tb_ZipcodeRegister.Name = "Tb_ZipcodeRegister";
+            this.Tb_ZipcodeRegister.Size = new System.Drawing.Size(180, 22);
+            this.Tb_ZipcodeRegister.TabIndex = 20;
             // 
-            // textBox6
+            // Tb_HuisnumberRegister
             // 
-            this.textBox6.Location = new System.Drawing.Point(257, 193);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(57, 22);
-            this.textBox6.TabIndex = 13;
+            this.Tb_HousenumberRegister.Location = new System.Drawing.Point(257, 263);
+            this.Tb_HousenumberRegister.Name = "Tb_HuisnumberRegister";
+            this.Tb_HousenumberRegister.Size = new System.Drawing.Size(43, 22);
+            this.Tb_HousenumberRegister.TabIndex = 17;
             // 
-            // textBox7
+            // Tb_CityRegister
             // 
-            this.textBox7.Location = new System.Drawing.Point(61, 288);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(180, 22);
-            this.textBox7.TabIndex = 14;
+            this.Tb_CityRegister.Location = new System.Drawing.Point(257, 313);
+            this.Tb_CityRegister.Name = "Tb_CityRegister";
+            this.Tb_CityRegister.Size = new System.Drawing.Size(180, 22);
+            this.Tb_CityRegister.TabIndex = 22;
             // 
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(314, 338);
+            this.button2.Location = new System.Drawing.Point(314, 354);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(132, 40);
-            this.button2.TabIndex = 15;
+            this.button2.TabIndex = 24;
             this.button2.Text = "Annuleren";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(254, 99);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 17);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Geslacht";
+            // 
+            // Tb_NameRegister
+            // 
+            this.Tb_NameRegister.Location = new System.Drawing.Point(48, 122);
+            this.Tb_NameRegister.Name = "Tb_NameRegister";
+            this.Tb_NameRegister.Size = new System.Drawing.Size(180, 22);
+            this.Tb_NameRegister.TabIndex = 7;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(46, 102);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 17);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Naam";
+            // 
+            // Tb_AnnexRegister
+            // 
+            this.Tb_AnnexRegister.Location = new System.Drawing.Point(325, 263);
+            this.Tb_AnnexRegister.Name = "Tb_AnnexRegister";
+            this.Tb_AnnexRegister.Size = new System.Drawing.Size(40, 22);
+            this.Tb_AnnexRegister.TabIndex = 18;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(45, 195);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 17);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Organisatie";
+            // 
+            // Tb_OrganisationRegister
+            // 
+            this.Tb_OrganisationRegister.Location = new System.Drawing.Point(48, 215);
+            this.Tb_OrganisationRegister.Name = "Tb_OrganisationRegister";
+            this.Tb_OrganisationRegister.Size = new System.Drawing.Size(180, 22);
+            this.Tb_OrganisationRegister.TabIndex = 13;
+            // 
+            // Rb_MaleGender
+            // 
+            this.Rb_MaleGender.AutoSize = true;
+            this.Rb_MaleGender.Checked = true;
+            this.Rb_MaleGender.Location = new System.Drawing.Point(6, 3);
+            this.Rb_MaleGender.Name = "Rb_MaleGender";
+            this.Rb_MaleGender.Size = new System.Drawing.Size(56, 21);
+            this.Rb_MaleGender.TabIndex = 9;
+            this.Rb_MaleGender.TabStop = true;
+            this.Rb_MaleGender.Text = "Man";
+            this.Rb_MaleGender.UseVisualStyleBackColor = true;
+            // 
+            // Rb_FemaleGender
+            // 
+            this.Rb_FemaleGender.AutoSize = true;
+            this.Rb_FemaleGender.Location = new System.Drawing.Point(76, 3);
+            this.Rb_FemaleGender.Name = "Rb_FemaleGender";
+            this.Rb_FemaleGender.Size = new System.Drawing.Size(68, 21);
+            this.Rb_FemaleGender.TabIndex = 10;
+            this.Rb_FemaleGender.Text = "Vrouw";
+            this.Rb_FemaleGender.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // DTP_DateRegister
+            // 
+            this.DTP_DateRegister.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTP_DateRegister.Location = new System.Drawing.Point(48, 170);
+            this.DTP_DateRegister.Name = "DTP_DateRegister";
+            this.DTP_DateRegister.Size = new System.Drawing.Size(180, 22);
+            this.DTP_DateRegister.TabIndex = 11;
+            this.DTP_DateRegister.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(45, 150);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 17);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Geboortedatum";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Rb_MaleGender);
+            this.panel1.Controls.Add(this.Rb_FemaleGender);
+            this.panel1.Location = new System.Drawing.Point(257, 119);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(152, 29);
+            this.panel1.TabIndex = 9;
+            // 
+            // LB_ErrorMessageRegister
+            // 
+            this.LB_ErrorMessageRegister.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LB_ErrorMessageRegister.Location = new System.Drawing.Point(0, 414);
+            this.LB_ErrorMessageRegister.Name = "LB_ErrorMessageRegister";
+            this.LB_ErrorMessageRegister.Size = new System.Drawing.Size(482, 39);
+            this.LB_ErrorMessageRegister.TabIndex = 25;
+            this.LB_ErrorMessageRegister.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form_Register
             // 
@@ -184,14 +313,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(482, 453);
+            this.Controls.Add(this.LB_ErrorMessageRegister);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.DTP_DateRegister);
+            this.Controls.Add(this.Tb_OrganisationRegister);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.Tb_AnnexRegister);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.Tb_NameRegister);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Tb_CityRegister);
+            this.Controls.Add(this.Tb_HousenumberRegister);
+            this.Controls.Add(this.Tb_ZipcodeRegister);
+            this.Controls.Add(this.Tb_StreetRegister);
+            this.Controls.Add(this.Tb_Password2Register);
+            this.Controls.Add(this.Tb_PasswordRegister);
+            this.Controls.Add(this.Tb_EmailRegister);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -204,6 +343,9 @@
             this.Name = "Form_Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Register";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,13 +361,26 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox Tb_EmailRegister;
+        private System.Windows.Forms.TextBox Tb_PasswordRegister;
+        private System.Windows.Forms.TextBox Tb_Password2Register;
+        private System.Windows.Forms.TextBox Tb_StreetRegister;
+        private System.Windows.Forms.TextBox Tb_ZipcodeRegister;
+        private System.Windows.Forms.TextBox Tb_HousenumberRegister;
+        private System.Windows.Forms.TextBox Tb_CityRegister;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox Tb_NameRegister;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox Tb_AnnexRegister;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox Tb_OrganisationRegister;
+        private System.Windows.Forms.RadioButton Rb_MaleGender;
+        private System.Windows.Forms.RadioButton Rb_FemaleGender;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DateTimePicker DTP_DateRegister;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label LB_ErrorMessageRegister;
     }
 }

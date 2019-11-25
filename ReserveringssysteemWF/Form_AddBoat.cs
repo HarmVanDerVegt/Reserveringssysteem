@@ -38,14 +38,11 @@ namespace ReserveringssysteemWF
             Boat boat = null;
             using(var db = new ReserveringssysteemContext())
             {
-                var boatTypes = from boatType in db.BoatTypes
-                                where boatType.Name == (string)Cb_AddBoats.SelectedItem
-                                select boatType;
+                var boatType = (from type in db.BoatTypes
+                                 where type.Name == (string)Cb_AddBoats.SelectedItem
+                                 select type).SingleOrDefault();
 
-                foreach (var boatType in boatTypes)
-                {
-                    boat = new Boat(boatType);
-                }
+                boat = new Boat(boatType);
                 db.SaveChanges();
             }
         }

@@ -29,5 +29,23 @@ namespace Reserveringssysteem
 
         public Member Member { get; set; }
 
+        public Address(string street, int houseNumber, string suffix, string zip, string city) : this(street, houseNumber, zip, city)
+        {
+            Suffix = suffix;
+        }
+
+        public Address(string street, int houseNumber, string zip, string city)
+        {
+            Street = street;
+            HouseNumber = houseNumber;
+            ZIP = zip;
+            City = city;
+        }
+        
+        public Address()
+        {
+
+        }
+
     }
 }

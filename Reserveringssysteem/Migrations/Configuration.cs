@@ -1,6 +1,7 @@
 ﻿namespace Reserveringssysteem.Migrations
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -41,6 +42,22 @@
                 Organisation = "HBO-ICT"
             });
 
+            context.Members.Add(new Member()
+            {
+                Name = "Victor",
+                DateOfBirth = DateTime.Now,
+                Gender = Gender.Male,
+                Organisation = "Roeivereniging",
+                Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
+                Email = "vhemmekam@gmail.com",
+                Password = "bier123",
+            });
+
+            context.SaveChanges();
+
+            List<Certificate> certificates = new List<Certificate>();
+            certificates.Add(context.Certificates.Where(c => c.Name == "Certificate Skiff").First());
+            context.Members.Where(u => u.Name == "Victor").First().Levels = certificates;
 
             context.SaveChanges();
         }

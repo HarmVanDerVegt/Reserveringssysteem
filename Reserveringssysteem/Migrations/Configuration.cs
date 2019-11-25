@@ -1,6 +1,7 @@
 ﻿namespace Reserveringssysteem.Migrations
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -41,49 +42,23 @@
                 Organisation = "HBO-ICT"
             });
 
-            context.Users.AddOrUpdate(new Member()
+            context.Members.Add(new Member()
             {
-                Name = "Beau ter Ham",
+                Name = "Victor",
                 DateOfBirth = DateTime.Now,
                 Gender = Gender.Male,
                 Organisation = "Roeivereniging",
                 Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
-                Email = "beauterham@gmail.com",
-                Password = "#",
-            }, new Member()
-            {
-                Name = "Harry Snotter",
-                DateOfBirth = DateTime.Now,
-                Gender = Gender.Male,
-                Organisation = "Roeivereniging",
-                Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
-                Email = "harrysnotter@gmail.com",
-                Password = "#",
-            }, new Member()
-            {
-                Name = "Pieter Post",
-                DateOfBirth = DateTime.Now,
-                Gender = Gender.Male,
-                Organisation = "Roeivereniging",
-                Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
-                Email = "pieterpost@gmail.com",
-                Password = "#",
-            }, new Member()
-            {
-                Name = "Prog Ramma",
-                DateOfBirth = DateTime.Now,
-                Gender = Gender.Male,
-                Organisation = "Roeivereniging",
-                Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
-                Email = "programma@gmail.com",
-                Password = "#",
+                Email = "vhemmekam@gmail.com",
+                Password = "bier123",
             });
 
             context.SaveChanges();
 
-            System.Collections.Generic.List<Certificate> certificates = new System.Collections.Generic.List<Certificate>();
+            List<Certificate> certificates = new List<Certificate>();
             certificates.Add(context.Certificates.Where(c => c.Name == "Certificate Skiff").First());
-            context.Users.Where(u => u.Name == "Prog Ramma").First().Levels = certificates;
+            context.Members.Where(u => u.Name == "Victor").First().Levels = certificates;
+
             context.SaveChanges();
         }
     }

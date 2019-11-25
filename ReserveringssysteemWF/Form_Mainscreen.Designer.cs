@@ -144,9 +144,9 @@
             // Register_AccountMenuItem
             // 
             this.Register_AccountMenuItem.Name = "Register_AccountMenuItem";
-            this.Register_AccountMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.Register_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
             this.Register_AccountMenuItem.Text = "Registreren";
-            this.Register_AccountMenuItem.Visible = false;
+            this.Register_AccountMenuItem.Click += new System.EventHandler(this.Register_AccountMenuItem_Click);
             // 
             // Logout_AccountMenuItem
             // 

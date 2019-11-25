@@ -21,6 +21,7 @@
 
             context.BoatTypes.RemoveRange(context.BoatTypes);
             context.Certificates.RemoveRange(context.Certificates);
+            context.Members.RemoveRange(context.Members.Include(m => m.Address));
             context.Users.RemoveRange(context.Users);
 
             context.BoatTypes.AddOrUpdate(new BoatType("Skiff", 1, false));

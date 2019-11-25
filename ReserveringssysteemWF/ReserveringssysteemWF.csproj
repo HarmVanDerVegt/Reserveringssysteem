@@ -77,6 +77,12 @@
     <Compile Include="Form_Mainscreen.Designer.cs">
       <DependentUpon>Form_Mainscreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Register.Designer.cs">
+      <DependentUpon>Form_Register.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_RemoveBoatFromUse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Mainscreen.resx">
       <DependentUpon>Form_Mainscreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Register.resx">
+      <DependentUpon>Form_Register.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_RemoveBoatFromUse.resx">
       <DependentUpon>Form_RemoveBoatFromUse.cs</DependentUpon>

@@ -125,6 +125,12 @@ namespace ReserveringssysteemWF
             LoginForm.ShowDialog();
         }
 
+        private void Register_AccountMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Register RegisterForm = new Form_Register();
+            RegisterForm.ShowDialog();
+        }
+
         private void Logout_AccountMenuItem_Click(object sender, EventArgs e)
         {
             Member.Logout();
@@ -187,6 +193,8 @@ namespace ReserveringssysteemWF
 
         public void Admin()
         {
+            Register_AccountMenuItem.Visible = !Register_AccountMenuItem.Visible;
+
             if (tabControl1.Contains(tab_Profiles))
                 tabControl1.TabPages.Remove(tab_Profiles);
             else

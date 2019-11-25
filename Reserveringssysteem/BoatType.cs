@@ -53,5 +53,36 @@ namespace Reserveringssysteem
         {
             return Name;
         }
+
+        /// <summary>
+        /// Get all available boat types based on a given team's certificates and size.
+        /// </summary>
+        /// <param name="team">The team from which the certificates and the size will be obtained.</param>
+        /// <returns>An array of boat types</returns>
+        public static BoatType[] GetAvailableBoatTypes(Team team)
+        {
+            List<BoatType> boatTypes = new List<BoatType>();
+
+            using (ReserveringssysteemContext context = new ReserveringssysteemContext())
+                foreach (BoatType boatType in context.BoatTypes.Include("Certificate"))
+                    // Check if this boat type has the same size as the team.
+                    if (boatType.Size + (boatType.HasCoxswain ? 1 : 0) == team.Users.Count)
+                    {
+                        bool available = true;
+
+                        foreach (User user in team.Users)
+                            // Check if this user contains the certificate of this boat type, if not then this boat is not available.
+                            if (user.Levels == null || !user.Levels.Select(c => c.ID).ToList().Contains(boatType.Certificate.ID))
+                            {
+                                available = false;
+                                break;
+                            }
+
+                        if (available)
+                            boatTypes.Add(boatType);
+                    }
+
+            return boatTypes.ToArray();
+        }
     }
 }

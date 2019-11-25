@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Reserveringssysteem.Tests
 {
     [TestClass()]
-    public class BoatTypeTests
+    public class TeamTests
     {
         [TestInitialize]
         public void Initialize()
@@ -92,7 +92,7 @@ namespace Reserveringssysteem.Tests
                 foreach (Member member in context.Members.Include("Levels"))
                     recreationalTeam.Users.Add(member);
 
-            BoatType[] boatTypes = BoatType.GetAvailableBoatTypes(recreationalTeam);
+            BoatType[] boatTypes = recreationalTeam.GetAvailableBoatTypes();
 
             Assert.AreEqual(0, boatTypes.Length);
         }
@@ -107,7 +107,7 @@ namespace Reserveringssysteem.Tests
             {
                 recreationalTeam.Users.Add(context.Members.Include("Levels").Where(m => m.Name.Equals("Prog Ramma")).First());
 
-                BoatType[] boatTypes = BoatType.GetAvailableBoatTypes(recreationalTeam);
+                BoatType[] boatTypes = recreationalTeam.GetAvailableBoatTypes();
 
                 Assert.AreEqual(context.BoatTypes.Where(b => b.Name.Equals("Skiff")).First().ID, boatTypes.First().ID);
             }

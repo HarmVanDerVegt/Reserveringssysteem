@@ -75,7 +75,7 @@ namespace Reserveringssysteem.Tests
         {
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
             {
-                context.Members.RemoveRange(context.Members.Include("Levels").Where(m => 
+                context.Members.RemoveRange(context.Members.Include("Levels").Include("Address").Where(m => 
                 m.Name.Equals("Beau ter Ham") || 
                 m.Name.Equals("Harry Snotter") ||
                 m.Name.Equals("Pieter Post") ||

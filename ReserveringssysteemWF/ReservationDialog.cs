@@ -20,7 +20,6 @@ namespace ReserveringssysteemWF
         private BindingList<DateTime> startTimes = new BindingList<DateTime>();
         private BindingList<TimeSpan> durations = new BindingList<TimeSpan>();
 
-
         /// <summary>
         /// Algorithm to show all available start times based on the boat type boats availability (start time & duration).
         /// </summary>

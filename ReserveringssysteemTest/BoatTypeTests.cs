@@ -12,8 +12,6 @@ namespace Reserveringssysteem.Tests
     [TestClass()]
     public class BoatTypeTests
     {
-        private List<User> members = new List<User>();
-
         [TestInitialize]
         public void Initialize()
         {
@@ -71,7 +69,7 @@ namespace Reserveringssysteem.Tests
         }
 
         [TestCleanup]
-        public void CleanUp()
+        public void Cleanup()
         {
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
             {
@@ -88,9 +86,15 @@ namespace Reserveringssysteem.Tests
         public void GetAvailableBoatTypesTest()
         {
             RecreationalTeam recreationalTeam = new RecreationalTeam();
-            recreationalTeam.Users = members;
+            recreationalTeam.Users = new List<User>();
 
-            Assert.Fail();
+            using (ReserveringssysteemContext context = new ReserveringssysteemContext())
+                foreach (Member member in context.Members.Include("Levels"))
+                    recreationalTeam.Users.Add(member);
+
+            BoatType[] boatTypes = BoatType.GetAvailableBoatTypes(recreationalTeam);
+
+            Assert.AreEqual(0, boatTypes.Length);
         }
     }
 }

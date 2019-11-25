@@ -50,6 +50,7 @@
             this.Datagrid_RemoveBoatFromUse1.AllowUserToResizeRows = false;
             this.Datagrid_RemoveBoatFromUse1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Datagrid_RemoveBoatFromUse1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_RemoveBoatFromUse1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_RemoveBoatFromUse1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Name_RemoveBoatFromUseTab,
@@ -69,7 +70,6 @@
             this.Name_RemoveBoatFromUseTab.MinimumWidth = 6;
             this.Name_RemoveBoatFromUseTab.Name = "Name_RemoveBoatFromUseTab";
             this.Name_RemoveBoatFromUseTab.ReadOnly = true;
-            this.Name_RemoveBoatFromUseTab.Width = 264;
             // 
             // Status_RemoveBoatFromUseTab
             // 
@@ -77,13 +77,13 @@
             this.Status_RemoveBoatFromUseTab.MinimumWidth = 6;
             this.Status_RemoveBoatFromUseTab.Name = "Status_RemoveBoatFromUseTab";
             this.Status_RemoveBoatFromUseTab.ReadOnly = true;
-            this.Status_RemoveBoatFromUseTab.Width = 264;
             // 
             // Datagrid_RemoveBoatFromUse2
             // 
             this.Datagrid_RemoveBoatFromUse2.AllowUserToAddRows = false;
             this.Datagrid_RemoveBoatFromUse2.AllowUserToResizeColumns = false;
             this.Datagrid_RemoveBoatFromUse2.AllowUserToResizeRows = false;
+            this.Datagrid_RemoveBoatFromUse2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_RemoveBoatFromUse2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_RemoveBoatFromUse2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Name_BrokenBoats,
@@ -103,7 +103,6 @@
             this.Name_BrokenBoats.MinimumWidth = 6;
             this.Name_BrokenBoats.Name = "Name_BrokenBoats";
             this.Name_BrokenBoats.ReadOnly = true;
-            this.Name_BrokenBoats.Width = 264;
             // 
             // Status_BrokenBoats
             // 
@@ -111,7 +110,6 @@
             this.Status_BrokenBoats.MinimumWidth = 6;
             this.Status_BrokenBoats.Name = "Status_BrokenBoats";
             this.Status_BrokenBoats.ReadOnly = true;
-            this.Status_BrokenBoats.Width = 264;
             // 
             // label1
             // 

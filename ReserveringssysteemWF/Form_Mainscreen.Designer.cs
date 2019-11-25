@@ -120,7 +120,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1034, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1034, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -131,7 +131,7 @@
             this.Register_AccountMenuItem,
             this.Logout_AccountMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // Login_AccountMenuItem
@@ -159,13 +159,13 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // tabControl1
@@ -205,6 +205,7 @@
             this.Datagrid_News.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Datagrid_News.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_News.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.Datagrid_News.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_News.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -225,7 +226,6 @@
             this.Date_NewsTab.MinimumWidth = 6;
             this.Date_NewsTab.Name = "Date_NewsTab";
             this.Date_NewsTab.ReadOnly = true;
-            this.Date_NewsTab.Width = 200;
             // 
             // Title_NewsTab
             // 
@@ -233,7 +233,6 @@
             this.Title_NewsTab.MinimumWidth = 6;
             this.Title_NewsTab.Name = "Title_NewsTab";
             this.Title_NewsTab.ReadOnly = true;
-            this.Title_NewsTab.Width = 560;
             // 
             // Tab_Boats
             // 
@@ -305,6 +304,7 @@
             this.Datagrid_Boats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Datagrid_Boats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_Boats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_Boats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Name_BoatTab,
@@ -326,7 +326,6 @@
             this.Name_BoatTab.MinimumWidth = 6;
             this.Name_BoatTab.Name = "Name_BoatTab";
             this.Name_BoatTab.ReadOnly = true;
-            this.Name_BoatTab.Width = 190;
             // 
             // Capacity_BoatTab
             // 
@@ -334,7 +333,6 @@
             this.Capacity_BoatTab.MinimumWidth = 6;
             this.Capacity_BoatTab.Name = "Capacity_BoatTab";
             this.Capacity_BoatTab.ReadOnly = true;
-            this.Capacity_BoatTab.Width = 190;
             // 
             // Coxswain_BoatTab
             // 
@@ -342,7 +340,6 @@
             this.Coxswain_BoatTab.MinimumWidth = 6;
             this.Coxswain_BoatTab.Name = "Coxswain_BoatTab";
             this.Coxswain_BoatTab.ReadOnly = true;
-            this.Coxswain_BoatTab.Width = 190;
             // 
             // Amount_BoatTab
             // 
@@ -350,7 +347,6 @@
             this.Amount_BoatTab.MinimumWidth = 6;
             this.Amount_BoatTab.Name = "Amount_BoatTab";
             this.Amount_BoatTab.ReadOnly = true;
-            this.Amount_BoatTab.Width = 190;
             // 
             // tab_Games
             // 
@@ -394,6 +390,7 @@
             this.Datagrid_Games.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Datagrid_Games.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_Games.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_Games.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Date_GameTab,
@@ -416,7 +413,6 @@
             this.Date_GameTab.MinimumWidth = 6;
             this.Date_GameTab.Name = "Date_GameTab";
             this.Date_GameTab.ReadOnly = true;
-            this.Date_GameTab.Width = 126;
             // 
             // StartTime_GameTab
             // 
@@ -424,7 +420,6 @@
             this.StartTime_GameTab.MinimumWidth = 6;
             this.StartTime_GameTab.Name = "StartTime_GameTab";
             this.StartTime_GameTab.ReadOnly = true;
-            this.StartTime_GameTab.Width = 126;
             // 
             // EndTime_GameTab
             // 
@@ -432,7 +427,6 @@
             this.EndTime_GameTab.MinimumWidth = 6;
             this.EndTime_GameTab.Name = "EndTime_GameTab";
             this.EndTime_GameTab.ReadOnly = true;
-            this.EndTime_GameTab.Width = 126;
             // 
             // Boat_GameTab
             // 
@@ -440,7 +434,6 @@
             this.Boat_GameTab.MinimumWidth = 6;
             this.Boat_GameTab.Name = "Boat_GameTab";
             this.Boat_GameTab.ReadOnly = true;
-            this.Boat_GameTab.Width = 126;
             // 
             // Distance_GameTab
             // 
@@ -448,7 +441,6 @@
             this.Distance_GameTab.MinimumWidth = 6;
             this.Distance_GameTab.Name = "Distance_GameTab";
             this.Distance_GameTab.ReadOnly = true;
-            this.Distance_GameTab.Width = 126;
             // 
             // Gender_GameTab
             // 
@@ -456,7 +448,6 @@
             this.Gender_GameTab.MinimumWidth = 6;
             this.Gender_GameTab.Name = "Gender_GameTab";
             this.Gender_GameTab.ReadOnly = true;
-            this.Gender_GameTab.Width = 126;
             // 
             // tab_Reservations
             // 
@@ -513,6 +504,7 @@
             this.Datagrid_Reservations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Datagrid_Reservations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_Reservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_Reservations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Date_ReservationTab,
@@ -532,7 +524,6 @@
             this.Date_ReservationTab.MinimumWidth = 6;
             this.Date_ReservationTab.Name = "Date_ReservationTab";
             this.Date_ReservationTab.ReadOnly = true;
-            this.Date_ReservationTab.Width = 253;
             // 
             // StartTime_ReservationTab
             // 
@@ -540,7 +531,6 @@
             this.StartTime_ReservationTab.MinimumWidth = 6;
             this.StartTime_ReservationTab.Name = "StartTime_ReservationTab";
             this.StartTime_ReservationTab.ReadOnly = true;
-            this.StartTime_ReservationTab.Width = 253;
             // 
             // EndTime_ReservationTab
             // 
@@ -548,7 +538,6 @@
             this.EndTime_ReservationTab.MinimumWidth = 6;
             this.EndTime_ReservationTab.Name = "EndTime_ReservationTab";
             this.EndTime_ReservationTab.ReadOnly = true;
-            this.EndTime_ReservationTab.Width = 253;
             // 
             // tab_Teams
             // 
@@ -572,6 +561,7 @@
             this.Datagrid_Teams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Datagrid_Teams.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_Teams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_Teams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Teamname_TeamsTab,
@@ -590,7 +580,6 @@
             this.Teamname_TeamsTab.MinimumWidth = 6;
             this.Teamname_TeamsTab.Name = "Teamname_TeamsTab";
             this.Teamname_TeamsTab.ReadOnly = true;
-            this.Teamname_TeamsTab.Width = 380;
             // 
             // TeamMembers_TeamsTab
             // 
@@ -598,7 +587,6 @@
             this.TeamMembers_TeamsTab.MinimumWidth = 6;
             this.TeamMembers_TeamsTab.Name = "TeamMembers_TeamsTab";
             this.TeamMembers_TeamsTab.ReadOnly = true;
-            this.TeamMembers_TeamsTab.Width = 380;
             // 
             // Bt_RemoveTeam
             // 
@@ -686,6 +674,7 @@
             this.Datagrid_Profiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Datagrid_Profiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_Profiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_Profiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Club_ProfilesTab,
@@ -706,7 +695,6 @@
             this.Club_ProfilesTab.MinimumWidth = 6;
             this.Club_ProfilesTab.Name = "Club_ProfilesTab";
             this.Club_ProfilesTab.ReadOnly = true;
-            this.Club_ProfilesTab.Width = 189;
             // 
             // Name_ProfilesTab
             // 
@@ -714,7 +702,6 @@
             this.Name_ProfilesTab.MinimumWidth = 6;
             this.Name_ProfilesTab.Name = "Name_ProfilesTab";
             this.Name_ProfilesTab.ReadOnly = true;
-            this.Name_ProfilesTab.Width = 189;
             // 
             // DateOfBirth_ProfilesTab
             // 
@@ -722,7 +709,6 @@
             this.DateOfBirth_ProfilesTab.MinimumWidth = 6;
             this.DateOfBirth_ProfilesTab.Name = "DateOfBirth_ProfilesTab";
             this.DateOfBirth_ProfilesTab.ReadOnly = true;
-            this.DateOfBirth_ProfilesTab.Width = 189;
             // 
             // Gender_ProfilesTab
             // 
@@ -730,7 +716,6 @@
             this.Gender_ProfilesTab.MinimumWidth = 6;
             this.Gender_ProfilesTab.Name = "Gender_ProfilesTab";
             this.Gender_ProfilesTab.ReadOnly = true;
-            this.Gender_ProfilesTab.Width = 189;
             // 
             // tab_Members
             // 
@@ -754,6 +739,7 @@
             this.Datagrid_Members.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Datagrid_Members.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_Members.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_Members.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Email_MembersTab,
@@ -772,7 +758,6 @@
             this.Email_MembersTab.MinimumWidth = 6;
             this.Email_MembersTab.Name = "Email_MembersTab";
             this.Email_MembersTab.ReadOnly = true;
-            this.Email_MembersTab.Width = 380;
             // 
             // Adress_MembersTab
             // 
@@ -780,7 +765,6 @@
             this.Adress_MembersTab.MinimumWidth = 6;
             this.Adress_MembersTab.Name = "Adress_MembersTab";
             this.Adress_MembersTab.ReadOnly = true;
-            this.Adress_MembersTab.Width = 380;
             // 
             // Bt_RemoveMember
             // 
@@ -835,6 +819,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_Mainscreen";
             this.Text = "Reserveringssyteem";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

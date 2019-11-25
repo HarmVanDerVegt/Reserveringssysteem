@@ -21,7 +21,6 @@ namespace ReserveringssysteemWF
 
         private void Form_ReportDamage_Load(object sender, EventArgs e)
         {
-            Datagrid_ReportDamage.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ShowReservationBoats();
         }
 

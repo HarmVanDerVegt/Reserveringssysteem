@@ -56,8 +56,10 @@ namespace Reserveringssysteem
 
                             if (noOverlap)
                             {
+                                if (availableBoat == null)
+                                    availableBoat = boat;
+
                                 atLeastOneBoatAvailable = true;
-                                availableBoat = boat;
                                 break;
                             }
                         }

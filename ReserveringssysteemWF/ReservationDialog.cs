@@ -34,7 +34,7 @@ namespace ReserveringssysteemWF
             if (coxswainRequired)
                 coxswainComboBox.DataSource = recreationalTeam.GetAvailableCoxswains();
 
-            removeMemberButton.Enabled = teamListBox.SelectedIndex != -1;
+            removeMemberButton.Enabled = teamListBox.Items.Count > 0;
             boatTypeComboBox.Enabled = boatTypeComboBox.Items.Count > 0;
             coxswainComboBox.Enabled = coxswainComboBox.Items.Count > 0;
 
@@ -94,6 +94,7 @@ namespace ReserveringssysteemWF
 
         private void removeMemberButton_Click(object sender, EventArgs e)
         {
+            recreationalTeam.Users.Remove((User)teamListBox.SelectedItem);
             UpdateDisplay();
         }
 

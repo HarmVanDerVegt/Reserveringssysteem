@@ -9,6 +9,7 @@ using System.Text;
 
 namespace Reserveringssysteem
 {
+
     public class Member : User
     {
         [Required]
@@ -79,6 +80,75 @@ namespace Reserveringssysteem
         public static void Logout()
         {
             CurrentMember = null;
+        }
+
+        public static bool Register(string name, DateTime dateOfBirth, Gender gender,
+                                    string organisation, string email, string password,
+                                    Address address)
+        {
+            if (String.IsNullOrEmpty(email))
+            {
+                throw new ArgumentNullException("Email must not be null.");
+            }
+
+            if (String.IsNullOrEmpty(password))
+            {
+                throw new ArgumentNullException("Password must not be null.");
+            }
+
+            if (address == null)
+            {
+                throw new ArgumentNullException("Address must not be null.");
+            }
+
+            if (password.Length < 6)
+            {
+                throw new ArgumentException("Password is too short.");
+            }
+
+            if (password.Length > 99)
+            {
+                throw new ArgumentException("Password is too long.");
+            }
+
+            string HashedPassword;
+
+            using (var db = new ReserveringssysteemContext())
+            {
+
+                if (db.Members.Where(m => m.Email == email).SingleOrDefault() != null)
+                {
+                    return false; ;
+                }
+
+                using (SHA256 SHA = SHA256.Create())
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+
+                    foreach (byte b in SHA.ComputeHash(Encoding.UTF8.GetBytes(password))){
+                        stringBuilder.Append(b.ToString("x2"));
+                    }
+
+                    HashedPassword = stringBuilder.ToString();
+
+                    Member member = new Member()
+                    {
+                        Name = name,
+                        DateOfBirth = dateOfBirth,
+                        Gender = gender,
+                        Organisation = organisation,
+                        Email = email,
+                        Password = HashedPassword,
+                        Address = address
+                    };
+
+                    db.Members.Add(member);
+
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
         }
 
     }

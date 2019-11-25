@@ -89,6 +89,7 @@ namespace ReserveringssysteemWF
                         if (available)
                             foreach (Reservation reservation in boat.Reservations)
                             {
+
                                 // Time range of the current reservation
                                 DateTime bStart = reservation.DateTime;
                                 DateTime bEnd = reservation.DateTime + reservation.Duration;

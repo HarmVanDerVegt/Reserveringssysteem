@@ -68,6 +68,8 @@
             // 
             // Datagrid_ReportDamage
             // 
+            this.Datagrid_ReportDamage.AllowUserToAddRows = false;
+            this.Datagrid_ReportDamage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_ReportDamage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_ReportDamage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Date_ReportDamageDialog,
@@ -77,6 +79,7 @@
             this.Datagrid_ReportDamage.RowHeadersVisible = false;
             this.Datagrid_ReportDamage.RowHeadersWidth = 51;
             this.Datagrid_ReportDamage.RowTemplate.Height = 24;
+            this.Datagrid_ReportDamage.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Datagrid_ReportDamage.Size = new System.Drawing.Size(407, 335);
             this.Datagrid_ReportDamage.TabIndex = 3;
             // 
@@ -86,7 +89,6 @@
             this.Date_ReportDamageDialog.MinimumWidth = 6;
             this.Date_ReportDamageDialog.Name = "Date_ReportDamageDialog";
             this.Date_ReportDamageDialog.ReadOnly = true;
-            this.Date_ReportDamageDialog.Width = 202;
             // 
             // Boat_ReportDamageDialog
             // 
@@ -94,7 +96,6 @@
             this.Boat_ReportDamageDialog.MinimumWidth = 6;
             this.Boat_ReportDamageDialog.Name = "Boat_ReportDamageDialog";
             this.Boat_ReportDamageDialog.ReadOnly = true;
-            this.Boat_ReportDamageDialog.Width = 202;
             // 
             // Form_ReportDamage
             // 

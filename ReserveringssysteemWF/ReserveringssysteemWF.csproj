@@ -5,10 +5,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E3D16D5C-9F56-42F6-9B82-B3E40E4C1A96}</ProjectGuid>
+    <ProjectGuid>{CE387885-8A9F-44EA-8396-18B9EE8AEE98}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Reserveringssysteem</RootNamespace>
-    <AssemblyName>Reserveringssysteem</AssemblyName>
+    <RootNamespace>ReserveringssysteemWF</RootNamespace>
+    <AssemblyName>ReserveringssysteemWF</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
@@ -49,40 +52,79 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
-    <Compile Include="Boat.cs" />
-    <Compile Include="BoatType.cs" />
-    <Compile Include="Certificate.cs" />
-    <Compile Include="Match.cs" />
-    <Compile Include="MatchTeam.cs" />
-    <Compile Include="Member.cs" />
-    <Compile Include="Migrations\201911200932383_Rebuild.cs" />
-    <Compile Include="Migrations\201911200932383_Rebuild.designer.cs">
-      <DependentUpon>201911200932383_Rebuild.cs</DependentUpon>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberPicker.Designer.cs">
+      <DependentUpon>MemberPicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecreationalTeam.cs" />
-    <Compile Include="Reservation.cs" />
-    <Compile Include="ReserveringssysteemContext.cs" />
-    <Compile Include="Result.cs" />
-    <Compile Include="Role.cs" />
-    <Compile Include="Team.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="ReservationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationDialog.Designer.cs">
+      <DependentUpon>ReservationDialog.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberPicker.resx">
+      <DependentUpon>MemberPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReservationDialog.resx">
+      <DependentUpon>ReservationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911200932383_Rebuild.resx">
-      <DependentUpon>201911200932383_Rebuild.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\Reserveringssysteem\Reserveringssysteem.csproj">
+      <Project>{e3d16d5c-9f56-42f6-9b82-b3e40e4c1a96}</Project>
+      <Name>Reserveringssysteem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -117,10 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Target" xml:space="preserve">
-    <value>H4sIAAAAAAAEAM1W224aMRB9r9R/sPxMMZCXNloSJZBUqCWJsmneze5ArPqytb1R+LY+9JP6Cx2zN1ggF1RVFS+sPTM+c+bM2L9//opOn5Qkj2CdMHpI+90eJaATkwq9GNLczz98pKcn799FF6l6IveV3VGwQ0/thvTB++yYMZc8gOKuq0RijTNz302MYjw1bNDrfWL9PgMMQTEWIdFtrr1QsPrAz5HRCWQ+53JqUpCuXMedeBWVXHEFLuMJDOktOLAIGAE6t3QeQFFyJgVHKDHIOSVca+O5R6DH3xzE3hq9iDNc4PJumQHazbl0UCZw3Ji/NpfeIOTCGscqVJI7b9QbA/aPSnJY2/0gimlNHtJ3gTT7Zch6ReGQnhvuKWkfdDySNhjtZLcbfDpkx06nFgTqJvw6ZJRLn1sYasi95bJDbvKZFMkXWN6Z76CHOpdyHSFixL2NBVy6sSYD65e3MC9xT8aUsE0/1nas3dZ8iqwm2h8NKLnCw/lMQi2ANQZibyx8Bg2We0hvuPdgsX6TFFYUbp4esYbYbbpRzZ4LjFTi2MFcMIGnXZVAxZbFwLp7m0OLreKIGPxaQR0lDZ6iC7pFoXeBruE1XcaKNqvake3px2jKsyxk0XiWKyQumnP0IX67aFURgyVuh3ZrtPVJWCi+gNYuHo1IL4V1fsw9n/FQ3lGqtsyeKcYeoquD1/luC7ahv7IO//eWv6hOK0jD5iUmqFB3q1yhBlJ275bbakxyye0O/Y+MzJXe10NFtVuntnNjW8m1+rDN1HOaa5vUp9faa2ksKuv98sWwJYDChBKk5VGkofhxoF91g0E3/iFHUmC+jcGUazEH54tRRXE0D1pXy/8z5plzqXzFrP/ns1YERl+cpluj+PDxut34L0/MvQOz0MyQpjODCRUIyxF74Czd1m/E1p8/0RicWDQhwmNIQxKE0QStbCZ6birmMaN1RJVJqzBT8DxFYs6sF3OeeNxOwDnsMEruuczR5ELNIJ3o69xnuT9zDtRMblx4EXv+/NWFsYk5us7Cl/sbKSBMgSnAtT7PhUxr3Jc7lLMnRNBIKUdEhU9CDLdY1pGujH5loJK+MWSgg5jvQGUSg7lrHfNHOAQb3vhfYcGTZTWG9gd5uRCbtEdjwReWK1fGaPzDk56FN/3JH64RymAFDAAA</value>
-  </data>
-  <data name="DefaultSchema" xml:space="preserve">
-    <value>dbo</value>
-  </data>
 </root>

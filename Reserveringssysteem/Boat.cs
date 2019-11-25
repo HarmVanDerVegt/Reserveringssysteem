@@ -15,11 +15,26 @@ namespace Reserveringssysteem
         public int ID { get; set; }
 
         [Required, EnumDataType(typeof(BoatStatus))]
-        public BoatStatus Status { get; set; }
+        public BoatStatus BoatStatus { get; set; }
 
         [Required]
-        public BoatType Type { get; set; }
+        public virtual BoatType BoatType { get; set; }
 
         public List<Reservation> Reservations { get; set; }
+
+        public Boat(BoatType boatType)
+        {
+            BoatStatus = BoatStatus.Whole;
+            BoatType = boatType;
+
+            using (var db = new ReserveringssysteemContext())
+            {
+                db.Boats.Add(this);
+                //db.SaveChanges();
+            }
+
+        }
+
+        private Boat() { }
     }
 }

@@ -62,11 +62,11 @@ namespace Reserveringssysteem
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
             {
                 // Get the coxswain certificate
-                Certificate coxswainCertificate = context.Certificates.Where(c => c.Name.Equals("Certificate Stuurman")).First();
+                Certificate coxswainCertificate = context.Certificates.Where(c => c.Name.Equals("Certificate Stuurman")).FirstOrDefault();
 
                 foreach (User user in Users)
                     // Check if this user contains the coxswain certificate.
-                    if (user.Levels != null && user.Levels.Select(c => c.ID).ToList().Contains(coxswainCertificate.ID))
+                    if (user.Levels != null && coxswainCertificate != null && user.Levels.Select(c => c.ID).ToList().Contains(coxswainCertificate.ID))
                         coxswains.Add(user);
             }
 

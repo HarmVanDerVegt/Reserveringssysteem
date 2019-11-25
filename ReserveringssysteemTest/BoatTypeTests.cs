@@ -17,7 +17,7 @@ namespace Reserveringssysteem.Tests
         [TestInitialize]
         public void Initialize()
         {
-            using(ReserveringssysteemContext context = new ReserveringssysteemContext)
+            using(ReserveringssysteemContext context = new ReserveringssysteemContext())
             {
                 context.Members.Add(new Member()
                 {
@@ -73,7 +73,7 @@ namespace Reserveringssysteem.Tests
         [TestCleanup]
         public void CleanUp()
         {
-            using (ReserveringssysteemContext context = new ReserveringssysteemContext)
+            using (ReserveringssysteemContext context = new ReserveringssysteemContext())
             {
                 context.Members.RemoveRange(context.Members.Include("Levels").Where(m => 
                 m.Name.Equals("Beau ter Ham") || 

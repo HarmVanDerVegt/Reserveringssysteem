@@ -15,7 +15,7 @@ namespace Reserveringssysteem.Tests
         [TestInitialize]
         public void Initialize()
         {
-            using(ReserveringssysteemContext context = new ReserveringssysteemContext())
+            using (ReserveringssysteemContext context = new ReserveringssysteemContext())
             {
                 context.Members.Add(new Member()
                 {
@@ -73,8 +73,8 @@ namespace Reserveringssysteem.Tests
         {
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
             {
-                context.Members.RemoveRange(context.Members.Include("Levels").Include("Address").Where(m => 
-                m.Name.Equals("Beau ter Ham") || 
+                context.Members.RemoveRange(context.Members.Include("Levels").Include("Address").Where(m =>
+                m.Name.Equals("Beau ter Ham") ||
                 m.Name.Equals("Harry Snotter") ||
                 m.Name.Equals("Pieter Post") ||
                 m.Name.Equals("Prog Ramma")));
@@ -83,7 +83,7 @@ namespace Reserveringssysteem.Tests
         }
 
         [TestMethod()]
-        public void GetAvailableBoatTypesTest()
+        public void GetAvailableBoatTypes_4_User_1_Skiff_Certificate()
         {
             RecreationalTeam recreationalTeam = new RecreationalTeam();
             recreationalTeam.Users = new List<User>();
@@ -95,6 +95,22 @@ namespace Reserveringssysteem.Tests
             BoatType[] boatTypes = BoatType.GetAvailableBoatTypes(recreationalTeam);
 
             Assert.AreEqual(0, boatTypes.Length);
+        }
+
+        [TestMethod()]
+        public void GetAvailableBoatTypes_1_User_1_Skiff_Certificate()
+        {
+            RecreationalTeam recreationalTeam = new RecreationalTeam();
+            recreationalTeam.Users = new List<User>();
+
+            using (ReserveringssysteemContext context = new ReserveringssysteemContext())
+            {
+                recreationalTeam.Users.Add(context.Members.Include("Levels").Where(m => m.Name.Equals("Prog Ramma")).First());
+
+                BoatType[] boatTypes = BoatType.GetAvailableBoatTypes(recreationalTeam);
+
+                Assert.AreEqual(context.BoatTypes.Where(b => b.Name.Equals("Skiff")).First().ID, boatTypes.First().ID);
+            }
         }
     }
 }

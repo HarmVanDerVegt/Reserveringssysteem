@@ -21,6 +21,7 @@
 
             context.BoatTypes.RemoveRange(context.BoatTypes);
             context.Certificates.RemoveRange(context.Certificates);
+            context.Members.RemoveRange(context.Members.Include(m => m.Address));
             context.Users.RemoveRange(context.Users);
 
             context.BoatTypes.AddOrUpdate(new BoatType("Skiff", 1, false));
@@ -101,12 +102,29 @@
                 Password = "#",
             });
 
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
 
             System.Collections.Generic.List<Certificate> certificates = new System.Collections.Generic.List<Certificate>();
             certificates.Add(context.Certificates.Where(c => c.Name == "Certificate Skiff").First());
             context.Users.Where(u => u.Name == "Prog Ramma").First().Levels = certificates;
-            context.SaveChanges();
+
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }

@@ -120,7 +120,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1034, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1034, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -131,7 +131,7 @@
             this.Register_AccountMenuItem,
             this.Logout_AccountMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // Login_AccountMenuItem
@@ -159,13 +159,13 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // tabControl1
@@ -199,6 +199,7 @@
             // 
             // Datagrid_News
             // 
+            this.Datagrid_News.AllowUserToAddRows = false;
             this.Datagrid_News.AllowUserToResizeColumns = false;
             this.Datagrid_News.AllowUserToResizeRows = false;
             this.Datagrid_News.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -298,6 +299,7 @@
             // 
             // Datagrid_Boats
             // 
+            this.Datagrid_Boats.AllowUserToAddRows = false;
             this.Datagrid_Boats.AllowUserToResizeColumns = false;
             this.Datagrid_Boats.AllowUserToResizeRows = false;
             this.Datagrid_Boats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -386,6 +388,7 @@
             // 
             // Datagrid_Games
             // 
+            this.Datagrid_Games.AllowUserToAddRows = false;
             this.Datagrid_Games.AllowUserToResizeColumns = false;
             this.Datagrid_Games.AllowUserToResizeRows = false;
             this.Datagrid_Games.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -504,6 +507,7 @@
             // 
             // Datagrid_Reservations
             // 
+            this.Datagrid_Reservations.AllowUserToAddRows = false;
             this.Datagrid_Reservations.AllowUserToResizeColumns = false;
             this.Datagrid_Reservations.AllowUserToResizeRows = false;
             this.Datagrid_Reservations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -562,6 +566,7 @@
             // 
             // Datagrid_Teams
             // 
+            this.Datagrid_Teams.AllowUserToAddRows = false;
             this.Datagrid_Teams.AllowUserToResizeColumns = false;
             this.Datagrid_Teams.AllowUserToResizeRows = false;
             this.Datagrid_Teams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -675,6 +680,7 @@
             // 
             // Datagrid_Profiles
             // 
+            this.Datagrid_Profiles.AllowUserToAddRows = false;
             this.Datagrid_Profiles.AllowUserToResizeColumns = false;
             this.Datagrid_Profiles.AllowUserToResizeRows = false;
             this.Datagrid_Profiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -742,6 +748,7 @@
             // 
             // Datagrid_Members
             // 
+            this.Datagrid_Members.AllowUserToAddRows = false;
             this.Datagrid_Members.AllowUserToResizeColumns = false;
             this.Datagrid_Members.AllowUserToResizeRows = false;
             this.Datagrid_Members.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 

@@ -45,6 +45,7 @@
             // 
             // Datagrid_RemoveBoatFromUse1
             // 
+            this.Datagrid_RemoveBoatFromUse1.AllowUserToAddRows = false;
             this.Datagrid_RemoveBoatFromUse1.AllowUserToResizeColumns = false;
             this.Datagrid_RemoveBoatFromUse1.AllowUserToResizeRows = false;
             this.Datagrid_RemoveBoatFromUse1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -80,6 +81,7 @@
             // 
             // Datagrid_RemoveBoatFromUse2
             // 
+            this.Datagrid_RemoveBoatFromUse2.AllowUserToAddRows = false;
             this.Datagrid_RemoveBoatFromUse2.AllowUserToResizeColumns = false;
             this.Datagrid_RemoveBoatFromUse2.AllowUserToResizeRows = false;
             this.Datagrid_RemoveBoatFromUse2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

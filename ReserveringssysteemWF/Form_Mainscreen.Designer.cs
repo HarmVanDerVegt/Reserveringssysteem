@@ -120,7 +120,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1034, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1034, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -137,21 +137,22 @@
             // Login_AccountMenuItem
             // 
             this.Login_AccountMenuItem.Name = "Login_AccountMenuItem";
-            this.Login_AccountMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.Login_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
             this.Login_AccountMenuItem.Text = "Inloggen";
             this.Login_AccountMenuItem.Click += new System.EventHandler(this.Login_AccountMenuItem_Click);
             // 
             // Register_AccountMenuItem
             // 
             this.Register_AccountMenuItem.Name = "Register_AccountMenuItem";
-            this.Register_AccountMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.Register_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
             this.Register_AccountMenuItem.Text = "Registreren";
+            this.Register_AccountMenuItem.Visible = false;
             this.Register_AccountMenuItem.Click += new System.EventHandler(this.Register_AccountMenuItem_Click);
             // 
             // Logout_AccountMenuItem
             // 
             this.Logout_AccountMenuItem.Name = "Logout_AccountMenuItem";
-            this.Logout_AccountMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.Logout_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
             this.Logout_AccountMenuItem.Text = "Uitloggen";
             this.Logout_AccountMenuItem.Visible = false;
             this.Logout_AccountMenuItem.Click += new System.EventHandler(this.Logout_AccountMenuItem_Click);

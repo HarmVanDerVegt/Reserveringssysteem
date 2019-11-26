@@ -23,6 +23,7 @@
             context.Certificates.RemoveRange(context.Certificates);
             context.Members.RemoveRange(context.Members.Include(m => m.Address));
             context.Users.RemoveRange(context.Users);
+            context.Roles.RemoveRange(context.Roles);
 
             context.BoatTypes.AddOrUpdate(new BoatType("Skiff", 1, false));
             context.BoatTypes.AddOrUpdate(new BoatType("Dubbel Twee", 2, false));
@@ -34,20 +35,23 @@
             context.BoatTypes.AddOrUpdate(new BoatType("Vier Met", 4, true));
             context.BoatTypes.AddOrUpdate(new BoatType("Acht", 8, true));
 
+            context.Roles.Add(new Role(RoleType.Admin));
+            context.Roles.Add(new Role(RoleType.ChiefOfEquipment));
+            context.Roles.Add(new Role(RoleType.TournamentOrganiser));
+
 
             Boat test = new Boat(new BoatType("brokenBoat", 2, false));
             test.BoatStatus = BoatStatus.Broken;
             context.Boats.AddOrUpdate(test);
 
-            Reservation r = new Reservation(new Boat(new BoatType("Skiff", 1, false)), DateTime.Now);
-            RecreationalTeam team = new RecreationalTeam();
-            r.Team = team;
-            r.Duration = new TimeSpan(2, 0, 0);
+            //Reservation r = new Reservation(new Boat(new BoatType("Skiff", 1, false)), DateTime.Now);
+            //RecreationalTeam team = new RecreationalTeam();
+            //r.Team = team;
+            //r.Duration = new TimeSpan(2, 0, 0);
+            //context.Reservations.Add(r);
 
-            context.Reservations.Add(r);
-
-
-            context.Members.AddOrUpdate(new Member()
+            //Admin user
+            Member harm = new Member()
             {
                 Name = "Harm",
                 DateOfBirth = DateTime.Now,
@@ -61,8 +65,56 @@
                     ZIP = "9999ZZ",
                     City = "Den Haag"
                 },
-                Password = "7bca025eff4fb877bea86faac56c909b65c97adfba23b7c1fb6b9772d34b420e" //Welkom123
-            });
+                Password = "7bca025eff4fb877bea86faac56c909b65c97adfba23b7c1fb6b9772d34b420e", //Welkom123
+
+            };
+            context.Members.AddOrUpdate(harm);
+            context.SaveChanges();
+            harm.AddRole(RoleType.Admin);
+
+            //Materiaalcommisaris
+            Member Materiaalcommisaris = new Member()
+            {
+                Name = "Henkie",
+                DateOfBirth = DateTime.Now,
+                Gender = Gender.Male,
+                Organisation = "HBO-ICT",
+                Email = "mat@example",
+                Address = new Address()
+                {
+                    Street = "Sesamstraat",
+                    HouseNumber = 37,
+                    ZIP = "9999ZZ",
+                    City = "Den Haag"
+                },
+                Password = "7bca025eff4fb877bea86faac56c909b65c97adfba23b7c1fb6b9772d34b420e", //Welkom123
+
+            };
+            context.Members.AddOrUpdate(Materiaalcommisaris);
+            context.SaveChanges();
+            Materiaalcommisaris.AddRole(RoleType.ChiefOfEquipment);
+
+            //Tournamentorganizer
+            Member Wedstrijd = new Member()
+            {
+                Name = "Harrie",
+                DateOfBirth = DateTime.Now,
+                Gender = Gender.Male,
+                Organisation = "HBO-ICT",
+                Email = "wed@example",
+                Address = new Address()
+                {
+                    Street = "Sesamstraat",
+                    HouseNumber = 37,
+                    ZIP = "9999ZZ",
+                    City = "Den Haag"
+                },
+                Password = "7bca025eff4fb877bea86faac56c909b65c97adfba23b7c1fb6b9772d34b420e", //Welkom123
+
+            };
+            context.Members.AddOrUpdate(Wedstrijd);
+            context.SaveChanges();
+            Wedstrijd.AddRole(RoleType.TournamentOrganiser);
 
             context.Users.AddOrUpdate(new Member()
             {

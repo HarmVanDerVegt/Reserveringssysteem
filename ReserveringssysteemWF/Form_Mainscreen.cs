@@ -14,7 +14,6 @@ namespace ReserveringssysteemWF
 {
     public partial class Form_Mainscreen : Form
     {
-
         public Form_Mainscreen()
         {
             InitializeComponent();
@@ -122,13 +121,39 @@ namespace ReserveringssysteemWF
 
         private void Logout_AccountMenuItem_Click(object sender, EventArgs e)
         {
+            if (Member.CurrentMember.HasRole(RoleType.ChiefOfEquipment))
+            {
+                ChiefOfEquipmentActions();
+            }
+            if (Member.CurrentMember.HasRole(RoleType.TournamentOrganiser))
+            {
+                TournamantOrganizerActions();
+            }
+            if (Member.CurrentMember.HasRole(RoleType.Admin))
+            {
+                AdminActions();
+            }
             Member.Logout();
             MemberActions();
+            Register_AccountMenuItem.Visible = false;
+
         }
 
         public void LoginScreen()
         {
             MemberActions();
+            if (Member.CurrentMember.HasRole(RoleType.ChiefOfEquipment))
+            {
+                ChiefOfEquipmentActions();
+            }
+            if (Member.CurrentMember.HasRole(RoleType.TournamentOrganiser))
+            {
+                TournamantOrganizerActions();
+            }
+            if (Member.CurrentMember.HasRole(RoleType.Admin))
+            {
+                AdminActions();
+            }
         }
 
         public void MemberActions()
@@ -188,10 +213,8 @@ namespace ReserveringssysteemWF
             Bt_RemoveTeam.Visible = !Bt_RemoveTeam.Visible;
         }
 
-        public void Admin()
+        public void AdminActions()
         {
-            Register_AccountMenuItem.Visible = !Register_AccountMenuItem.Visible;
-
             if (tabControl1.Contains(tab_Profiles))
             {
                 tabControl1.TabPages.Remove(tab_Profiles);
@@ -217,6 +240,7 @@ namespace ReserveringssysteemWF
             Bt_AddMember.Visible = !Bt_AddMember.Visible;
             Bt_ModifyMember.Visible = !Bt_ModifyMember.Visible;
             Bt_RemoveMember.Visible = !Bt_RemoveMember.Visible;
+            Register_AccountMenuItem.Visible = !Register_AccountMenuItem.Visible;
         }
 
         private void Lb_WelcomeMessage_Paint(object sender, PaintEventArgs e)

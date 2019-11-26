@@ -33,7 +33,7 @@ namespace Reserveringssysteem
         /// <param name="startTime">The time from when you want to reserve the boat.</param>
         /// <param name="duration">The duration of the reservation.</param>
         /// <returns>Returns true if the reservation went successfully into the database.</returns>
-        public bool Reserve(Team team, Boat boat, DateTime startTime, TimeSpan duration)
+        public static bool Reserve(Team team, Boat boat, DateTime startTime, TimeSpan duration)
         {
             using (ReserveringssysteemContext context = new ReserveringssysteemContext())
             {

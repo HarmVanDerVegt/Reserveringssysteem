@@ -49,7 +49,7 @@ namespace ReserveringssysteemWF
             DateTime date = datePicker.SelectionStart.Date;
             TimeSpan duration = (TimeSpan)durationComboBox.SelectedItem;
 
-            startTimeComboBox.DataSource = Reservation.GetAvailableStartTimes(boatType, date, duration, out reservedBoat);
+            startTimeComboBox.DataSource = Reservation.GetAvailableBoatStartTimes(boatType, date, duration, out reservedBoat);
 
             startTimeComboBox.Enabled = startTimeComboBox.Items.Count > 0;
 

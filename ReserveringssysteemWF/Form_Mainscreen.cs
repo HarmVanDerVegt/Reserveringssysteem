@@ -113,12 +113,6 @@ namespace ReserveringssysteemWF
             LoginForm.ShowDialog();
         }
 
-        private void Register_AccountMenuItem_Click(object sender, EventArgs e)
-        {
-            Form_Register RegisterForm = new Form_Register();
-            RegisterForm.ShowDialog();
-        }
-
         private void Logout_AccountMenuItem_Click(object sender, EventArgs e)
         {
             if (Member.CurrentMember.HasRole(RoleType.ChiefOfEquipment))
@@ -135,7 +129,6 @@ namespace ReserveringssysteemWF
             }
             Member.Logout();
             MemberActions();
-            Register_AccountMenuItem.Visible = false;
 
         }
 
@@ -240,7 +233,7 @@ namespace ReserveringssysteemWF
             Bt_AddMember.Visible = !Bt_AddMember.Visible;
             Bt_ModifyMember.Visible = !Bt_ModifyMember.Visible;
             Bt_RemoveMember.Visible = !Bt_RemoveMember.Visible;
-            Register_AccountMenuItem.Visible = !Register_AccountMenuItem.Visible;
+            Bt_AddMember.Visible = !Bt_AddMember.Visible;
         }
 
         private void Lb_WelcomeMessage_Paint(object sender, PaintEventArgs e)
@@ -258,6 +251,12 @@ namespace ReserveringssysteemWF
         private void Bt_AddReservation_Click(object sender, EventArgs e)
         {
             new ReservationDialog().ShowDialog();
+        }
+
+        private void Bt_AddMember_Click(object sender, EventArgs e)
+        {
+            Form_Register RegisterForm = new Form_Register();
+            RegisterForm.ShowDialog();
         }
     }
 }

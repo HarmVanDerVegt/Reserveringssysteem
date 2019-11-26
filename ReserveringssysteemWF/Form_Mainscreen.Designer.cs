@@ -31,7 +31,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Login_AccountMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Register_AccountMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Logout_AccountMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,7 +127,6 @@
             // 
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Login_AccountMenuItem,
-            this.Register_AccountMenuItem,
             this.Logout_AccountMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
@@ -140,14 +138,6 @@
             this.Login_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
             this.Login_AccountMenuItem.Text = "Inloggen";
             this.Login_AccountMenuItem.Click += new System.EventHandler(this.Login_AccountMenuItem_Click);
-            // 
-            // Register_AccountMenuItem
-            // 
-            this.Register_AccountMenuItem.Name = "Register_AccountMenuItem";
-            this.Register_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.Register_AccountMenuItem.Text = "Registreren";
-            this.Register_AccountMenuItem.Visible = false;
-            this.Register_AccountMenuItem.Click += new System.EventHandler(this.Register_AccountMenuItem_Click);
             // 
             // Logout_AccountMenuItem
             // 
@@ -798,6 +788,7 @@
             this.Bt_AddMember.Text = "Lid toevoegen";
             this.Bt_AddMember.UseVisualStyleBackColor = true;
             this.Bt_AddMember.Visible = false;
+            this.Bt_AddMember.Click += new System.EventHandler(this.Bt_AddMember_Click);
             // 
             // Lb_WelcomeMessage
             // 
@@ -909,7 +900,6 @@
         private System.Windows.Forms.Button Bt_RemoveBoatFromUse;
         private System.Windows.Forms.ToolStripMenuItem Login_AccountMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Logout_AccountMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Register_AccountMenuItem;
         private System.Windows.Forms.Label Lb_WelcomeMessage;
     }
 }

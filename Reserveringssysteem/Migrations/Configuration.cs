@@ -39,7 +39,6 @@
             context.Roles.Add(new Role(RoleType.ChiefOfEquipment));
             context.Roles.Add(new Role(RoleType.TournamentOrganiser));
 
-
             Boat test = new Boat(new BoatType("brokenBoat", 2, false));
             test.BoatStatus = BoatStatus.Broken;
             context.Boats.AddOrUpdate(test);

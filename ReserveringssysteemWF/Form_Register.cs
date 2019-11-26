@@ -39,6 +39,11 @@ namespace ReserveringssysteemWF
                 errorProvider1.SetError(Tb_PasswordRegister, "Wachtwoord is verplicht");
                 return false;
             }
+            if (Tb_PasswordRegister.Text.Length < 6 || Tb_PasswordRegister.Text.Length > 99)
+            {
+                errorProvider1.SetError(Tb_PasswordRegister, "Wachtwoord moet minimaal 6 characters bevatten");
+                return false;
+            }
             else
             {
                 errorProvider1.SetError(Tb_PasswordRegister, "");
@@ -51,6 +56,11 @@ namespace ReserveringssysteemWF
             if (String.IsNullOrWhiteSpace(Tb_Password2Register.Text))
             {
                 errorProvider1.SetError(Tb_Password2Register, "Wachtwoord is verplicht");
+                return false;
+            }
+            if (Tb_PasswordRegister.Text != Tb_Password2Register.Text)
+            {
+                errorProvider1.SetError(Tb_PasswordRegister, "Wachtwoorden zijn niet gelijk aan elkaar");
                 return false;
             }
             else
@@ -109,6 +119,11 @@ namespace ReserveringssysteemWF
                 errorProvider1.SetError(Tb_HousenumberRegister, "Huisnummer is verplicht");
                 return false;
             }
+            if (!int.TryParse(Tb_HousenumberRegister.Text, out int n))
+            {
+                errorProvider1.SetError(Tb_HousenumberRegister, "Huisnummer moet een nummer zijn");
+                return false;
+            }
             else
             {
                 errorProvider1.SetError(Tb_HousenumberRegister, "");
@@ -121,6 +136,11 @@ namespace ReserveringssysteemWF
             if (String.IsNullOrWhiteSpace(Tb_ZipcodeRegister.Text))
             {
                 errorProvider1.SetError(Tb_ZipcodeRegister, "Postcode is verplicht");
+                return false;
+            }
+            if (!IsZipCode(Tb_ZipcodeRegister.Text))
+            {
+                errorProvider1.SetError(Tb_ZipcodeRegister, "Postcode moet bestaan als volgt \"8000AA\"");
                 return false;
             }
             else
@@ -177,25 +197,18 @@ namespace ReserveringssysteemWF
                     gender = Gender.Female;
                 }
                 Address address;
-                if (CheckValues() != "")
+                if (String.IsNullOrWhiteSpace(Tb_AnnexRegister.Text))
                 {
-                    LB_ErrorMessageRegister.Text = CheckValues();
+                    address = new Address(Tb_StreetRegister.Text, Convert.ToInt32(Tb_HousenumberRegister.Text), Tb_ZipcodeRegister.Text, Tb_CityRegister.Text);
                 }
                 else
                 {
-                    if (String.IsNullOrWhiteSpace(Tb_AnnexRegister.Text))
-                    {
-                        address = new Address(Tb_StreetRegister.Text, Convert.ToInt32(Tb_HousenumberRegister.Text), Tb_ZipcodeRegister.Text, Tb_CityRegister.Text);
-                    }
-                    else
-                    {
-                        address = new Address(Tb_StreetRegister.Text, Convert.ToInt32(Tb_HousenumberRegister.Text), Tb_AnnexRegister.Text, Tb_ZipcodeRegister.Text, Tb_CityRegister.Text);
-                    }
-
-                    bool result = Member.Register(Tb_NameRegister.Text, DTP_DateRegister.Value, gender, Tb_OrganisationRegister.Text, Tb_EmailRegister.Text, Tb_PasswordRegister.Text, address);
-
-                    FinalCheck(result);
+                    address = new Address(Tb_StreetRegister.Text, Convert.ToInt32(Tb_HousenumberRegister.Text), Tb_AnnexRegister.Text, Tb_ZipcodeRegister.Text, Tb_CityRegister.Text);
                 }
+
+                bool result = Member.Register(Tb_NameRegister.Text, DTP_DateRegister.Value, gender, Tb_OrganisationRegister.Text, Tb_EmailRegister.Text, Tb_PasswordRegister.Text, address);
+
+                FinalCheck(result);
             }
         }
 
@@ -212,27 +225,6 @@ namespace ReserveringssysteemWF
                 ValidateHouseNumber() &&
                 ValidateZipCode() &&
                 ValidateCity();
-        }
-
-        private string CheckValues()
-        {
-            if (Tb_PasswordRegister.Text.Length < 6 || Tb_PasswordRegister.Text.Length > 99)
-            {
-                return "Wachtwoord moet minimaal 6 characters hebben";
-            }
-            else if (Tb_PasswordRegister.Text != Tb_Password2Register.Text)
-            {
-                return "Wachtwoorden zijn niet gelijk aan elkaar";
-            }
-            else if (!int.TryParse(Tb_HousenumberRegister.Text, out int n))
-            {
-                return "Huisnummer moet een nummer zijn";
-            }
-            else if (!IsZipCode(Tb_ZipcodeRegister.Text))
-            {
-                return "Postcode moet bestaan als volgt \"8000AA\"";
-            }
-            return "";
         }
 
         private bool IsZipCode(string str)

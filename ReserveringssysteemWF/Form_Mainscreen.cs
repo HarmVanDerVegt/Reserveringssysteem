@@ -59,7 +59,7 @@ namespace ReserveringssysteemWF
                         hasCoxswain = "Ja";
                     else
                         hasCoxswain = "Nee";
-                      
+
                     for (int i = 0; i < Datagrid_Boats.Rows.Count; i++)
                     {
                         if ((string)Datagrid_Boats.Rows[i].Cells[0].Value == b.BoatType.Name)
@@ -67,8 +67,8 @@ namespace ReserveringssysteemWF
                             Datagrid_Boats.Rows.RemoveAt(i);
                         }
                     }
-                    if(b.BoatStatus == BoatStatus.Whole)
-                    Datagrid_Boats.Rows.Add(b.BoatType.Name, b.BoatType.Size, hasCoxswain, AmountOfBoats(b));
+                    if (b.BoatStatus == BoatStatus.Whole)
+                        Datagrid_Boats.Rows.Add(b.BoatType.Name, b.BoatType.Size, hasCoxswain, AmountOfBoats(b));
                 }
             }
         }
@@ -91,7 +91,6 @@ namespace ReserveringssysteemWF
                         );
 
                     db.SaveChanges();
-
                     ShowBoatsTable();
                 }
             }
@@ -149,9 +148,13 @@ namespace ReserveringssysteemWF
             }
 
             if (tabControl1.Contains(tab_Reservations))
+            {
                 tabControl1.TabPages.Remove(tab_Reservations);
+            }
             else
+            {
                 tabControl1.TabPages.Add(tab_Reservations);
+            }
 
             Bt_ReportDamage.Visible = !Bt_ReportDamage.Visible;
             Bt_AddReservation.Visible = !Bt_AddReservation.Visible;
@@ -172,9 +175,13 @@ namespace ReserveringssysteemWF
             Bt_RemoveGame.Visible = !Bt_RemoveGame.Visible;
 
             if (tabControl1.Contains(tab_Teams))
+            {
                 tabControl1.TabPages.Remove(tab_Teams);
+            }
             else
+            {
                 tabControl1.TabPages.Add(tab_Teams);
+            }
 
             Bt_CreateTeam.Visible = !Bt_CreateTeam.Visible;
             Bt_ModifyTeam.Visible = !Bt_ModifyTeam.Visible;
@@ -186,18 +193,26 @@ namespace ReserveringssysteemWF
             Register_AccountMenuItem.Visible = !Register_AccountMenuItem.Visible;
 
             if (tabControl1.Contains(tab_Profiles))
+            {
                 tabControl1.TabPages.Remove(tab_Profiles);
+            }
             else
+            {
                 tabControl1.TabPages.Add(tab_Profiles);
+            }
 
             Bt_MakeProfile.Visible = !Bt_MakeProfile.Visible;
             Bt_ModifyProfile.Visible = !Bt_ModifyProfile.Visible;
             Bt_RemoveProfile.Visible = !Bt_RemoveProfile.Visible;
 
             if (tabControl1.Contains(tab_Members))
+            {
                 tabControl1.TabPages.Remove(tab_Members);
+            }
             else
+            {
                 tabControl1.TabPages.Add(tab_Members);
+            }
 
             Bt_AddMember.Visible = !Bt_AddMember.Visible;
             Bt_ModifyMember.Visible = !Bt_ModifyMember.Visible;

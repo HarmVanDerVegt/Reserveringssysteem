@@ -121,5 +121,12 @@ namespace Reserveringssysteem
 
             return startTimes.ToArray();
         }
+
+        public Reservation(Boat b, DateTime d)
+        {
+            DateTime = d;
+            Boat = b;
+        }
+        public Reservation() { }
     }
 }

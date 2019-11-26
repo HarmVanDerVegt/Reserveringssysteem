@@ -47,7 +47,7 @@ namespace Reserveringssysteem
                 foreach (User user in team.Users)
                     recreationalTeam.Users.Add(context.Users.Find(user.ID));
 
-                reservation.Team = team;
+                reservation.Team = recreationalTeam;
 
                 context.Reservations.Add(reservation);
 

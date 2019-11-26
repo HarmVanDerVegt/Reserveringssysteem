@@ -41,28 +41,24 @@ namespace ReserveringssysteemWF
         }
         private void Bt_ReportDamagedBoat_Click(object sender, EventArgs e)
         {
-            Boat BoatStatusCheck = null;
+            Boat SelectedReservationboat = null;
             using (var db = new ReserveringssysteemContext())
             {
                 foreach (DataGridViewRow row in Datagrid_ReportDamage.SelectedRows)
                 {
                     string typeName = (string)row.Cells[1].Value;
 
-                    var SelectedReservationBoats = from b in db.Boats
-                                                   where b.BoatType.Name == typeName
-                                                   select b;
+                    SelectedReservationboat = (from b in db.Boats
+                                               where b.BoatType.Name == typeName
+                                               select b).First();
 
-                    foreach (var boat in SelectedReservationBoats)
-                    {
-                        BoatStatusCheck = boat;
-                        Console.WriteLine($"boatstatus: {boat.BoatStatus.ToString()}");
-                        boat.BoatStatus = BoatStatus.Notified;
-                        Console.WriteLine($"boatstatus: {boat.BoatStatus.ToString()}");
-
-                    }
+                    Console.WriteLine($"boatstatus: {SelectedReservationboat.BoatStatus.ToString()}");
+                    SelectedReservationboat.BoatStatus = BoatStatus.Notified;
+                    Console.WriteLine($"boatstatus: {SelectedReservationboat.BoatStatus.ToString()}");
                 }
             }
-            if (BoatStatusCheck.BoatStatus == BoatStatus.Notified)
+
+            if (SelectedReservationboat.BoatStatus == BoatStatus.Notified)
             {
                 string messageBoxText = "De schade is succesvol gemeld";
                 string caption = "Schade gemeld";

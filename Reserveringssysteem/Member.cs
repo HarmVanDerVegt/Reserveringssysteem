@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Data.Entity;
 
 
 namespace Reserveringssysteem
@@ -21,7 +22,49 @@ namespace Reserveringssysteem
         [Required]
         public Address Address { get; set; }
 
-        public List<Role> Roles { get; set; }
+        public virtual List<Role> Roles { get; set; }
+
+        public bool HasRole(RoleType roleType)
+        {
+
+            using (var db = new ReserveringssysteemContext())
+            {
+                Role role = Role.GetRole(roleType);
+
+                var member = (from m in db.Members.Include(m => m.Roles)
+                              where m.ID == this.ID
+                              select m).Single();
+
+                var roleToQuery = (from r in db.Roles.Include(r => r.Members)
+                                   where r.ID == role.ID
+                                   select r).Single();
+
+                return member.Roles.Contains(roleToQuery);
+            }
+        }
+
+        public void AddRole(RoleType roleType)
+        {
+            if (!HasRole(roleType))
+            {
+                using (var db = new ReserveringssysteemContext())
+                {
+                    Role role = Role.GetRole(roleType);
+
+                    var member = (from m in db.Members.Include(m => m.Roles)
+                                  where m.ID == this.ID
+                                  select m).Single();
+
+                    var roleToAdd = (from r in db.Roles.Include(ro => ro.Members)
+                                     where r.ID == role.ID
+                                     select r).Single();
+
+                    member.Roles.Add(roleToAdd);
+
+                    db.SaveChanges();
+                }
+            }
+        }
 
         [NotMapped]
         public static Member CurrentMember { get; private set; }

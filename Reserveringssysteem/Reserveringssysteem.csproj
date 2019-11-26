@@ -64,6 +64,14 @@
     <Compile Include="Migrations\201911200932383_Rebuild.designer.cs">
       <DependentUpon>201911200932383_Rebuild.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911251105436_ChangedRolesNamesToRolesTypes.cs" />
+    <Compile Include="Migrations\201911251105436_ChangedRolesNamesToRolesTypes.designer.cs">
+      <DependentUpon>201911251105436_ChangedRolesNamesToRolesTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911251257048_MadeRoleTypesUnique.cs" />
+    <Compile Include="Migrations\201911251257048_MadeRoleTypesUnique.designer.cs">
+      <DependentUpon>201911251257048_MadeRoleTypesUnique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +90,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911200932383_Rebuild.resx">
       <DependentUpon>201911200932383_Rebuild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911251105436_ChangedRolesNamesToRolesTypes.resx">
+      <DependentUpon>201911251105436_ChangedRolesNamesToRolesTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911251257048_MadeRoleTypesUnique.resx">
+      <DependentUpon>201911251257048_MadeRoleTypesUnique.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

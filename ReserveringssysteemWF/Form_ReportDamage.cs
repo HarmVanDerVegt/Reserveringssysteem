@@ -14,6 +14,7 @@ namespace ReserveringssysteemWF
 {
     public partial class Form_ReportDamage : Form
     {
+        private Boat SelectedReservationboat = null;
         public Form_ReportDamage()
         {
             InitializeComponent();
@@ -33,36 +34,42 @@ namespace ReserveringssysteemWF
                 var ReservationBoats = from b in db.Reservations.Include(r => r.Team).Include(r => r.Boat.BoatType)
                                        select b;
 
-                foreach (var a in ReservationBoats)
+                foreach (var boat in ReservationBoats)
                 {
-                    Datagrid_ReportDamage.Rows.Add(a.DateTime, a.Boat.BoatType.Name);
+                    if (boat.Boat.BoatStatus != BoatStatus.Notified)
+                    {
+                        Datagrid_ReportDamage.Rows.Add(boat.DateTime, boat.Boat.BoatType.Name);
+                    }
                 }
             }
         }
         private void Bt_ReportDamagedBoat_Click(object sender, EventArgs e)
         {
-            Boat BoatStatusCheck = null;
+
             using (var db = new ReserveringssysteemContext())
             {
                 foreach (DataGridViewRow row in Datagrid_ReportDamage.SelectedRows)
                 {
                     string typeName = (string)row.Cells[1].Value;
 
-                    var SelectedReservationBoats = from b in db.Boats
-                                                   where b.BoatType.Name == typeName
-                                                   select b;
+                    SelectedReservationboat = (from b in db.Boats
+                                               where b.BoatType.Name == typeName
+                                               select b).First();
 
-                    foreach (var boat in SelectedReservationBoats)
-                    {
-                        BoatStatusCheck = boat;
-                        Console.WriteLine($"boatstatus: {boat.BoatStatus.ToString()}");
-                        boat.BoatStatus = BoatStatus.Notified;
-                        Console.WriteLine($"boatstatus: {boat.BoatStatus.ToString()}");
-
-                    }
+                    Console.WriteLine($"boatstatus: {SelectedReservationboat.BoatStatus.ToString()}");
+                    SelectedReservationboat.BoatStatus = BoatStatus.Notified;
+                    Console.WriteLine($"boatstatus: {SelectedReservationboat.BoatStatus.ToString()}");
+                    db.SaveChanges();
                 }
             }
-            if (BoatStatusCheck.BoatStatus == BoatStatus.Notified)
+            if (SelectedReservationboat != null)
+            {
+                ShowMessageBox();
+            }
+        }
+        private void ShowMessageBox()
+        {
+            if (SelectedReservationboat.BoatStatus == BoatStatus.Notified)
             {
                 string messageBoxText = "De schade is succesvol gemeld";
                 string caption = "Schade gemeld";
@@ -93,5 +100,6 @@ namespace ReserveringssysteemWF
         }
     }
 }
+
 
 

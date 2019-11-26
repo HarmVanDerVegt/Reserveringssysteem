@@ -83,7 +83,7 @@ namespace Reserveringssysteem
                     DateTime endTime = startTime + duration;
                     bool atLeastOneBoatAvailable = false;
 
-                    // Check if it is not lower than 17:00.
+                    // Check if it is lower than 17:00.
                     if (endTime <= date.AddHours(17))
                         foreach (Boat boat in boatType.Boats)
                         {

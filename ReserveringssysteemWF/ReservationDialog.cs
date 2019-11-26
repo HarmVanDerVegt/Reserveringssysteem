@@ -105,7 +105,8 @@ namespace ReserveringssysteemWF
 
         private void reserveButton_Click(object sender, EventArgs e)
         {
-
+            if (!Reservation.Reserve(recreationalTeam, reservedBoat, (DateTime)startTimeComboBox.SelectedItem, (TimeSpan)durationComboBox.SelectedItem))
+                MessageBox.Show("Er ging iets fout bij het reserveren.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void durationComboBox_SelectedIndexChanged(object sender, EventArgs e)

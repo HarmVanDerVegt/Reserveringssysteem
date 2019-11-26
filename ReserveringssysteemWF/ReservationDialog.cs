@@ -105,23 +105,7 @@ namespace ReserveringssysteemWF
 
         private void reserveButton_Click(object sender, EventArgs e)
         {
-            using (ReserveringssysteemContext context = new ReserveringssysteemContext())
-            {
-                Reservation reservation = new Reservation();
-                reservation.Boat = context.Boats.Find(reservedBoat.ID);
-                reservation.DateTime = (DateTime)startTimeComboBox.SelectedItem;
-                reservation.Duration = (TimeSpan)durationComboBox.SelectedItem;
 
-                RecreationalTeam team = new RecreationalTeam() { Users = new List<User>() };
-
-                foreach (User user in recreationalTeam.Users)
-                    team.Users.Add(context.Users.Find(user.ID));
-
-                reservation.Team = team;
-
-                context.Reservations.Add(reservation);
-                context.SaveChanges();
-            }
         }
 
         private void durationComboBox_SelectedIndexChanged(object sender, EventArgs e)

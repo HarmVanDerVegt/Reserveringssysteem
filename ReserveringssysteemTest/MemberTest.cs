@@ -44,6 +44,21 @@ namespace ReserveringssysteemTest
             {
                 _ = db.Users.Add(member1);
                 _ = db.SaveChanges();
+
+                if (db.Roles.Where(r => r.Type == RoleType.Admin).Count() == 0)
+                {
+                    db.Roles.Add(new Role(RoleType.Admin));
+                }
+                if (db.Roles.Where(r => r.Type == RoleType.ChiefOfEquipment).Count() == 0)
+                {
+                    db.Roles.Add(new Role(RoleType.ChiefOfEquipment));
+                }
+                if (db.Roles.Where(r => r.Type == RoleType.TournamentOrganiser).Count() == 0)
+                {
+                    db.Roles.Add(new Role(RoleType.TournamentOrganiser));
+                }
+
+                db.SaveChanges();
             }
         }
 
@@ -83,6 +98,21 @@ namespace ReserveringssysteemTest
             bool result = Member.Login("test@example.com", "blabla");
             Assert.IsNull(Member.CurrentMember);
             Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void MemberGiveRole()
+        {
+            Member.Login("harmvegt@gmail.com", "Wachtwoord");
+            Member.CurrentMember.AddRole(RoleType.Admin);
+            Assert.IsTrue(Member.CurrentMember.HasRole(RoleType.Admin));
+        }
+
+        [TestMethod]
+        public void MemberHasNoRole()
+        {
+            Member.Login("harmvegt@gmail.com", "Wachtwoord");
+            Assert.IsFalse(Member.CurrentMember.HasRole(RoleType.Admin));
         }
 
         [TestCleanup]

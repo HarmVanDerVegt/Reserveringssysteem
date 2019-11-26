@@ -49,7 +49,7 @@ namespace ReserveringssysteemWF
             DateTime date = datePicker.SelectionStart.Date;
             TimeSpan duration = (TimeSpan)durationComboBox.SelectedItem;
 
-            startTimeComboBox.DataSource = Reservation.GetAvailableStartTimes(boatType, date, duration, out reservedBoat);
+            startTimeComboBox.DataSource = Reservation.GetAvailableBoatStartTimes(boatType, date, duration, out reservedBoat);
 
             startTimeComboBox.Enabled = startTimeComboBox.Items.Count > 0;
 
@@ -105,23 +105,8 @@ namespace ReserveringssysteemWF
 
         private void reserveButton_Click(object sender, EventArgs e)
         {
-            using (ReserveringssysteemContext context = new ReserveringssysteemContext())
-            {
-                Reservation reservation = new Reservation();
-                reservation.Boat = context.Boats.Find(reservedBoat.ID);
-                reservation.DateTime = (DateTime)startTimeComboBox.SelectedItem;
-                reservation.Duration = (TimeSpan)durationComboBox.SelectedItem;
-
-                RecreationalTeam team = new RecreationalTeam() { Users = new List<User>() };
-
-                foreach (User user in recreationalTeam.Users)
-                    team.Users.Add(context.Users.Find(user.ID));
-
-                reservation.Team = team;
-
-                context.Reservations.Add(reservation);
-                context.SaveChanges();
-            }
+            if (!Reservation.Reserve(recreationalTeam, reservedBoat, (DateTime)startTimeComboBox.SelectedItem, (TimeSpan)durationComboBox.SelectedItem))
+                MessageBox.Show("Er ging iets fout bij het reserveren.", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void durationComboBox_SelectedIndexChanged(object sender, EventArgs e)

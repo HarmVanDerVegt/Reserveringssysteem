@@ -94,7 +94,7 @@ namespace Reserveringssysteem.Tests
 
             BoatType[] boatTypes = recreationalTeam.GetAvailableBoatTypes();
 
-            Assert.AreEqual(0, boatTypes.Length);
+            CollectionAssert.AreEqual(new BoatType[] { }, boatTypes);
         }
 
         [TestMethod()]
@@ -108,8 +108,8 @@ namespace Reserveringssysteem.Tests
                 recreationalTeam.Users.Add(context.Members.Include("Levels").Where(m => m.Name.Equals("Prog Ramma")).First());
 
                 BoatType[] boatTypes = recreationalTeam.GetAvailableBoatTypes();
-
-                Assert.AreEqual(context.BoatTypes.Where(b => b.Name.Equals("Skiff")).First().ID, boatTypes.First().ID);
+                BoatType[] expected = new BoatType[] { context.BoatTypes.Include("Certificate.Users").Include("Boats.Reservations").Where(b => b.Name.Equals("Skiff")).First() };
+                CollectionAssert.AreEqual(expected.Select(b => b.ID).ToArray(), boatTypes.Select(b => b.ID).ToArray());
             }
         }
 
@@ -125,7 +125,7 @@ namespace Reserveringssysteem.Tests
 
             User[] coxswains = recreationalTeam.GetAvailableCoxswains();
 
-            Assert.AreEqual(0, coxswains.Length);
+            CollectionAssert.AreEqual(new User[] { }, coxswains);
         }
     }
 }

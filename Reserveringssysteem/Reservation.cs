@@ -83,34 +83,36 @@ namespace Reserveringssysteem
                     DateTime endTime = startTime + duration;
                     bool atLeastOneBoatAvailable = false;
 
-                    foreach (Boat boat in boatType.Boats)
-                    {
-                        // Check if this boat is still intact and if we didn't find a boat already.
-                        if (boat.BoatStatus == BoatStatus.Whole && !atLeastOneBoatAvailable)
+                    // Check if it is not lower than 17:00.
+                    if (endTime <= date.AddHours(17))
+                        foreach (Boat boat in boatType.Boats)
                         {
-                            bool noOverlap = true;
-
-                            foreach (Reservation reservation in boat.Reservations)
+                            // Check if this boat is still intact and if we didn't find a boat already.
+                            if (boat.BoatStatus == BoatStatus.Whole && !atLeastOneBoatAvailable)
                             {
-                                // Check if there is an overlap with the current start time and the current reservation.
-                                if (startTime <= reservation.DateTime + reservation.Duration && reservation.DateTime <= endTime)
+                                bool noOverlap = true;
+
+                                foreach (Reservation reservation in boat.Reservations)
                                 {
-                                    noOverlap = false;
+                                    // Check if there is an overlap with the current start time and the current reservation.
+                                    if (startTime <= reservation.DateTime + reservation.Duration && reservation.DateTime <= endTime)
+                                    {
+                                        noOverlap = false;
+                                        break;
+                                    }
+                                }
+
+                                // The current boat is available when there was no overlap.
+                                if (noOverlap)
+                                {
+                                    if (availableBoat == null)
+                                        availableBoat = boat;
+
+                                    atLeastOneBoatAvailable = true;
                                     break;
                                 }
                             }
-
-                            // The current boat is available when there was no overlap.
-                            if (noOverlap)
-                            {
-                                if (availableBoat == null)
-                                    availableBoat = boat;
-
-                                atLeastOneBoatAvailable = true;
-                                break;
-                            }
                         }
-                    }
 
                     // Add this start time to all available start times.
                     if (atLeastOneBoatAvailable)

@@ -164,19 +164,7 @@ namespace ReserveringssysteemWF
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool valid =
-                ValidateEmail() &&
-                ValidatePassword() &&
-                ValidatePassword2() &&
-                ValidateName() &&
-                ValidateOrganisation() &&
-                ValidateGender() &&
-                ValidateStreet() &&
-                ValidateHouseNumber() &&
-                ValidateZipCode() &&
-                ValidateCity();
-
-            if (valid)
+            if (Valid())
             {
                 Gender gender;
 
@@ -189,51 +177,65 @@ namespace ReserveringssysteemWF
                     gender = Gender.Female;
                 }
                 Address address;
-                if (Tb_PasswordRegister.Text.Length < 6 || Tb_PasswordRegister.Text.Length > 99)
+                if (CheckValues() != "")
                 {
-                    LB_ErrorMessageRegister.Text = "Wachtwoord moet minimaal 6 characters hebben";
-                }
-                else if (!int.TryParse(Tb_HousenumberRegister.Text, out int n))
-                {
-                    LB_ErrorMessageRegister.Text = "Huisnummer moet een nummer zijn";
-                }
-                else if (!IsZipCode(Tb_ZipcodeRegister.Text))
-                {
-                    LB_ErrorMessageRegister.Text = "Postcode moet bestaan als volgt \"8000AA\"";
+                    LB_ErrorMessageRegister.Text = CheckValues();
                 }
                 else
                 {
-                    if (Tb_PasswordRegister.Text != Tb_Password2Register.Text)
+                    if (String.IsNullOrWhiteSpace(Tb_AnnexRegister.Text))
                     {
-                        LB_ErrorMessageRegister.Text = "Wachtwoorden zijn niet gelijk aan elkaar";
+                        address = new Address(Tb_StreetRegister.Text, Convert.ToInt32(Tb_HousenumberRegister.Text), Tb_ZipcodeRegister.Text, Tb_CityRegister.Text);
                     }
                     else
                     {
-                        if (String.IsNullOrWhiteSpace(Tb_AnnexRegister.Text))
-                        {
-                            address = new Address(Tb_StreetRegister.Text, Convert.ToInt32(Tb_HousenumberRegister.Text), Tb_ZipcodeRegister.Text, Tb_CityRegister.Text);
-                        }
-                        else
-                        {
-                            address = new Address(Tb_StreetRegister.Text, Convert.ToInt32(Tb_HousenumberRegister.Text), Tb_AnnexRegister.Text, Tb_ZipcodeRegister.Text, Tb_CityRegister.Text);
-                        }
-
-                        bool result = Member.Register(Tb_NameRegister.Text, DTP_DateRegister.Value, gender, Tb_OrganisationRegister.Text, Tb_EmailRegister.Text, Tb_PasswordRegister.Text, address);
-
-                        if (result == false)
-                        {
-                            LB_ErrorMessageRegister.Text = "Het Emailadres is niet uniek";
-                        }
-                        else
-                        {
-                            Dispose();
-                        }
+                        address = new Address(Tb_StreetRegister.Text, Convert.ToInt32(Tb_HousenumberRegister.Text), Tb_AnnexRegister.Text, Tb_ZipcodeRegister.Text, Tb_CityRegister.Text);
                     }
+
+                    bool result = Member.Register(Tb_NameRegister.Text, DTP_DateRegister.Value, gender, Tb_OrganisationRegister.Text, Tb_EmailRegister.Text, Tb_PasswordRegister.Text, address);
+
+                    FinalCheck(result);
                 }
             }
         }
 
-        public static bool IsZipCode(string str)
+        private bool Valid()
+        {
+            return
+                ValidateEmail() &&
+                ValidatePassword() &&
+                ValidatePassword2() &&
+                ValidateName() &&
+                ValidateOrganisation() &&
+                ValidateGender() &&
+                ValidateStreet() &&
+                ValidateHouseNumber() &&
+                ValidateZipCode() &&
+                ValidateCity();
+        }
+
+        private string CheckValues()
+        {
+            if (Tb_PasswordRegister.Text.Length < 6 || Tb_PasswordRegister.Text.Length > 99)
+            {
+                return "Wachtwoord moet minimaal 6 characters hebben";
+            }
+            else if (Tb_PasswordRegister.Text != Tb_Password2Register.Text)
+            {
+                return "Wachtwoorden zijn niet gelijk aan elkaar";
+            }
+            else if (!int.TryParse(Tb_HousenumberRegister.Text, out int n))
+            {
+                return "Huisnummer moet een nummer zijn";
+            }
+            else if (!IsZipCode(Tb_ZipcodeRegister.Text))
+            {
+                return "Postcode moet bestaan als volgt \"8000AA\"";
+            }
+            return "";
+        }
+
+        private bool IsZipCode(string str)
         {
             int i = 0;
 
@@ -256,6 +258,18 @@ namespace ReserveringssysteemWF
                 return false;
             }
             return true;
+        }
+
+        private void FinalCheck(bool result)
+        {
+            if (result == false)
+            {
+                LB_ErrorMessageRegister.Text = "Het Emailadres is niet uniek";
+            }
+            else
+            {
+                Dispose();
+            }
         }
     }
 }

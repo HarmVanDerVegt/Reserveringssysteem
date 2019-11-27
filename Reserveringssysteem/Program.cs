@@ -10,6 +10,7 @@ namespace Reserveringssysteem
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("test");
             //BoatType.CreateBoatTypes();
             //Boat b1 = new Boat();
             //Boat b2 = new Boat();

@@ -13,7 +13,7 @@ namespace ReserveringssysteemWF
 {
     public partial class TeamDialog : Form
     {
-        private List<MatchTeam> teams = new List<MatchTeam>();
+        public MatchTeam SelectedTeam { get; set; }
         public TeamDialog()
         {
             InitializeComponent();
@@ -21,28 +21,39 @@ namespace ReserveringssysteemWF
 
         private void TeamDialog_Load(object sender, EventArgs e)
         {
-            teamsListBox.Items.Add(teams.Count());
-            //UpdateDisplay();
+            UpdateDisplay();
         }
 
         private void UpdateDisplay()
         {
             teamsListBox.Items.Clear();
-            foreach (MatchTeam team in teams)
+            using (var db = new ReserveringssysteemContext())
             {
-                teamsListBox.Items.Add(team.Name);
-                teamsListBox.Items.Add("1 found");
+                var query = from teams in db.MatchTeams
+                            select teams;
+
+                foreach (var item in query)
+                {
+                    if (string.IsNullOrWhiteSpace(filterTextBox.Text) || item.Name.ToLower().Contains(filterTextBox.Text.ToLower()))
+                        teamsListBox.Items.Add(item);
+                }
+                teamsListBox.DisplayMember = "Name";
             }
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
+            SelectedTeam = (MatchTeam)teamsListBox.SelectedItem;
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            Dispose();
+        }
 
+        private void FilterTextBox_TextChanged(object sender, EventArgs e)
+        {
+            UpdateDisplay();
         }
     }
 }

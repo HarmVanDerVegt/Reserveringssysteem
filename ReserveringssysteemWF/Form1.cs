@@ -33,6 +33,7 @@ namespace ReserveringssysteemWF
             Datagrid_Teams.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             ShowBoatsTable();
+            ShowMatch();
 
 
         }
@@ -83,11 +84,45 @@ namespace ReserveringssysteemWF
             MatchCreatorDialog matchCreator = new MatchCreatorDialog();
             if (matchCreator.ShowDialog() == DialogResult.OK)
             {
-                /*if (!members.Select(m => m.ID).ToList().Contains(memberPicker.SelectedMember.ID))
-                    members.Add(memberPicker.SelectedMember);
-                else
-                    MessageBox.Show("Dit lid zit al in uw team!", "Foutmelding", MessageBoxButtons.OK, MessageBoxIcon.Error);*/
+                ShowMatch();
             }
+        }
+
+        private void ShowMatch()
+        {
+            Datagrid_Games.Rows.Clear();
+            using (var db = new ReserveringssysteemContext())
+            {
+                var query = from boattype in db.Matches.Include(x => x.Type)
+                            select boattype;
+
+                foreach (var match in query)
+                {
+                    Datagrid_Games.Rows.Add(match.DateTime.Date, match.DateTime.TimeOfDay,  match.DateTime.TimeOfDay.Add(match.Duration), match.Type.Name , match.Distance, "gender", match.ID);
+                }
+            }
+        }
+
+        private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void Bt_RemoveGame_Click(object sender, EventArgs e)
+        {
+            List<int> indexlist = new List<int>();
+            DataGridViewSelectedRowCollection row = Datagrid_Games.SelectedRows;
+            RemoveMatchDialog removeMatch = new RemoveMatchDialog(row);
+            if (removeMatch.ShowDialog() == DialogResult.OK)
+            {
+                ShowMatch();
+            }
+
+        }
+
+        private void Datagrid_Games_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

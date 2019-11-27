@@ -27,5 +27,7 @@ namespace Reserveringssysteem
 
         public List<MatchTeam> Participants { get; set; }
         public List<Result> Results { get; set; }
+
+
     }
 }

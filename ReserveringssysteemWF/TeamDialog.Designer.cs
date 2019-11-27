@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.pickPanel = new System.Windows.Forms.Panel();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.filterTextBox = new System.Windows.Forms.TextBox();
+            this.pickButton = new System.Windows.Forms.Button();
             this.filterLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.teamsListBox = new System.Windows.Forms.ListBox();
             this.membersLabel = new System.Windows.Forms.Label();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.pickButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pickPanel.SuspendLayout();
@@ -60,6 +60,18 @@
             this.pickPanel.Size = new System.Drawing.Size(400, 323);
             this.pickPanel.TabIndex = 1;
             // 
+            // cancelButton
+            // 
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Location = new System.Drawing.Point(284, 332);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(100, 28);
+            this.cancelButton.TabIndex = 5;
+            this.cancelButton.Text = "Annuleren";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            // 
             // filterTextBox
             // 
             this.filterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -69,6 +81,19 @@
             this.filterTextBox.Name = "filterTextBox";
             this.filterTextBox.Size = new System.Drawing.Size(367, 22);
             this.filterTextBox.TabIndex = 3;
+            this.filterTextBox.TextChanged += new System.EventHandler(this.FilterTextBox_TextChanged);
+            // 
+            // pickButton
+            // 
+            this.pickButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pickButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.pickButton.Location = new System.Drawing.Point(176, 332);
+            this.pickButton.Margin = new System.Windows.Forms.Padding(4);
+            this.pickButton.Name = "pickButton";
+            this.pickButton.Size = new System.Drawing.Size(100, 28);
+            this.pickButton.TabIndex = 4;
+            this.pickButton.Text = "Kiezen";
+            this.pickButton.UseVisualStyleBackColor = true;
             // 
             // filterLabel
             // 
@@ -80,6 +105,16 @@
             this.filterLabel.Size = new System.Drawing.Size(39, 17);
             this.filterLabel.TabIndex = 2;
             this.filterLabel.Text = "Filter";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(16, 296);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(367, 22);
+            this.textBox1.TabIndex = 6;
             // 
             // teamsListBox
             // 
@@ -105,42 +140,9 @@
             this.membersLabel.TabIndex = 0;
             this.membersLabel.Text = "Teams van de vereniging";
             // 
-            // cancelButton
-            // 
-            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(284, 332);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(100, 28);
-            this.cancelButton.TabIndex = 5;
-            this.cancelButton.Text = "Annuleren";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            // 
-            // pickButton
-            // 
-            this.pickButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pickButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.pickButton.Location = new System.Drawing.Point(176, 332);
-            this.pickButton.Margin = new System.Windows.Forms.Padding(4);
-            this.pickButton.Name = "pickButton";
-            this.pickButton.Size = new System.Drawing.Size(100, 28);
-            this.pickButton.TabIndex = 4;
-            this.pickButton.Text = "Kiezen";
-            this.pickButton.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(16, 296);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(367, 22);
-            this.textBox1.TabIndex = 6;
-            // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Location = new System.Drawing.Point(234, 329);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -151,6 +153,7 @@
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Location = new System.Drawing.Point(316, 328);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);

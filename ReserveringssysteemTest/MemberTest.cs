@@ -72,8 +72,6 @@ namespace ReserveringssysteemTest
             Assert.AreEqual("harmvegt@gmail.com", Member.CurrentMember.Email);
         }
 
-        
-
         [TestMethod]
         public void MemberLoginEmailNullTest()
         {
@@ -106,6 +104,53 @@ namespace ReserveringssysteemTest
             Member.Login("harmvegt@gmail.com", "Wachtwoord");
             Member.CurrentMember.AddRole(RoleType.Admin);
             Assert.IsTrue(Member.CurrentMember.HasRole(RoleType.Admin));
+        }
+
+        [TestMethod]
+        public void MemberGiveRole2()
+        {
+            Member.Login("harmvegt@gmail.com", "Wachtwoord");
+            Member.CurrentMember.AddRole(RoleType.TournamentOrganiser);
+            Assert.IsTrue(Member.CurrentMember.HasRole(RoleType.TournamentOrganiser));
+        }
+
+        [TestMethod]
+        public void MemberHasMultipleRoles()
+        {
+            Member.Login("harmvegt@gmail.com", "Wachtwoord");
+            Member.CurrentMember.AddRole(RoleType.TournamentOrganiser);
+            Member.CurrentMember.AddRole(RoleType.ChiefOfEquipment);
+            Assert.IsTrue(Member.CurrentMember.HasRole(RoleType.TournamentOrganiser));
+            Assert.IsTrue(Member.CurrentMember.HasRole(RoleType.ChiefOfEquipment));
+            Assert.IsFalse(Member.CurrentMember.HasRole(RoleType.Admin));
+        }
+
+        [TestMethod]
+        public void MemberDeleteRole()
+        {
+            Member.Login("harmvegt@gmail.com", "Wachtwoord");
+            Member.CurrentMember.AddRole(RoleType.Admin);
+            Member.CurrentMember.RemoveRole(RoleType.Admin);
+            Assert.IsFalse(Member.CurrentMember.HasRole(RoleType.Admin));
+        }
+
+        [TestMethod]
+        public void MemberDeleteNotGivenRole()
+        {
+            Member.Login("harmvegt@gmail.com", "Wachtwoord");
+            Assert.ThrowsException<RoleNotFoundException>(
+                () => Member.CurrentMember.RemoveRole(RoleType.Admin)
+            );
+        }
+
+        [TestMethod]
+        public void MemberAddSameRole()
+        {
+            Member.Login("harmvegt@gmail.com", "Wachtwoord");
+            Member.CurrentMember.AddRole(RoleType.Admin);
+            Assert.ThrowsException<RoleAlreadyAssignedException>(
+                () => Member.CurrentMember.AddRole(RoleType.Admin)
+            );
         }
 
         [TestMethod]

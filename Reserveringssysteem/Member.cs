@@ -11,6 +11,9 @@ using System.Data.Entity;
 namespace Reserveringssysteem
 {
 
+    public class RoleNotFoundException : Exception { }
+    public class RoleAlreadyAssignedException : Exception { }
+
     public class Member : User
     {
         [Required]
@@ -45,24 +48,53 @@ namespace Reserveringssysteem
 
         public void AddRole(RoleType roleType)
         {
-            if (!HasRole(roleType))
+
+            if (this.HasRole(roleType))
             {
-                using (var db = new ReserveringssysteemContext())
-                {
-                    Role role = Role.GetRole(roleType);
+                throw new RoleAlreadyAssignedException();
+            }
 
-                    var member = (from m in db.Members.Include(m => m.Roles)
-                                  where m.ID == this.ID
-                                  select m).Single();
+            using (var db = new ReserveringssysteemContext())
+            {
+                Role role = Role.GetRole(roleType);
 
-                    var roleToAdd = (from r in db.Roles.Include(ro => ro.Members)
-                                     where r.ID == role.ID
-                                     select r).Single();
+                var member = (from m in db.Members.Include(m => m.Roles)
+                              where m.ID == this.ID
+                              select m).Single();
 
-                    member.Roles.Add(roleToAdd);
+                var roleToAdd = (from r in db.Roles.Include(ro => ro.Members)
+                                 where r.ID == role.ID
+                                 select r).Single();
 
-                    db.SaveChanges();
-                }
+                member.Roles.Add(roleToAdd);
+
+                db.SaveChanges();
+
+            }
+        }
+
+        public void RemoveRole(RoleType roleType)
+        {
+            if (!this.HasRole(roleType))
+            {
+                throw new RoleNotFoundException();
+            }
+
+            using (var db = new ReserveringssysteemContext())
+            {
+                Member member = (from x in db.Members.Include(r => r.Roles)
+                                where this.ID == x.ID
+                                select x).Single();
+
+                Role role = Role.GetRole(roleType);
+
+                Role RoleToDelete = (from x in db.Roles.Include(m => m.Members)
+                                     where x.ID == role.ID
+                                     select x).Single();
+
+                member.Roles.Remove(RoleToDelete);
+
+                db.SaveChanges();
             }
         }
 
@@ -168,7 +200,8 @@ namespace Reserveringssysteem
                 {
                     StringBuilder stringBuilder = new StringBuilder();
 
-                    foreach (byte b in SHA.ComputeHash(Encoding.UTF8.GetBytes(password))){
+                    foreach (byte b in SHA.ComputeHash(Encoding.UTF8.GetBytes(password)))
+                    {
                         stringBuilder.Append(b.ToString("x2"));
                     }
 

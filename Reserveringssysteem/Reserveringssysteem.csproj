@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201911251257048_MadeRoleTypesUnique.designer.cs">
       <DependentUpon>201911251257048_MadeRoleTypesUnique.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911261134313_FixingManyToMantTeamUsers.cs" />
+    <Compile Include="Migrations\201911261134313_FixingManyToMantTeamUsers.designer.cs">
+      <DependentUpon>201911261134313_FixingManyToMantTeamUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911251257048_MadeRoleTypesUnique.resx">
       <DependentUpon>201911251257048_MadeRoleTypesUnique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911261134313_FixingManyToMantTeamUsers.resx">
+      <DependentUpon>201911261134313_FixingManyToMantTeamUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

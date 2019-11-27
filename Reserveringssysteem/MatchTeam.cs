@@ -13,5 +13,7 @@ namespace Reserveringssysteem
     {
         [Required]
         public string Name { get; set; }
+
+        public List<Result> Results { get; set; }
     }
 }

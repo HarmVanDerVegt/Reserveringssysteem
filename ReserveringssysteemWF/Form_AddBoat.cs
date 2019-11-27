@@ -11,9 +11,9 @@ using Reserveringssysteem;
 
 namespace ReserveringssysteemWF
 {
-    public partial class Form2 : Form
+    public partial class Form_AddBoat : Form
     {
-        public Form2()
+        public Form_AddBoat()
         {
             InitializeComponent();
             FillComboBox();
@@ -38,22 +38,18 @@ namespace ReserveringssysteemWF
             Boat boat = null;
             using(var db = new ReserveringssysteemContext())
             {
-                var boatTypes = from boatType in db.BoatTypes
-                                where boatType.Name == (string)Cb_AddBoats.SelectedItem
-                                select boatType;
+                var boatType = (from type in db.BoatTypes
+                                 where type.Name == (string)Cb_AddBoats.SelectedItem
+                                 select type).SingleOrDefault();
 
-                foreach (var boatType in boatTypes)
-                {
-                    boat = new Boat(boatType);
-                    Dispose();
-                }
+                boat = new Boat(boatType);
                 db.SaveChanges();
             }
         }
 
-        private void Bt_Cancel_AddBoats_Click(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
-            Dispose();
+            Cb_AddBoats.Text = "Skiff";
         }
     }
 }

@@ -9,7 +9,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Reserveringssysteem
 {
-    public enum BoatStatus { Whole, Maintenance, Broken };
+    public enum BoatStatus { Whole, Notified, Maintenance, Broken };
+
     public class Boat
     {
         public int ID { get; set; }
@@ -32,9 +33,25 @@ namespace Reserveringssysteem
                 db.Boats.Add(this);
                 //db.SaveChanges();
             }
-
         }
 
         private Boat() { }
+    }
+    public static class BoatStatusToString
+    {
+        public static string Description(this BoatStatus me)
+        {
+            switch (me)
+            {
+                case BoatStatus.Whole:
+                    return "Nieuw";
+                case BoatStatus.Maintenance:
+                    return "In onderhoud";
+                case BoatStatus.Broken:
+                    return "Kapot";
+                default:
+                    return "Geen status mogelijk";
+            }
+        }
     }
 }

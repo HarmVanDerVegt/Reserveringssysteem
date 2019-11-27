@@ -11,6 +11,27 @@ namespace Reserveringssysteem.Tests
     [TestClass()]
     public class ReservationTests
     {
+        [TestInitialize]
+        public void Initialize()
+        {
+            using (ReserveringssysteemContext context = new ReserveringssysteemContext())
+            {
+                context.Boats.Add(new Boat(context.BoatTypes.Where(b => b.Name.Equals("Skiff")).First()));
+                context.SaveChanges();
+            }
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            using (ReserveringssysteemContext context = new ReserveringssysteemContext())
+            {
+                BoatType boatType = context.BoatTypes.Where(b => b.Name.Equals("Skiff")).First();
+                context.Boats.Remove(context.Boats.Include("BoatType").Where(b => b.BoatType.ID == boatType.ID).First());
+                context.SaveChanges();
+            }
+        }
+
         [TestMethod()]
         public void GetAvailableBoatStartTimesTest_Duration_4_Hours_45_Minutes()
         {

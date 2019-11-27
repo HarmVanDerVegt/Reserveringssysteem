@@ -33,7 +33,7 @@ namespace ReserveringssysteemTest
             }
         }
 
-
+        [TestMethod]
         public void RegisterHashedPasswordTest()
         {
             using (var db = new ReserveringssysteemContext())

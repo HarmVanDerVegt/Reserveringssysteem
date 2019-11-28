@@ -169,14 +169,15 @@ namespace ReserveringssysteemWF
                 ValidateZipCode(errorProvider1, Tb_ZipcodeRegister) &&
                 Validation(errorProvider1, Tb_CityRegister, "Stad is verplicht");
 
-                
+
         }
 
         private static bool IsZipCode(string str)
         {
             int i = 0;
- 
-            if (str.Trim().Length != 6)
+            str = str.Replace(" ", "");
+
+            if (str.Length != 6)
             {
                 return false;
             }

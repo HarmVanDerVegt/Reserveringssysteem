@@ -27,6 +27,7 @@ namespace ReserveringssysteemWF
         private void Form1_Load(object sender, EventArgs e)
         {
             ShowBoatsTable();
+            ShowMatch();
         }
 
         private void Bt_AddBoat_Click(object sender, EventArgs e)
@@ -234,6 +235,8 @@ namespace ReserveringssysteemWF
             Bt_ModifyMember.Visible = !Bt_ModifyMember.Visible;
             Bt_RemoveMember.Visible = !Bt_RemoveMember.Visible;
             Bt_AddMember.Visible = !Bt_AddMember.Visible;
+            Bt_AddGame.Visible = !Bt_AddGame.Visible;
+            Bt_RemoveGame.Visible = !Bt_RemoveGame.Visible;
         }
 
         private void Lb_WelcomeMessage_Paint(object sender, PaintEventArgs e)
@@ -257,6 +260,46 @@ namespace ReserveringssysteemWF
         {
             Form_Register RegisterForm = new Form_Register();
             RegisterForm.ShowDialog();
+        }
+        private void Bt_AddGame_Click(object sender, EventArgs e)
+        {
+            MatchCreatorDialog matchCreator = new MatchCreatorDialog();
+            if (matchCreator.ShowDialog() == DialogResult.OK)
+            {
+                ShowMatch();
+            }
+        }
+
+        private void ShowMatch()
+        {
+            Datagrid_Games.Rows.Clear();
+            using (var db = new ReserveringssysteemContext())
+            {
+                var query = from boattype in db.Matches.Include(x => x.Type)
+                            select boattype;
+
+                foreach (var match in query)
+                {
+                    Datagrid_Games.Rows.Add(match.DateTime.Date, match.DateTime.TimeOfDay,  match.DateTime.TimeOfDay.Add(match.Duration), match.Type.Name , match.Distance, "gender", match.ID);
+                }
+            }
+        }
+
+        private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void Bt_RemoveGame_Click(object sender, EventArgs e)
+        {
+            List<int> indexlist = new List<int>();
+            DataGridViewSelectedRowCollection row = Datagrid_Games.SelectedRows;
+            RemoveMatchDialog removeMatch = new RemoveMatchDialog(row);
+            if (removeMatch.ShowDialog() == DialogResult.OK)
+            {
+                ShowMatch();
+            }
+
         }
     }
 }

@@ -19,5 +19,9 @@ namespace Reserveringssysteem
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Result> Results { get; set; }
 
+        public ReserveringssysteemContext() : base("Data Source = 127.0.0.1, 1433; User ID = sa; Password=KBSSE1a2019;Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Database=Reserveringssysteem;Initial Catalog = Reserveringssysteem;")
+        {
+
+        }
     }
 }

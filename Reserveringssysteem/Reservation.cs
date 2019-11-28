@@ -11,6 +11,14 @@ namespace Reserveringssysteem
 {
     public class Reservation
     {
+        [NotMapped]
+        public static int ReservationStep = 15; // At which interval it's possible to reserve
+        [NotMapped]
+        public static int ReservationLength = 30; // Minimal reservation duration.
+        [NotMapped]
+        public static TimeSpan ReservationStartTime = new TimeSpan(12, 0, 0); // Time at which reservations are open
+        [NotMapped]
+        public static TimeSpan ReservationEndTime = new TimeSpan(17, 0, 0); // Time at which reservations are closed
         public int ID { get; set; }
 
         [Required]

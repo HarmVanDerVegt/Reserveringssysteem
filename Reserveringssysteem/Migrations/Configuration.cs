@@ -19,11 +19,14 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
 
-            context.BoatTypes.RemoveRange(context.BoatTypes);
+            context.Matches.RemoveRange(context.Matches.Include(m => m.Participants));
+            context.BoatTypes.RemoveRange(context.BoatTypes.Include(bt => bt.Matches)
+                                                           .Include(bt => bt.Certificate));
             context.Certificates.RemoveRange(context.Certificates);
             context.Members.RemoveRange(context.Members.Include(m => m.Address));
             context.Users.RemoveRange(context.Users);
             context.Roles.RemoveRange(context.Roles);
+
 
             context.BoatTypes.AddOrUpdate(new BoatType("Skiff", 1, false));
             context.BoatTypes.AddOrUpdate(new BoatType("Dubbel Twee", 2, false));
@@ -176,6 +179,12 @@
                 Console.WriteLine(e);
                 throw;
             }
+            context.Teams.AddOrUpdate(new MatchTeam()
+            {
+                Name = "FaZe clan"
+            });
+
+            context.SaveChanges();
         }
     }
 }

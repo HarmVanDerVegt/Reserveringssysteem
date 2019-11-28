@@ -85,13 +85,14 @@
             this.Gender_ProfilesTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_Members = new System.Windows.Forms.TabPage();
             this.Datagrid_Members = new System.Windows.Forms.DataGridView();
-            this.Email_MembersTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adress_MembersTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Bt_RemoveMember = new System.Windows.Forms.Button();
             this.Bt_ModifyMember = new System.Windows.Forms.Button();
             this.Bt_AddMember = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Lb_WelcomeMessage = new System.Windows.Forms.Label();
+            this.Naam_MembersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email_MembersTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Organisatie_MembersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_News.SuspendLayout();
@@ -135,14 +136,14 @@
             // Login_AccountMenuItem
             // 
             this.Login_AccountMenuItem.Name = "Login_AccountMenuItem";
-            this.Login_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.Login_AccountMenuItem.Size = new System.Drawing.Size(158, 26);
             this.Login_AccountMenuItem.Text = "Inloggen";
             this.Login_AccountMenuItem.Click += new System.EventHandler(this.Login_AccountMenuItem_Click);
             // 
             // Logout_AccountMenuItem
             // 
             this.Logout_AccountMenuItem.Name = "Logout_AccountMenuItem";
-            this.Logout_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.Logout_AccountMenuItem.Size = new System.Drawing.Size(158, 26);
             this.Logout_AccountMenuItem.Text = "Uitloggen";
             this.Logout_AccountMenuItem.Visible = false;
             this.Logout_AccountMenuItem.Click += new System.EventHandler(this.Logout_AccountMenuItem_Click);
@@ -733,29 +734,19 @@
             this.Datagrid_Members.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Datagrid_Members.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagrid_Members.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Naam_MembersColumn,
             this.Email_MembersTab,
-            this.Adress_MembersTab});
+            this.Organisatie_MembersColumn});
             this.Datagrid_Members.Location = new System.Drawing.Point(0, 77);
+            this.Datagrid_Members.MultiSelect = false;
             this.Datagrid_Members.Name = "Datagrid_Members";
             this.Datagrid_Members.RowHeadersVisible = false;
             this.Datagrid_Members.RowHeadersWidth = 51;
+            this.Datagrid_Members.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Datagrid_Members.RowTemplate.Height = 24;
+            this.Datagrid_Members.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Datagrid_Members.Size = new System.Drawing.Size(994, 311);
             this.Datagrid_Members.TabIndex = 10;
-            // 
-            // Email_MembersTab
-            // 
-            this.Email_MembersTab.HeaderText = "E-mail";
-            this.Email_MembersTab.MinimumWidth = 6;
-            this.Email_MembersTab.Name = "Email_MembersTab";
-            this.Email_MembersTab.ReadOnly = true;
-            // 
-            // Adress_MembersTab
-            // 
-            this.Adress_MembersTab.HeaderText = "Adres";
-            this.Adress_MembersTab.MinimumWidth = 6;
-            this.Adress_MembersTab.Name = "Adress_MembersTab";
-            this.Adress_MembersTab.ReadOnly = true;
             // 
             // Bt_RemoveMember
             // 
@@ -778,6 +769,7 @@
             this.Bt_ModifyMember.Text = "Lid wijzigen";
             this.Bt_ModifyMember.UseVisualStyleBackColor = true;
             this.Bt_ModifyMember.Visible = false;
+            this.Bt_ModifyMember.Click += new System.EventHandler(this.Bt_ModifyMember_Click);
             // 
             // Bt_AddMember
             // 
@@ -799,6 +791,25 @@
             this.Lb_WelcomeMessage.Size = new System.Drawing.Size(0, 17);
             this.Lb_WelcomeMessage.TabIndex = 2;
             this.Lb_WelcomeMessage.Paint += new System.Windows.Forms.PaintEventHandler(this.Lb_WelcomeMessage_Paint);
+            // 
+            // Naam_MembersColumn
+            // 
+            this.Naam_MembersColumn.HeaderText = "Naam";
+            this.Naam_MembersColumn.MinimumWidth = 6;
+            this.Naam_MembersColumn.Name = "Naam_MembersColumn";
+            // 
+            // Email_MembersTab
+            // 
+            this.Email_MembersTab.HeaderText = "E-mail";
+            this.Email_MembersTab.MinimumWidth = 6;
+            this.Email_MembersTab.Name = "Email_MembersTab";
+            this.Email_MembersTab.ReadOnly = true;
+            // 
+            // Organisatie_MembersColumn
+            // 
+            this.Organisatie_MembersColumn.HeaderText = "Organisatie";
+            this.Organisatie_MembersColumn.MinimumWidth = 6;
+            this.Organisatie_MembersColumn.Name = "Organisatie_MembersColumn";
             // 
             // Form_Mainscreen
             // 
@@ -886,8 +897,6 @@
         private System.Windows.Forms.Button Bt_ModifyMember;
         private System.Windows.Forms.Button Bt_AddMember;
         private System.Windows.Forms.DataGridView Datagrid_Members;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email_MembersTab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Adress_MembersTab;
         private System.Windows.Forms.DataGridView Datagrid_Teams;
         private System.Windows.Forms.DataGridViewTextBoxColumn Teamname_TeamsTab;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeamMembers_TeamsTab;
@@ -901,6 +910,9 @@
         private System.Windows.Forms.ToolStripMenuItem Login_AccountMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Logout_AccountMenuItem;
         private System.Windows.Forms.Label Lb_WelcomeMessage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naam_MembersColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email_MembersTab;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Organisatie_MembersColumn;
     }
 }
 

@@ -27,6 +27,7 @@ namespace ReserveringssysteemWF
         private void Form1_Load(object sender, EventArgs e)
         {
             ShowBoatsTable();
+            ShowMembersTable();
         }
 
         private void Bt_AddBoat_Click(object sender, EventArgs e)
@@ -68,6 +69,22 @@ namespace ReserveringssysteemWF
                     }
                     if (b.BoatStatus == BoatStatus.Whole)
                         Datagrid_Boats.Rows.Add(b.BoatType.Name, b.BoatType.Size, hasCoxswain, AmountOfBoats(b));
+                }
+            }
+        }
+
+        public void ShowMembersTable()
+        {
+            Datagrid_Members.Rows.Clear();
+            using (var db = new ReserveringssysteemContext())
+            {
+                var sortMembers = (from member in db.Members
+                                   orderby member.Name
+                                   select member);
+
+                foreach (var m in sortMembers.Include(m => m.Address))
+                {
+                    Datagrid_Members.Rows.Add(m.Name, m.Email, m.Organisation);
                 }
             }
         }
@@ -257,6 +274,26 @@ namespace ReserveringssysteemWF
         {
             Form_Register RegisterForm = new Form_Register();
             RegisterForm.ShowDialog();
+            ShowMembersTable();
+        }
+
+        private void Bt_ModifyMember_Click(object sender, EventArgs e)
+        {
+            Member selectedMember = null;
+            using (var db = new ReserveringssysteemContext())
+            {
+                foreach (DataGridViewRow row in Datagrid_Members.SelectedRows)
+                {
+                    string EmailMember = (string)row.Cells[1].Value;
+
+                    selectedMember = (from m in db.Members
+                                          where EmailMember == m.Email
+                                          select m).Single();
+                }
+            }
+
+            new Form_ModifyMember(selectedMember.ID).ShowDialog();
+            ShowMembersTable();
         }
     }
 }

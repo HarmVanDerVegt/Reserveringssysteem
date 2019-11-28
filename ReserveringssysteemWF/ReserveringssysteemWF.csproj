@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_ModifyMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ModifyMember.Designer.cs">
+      <DependentUpon>Form_ModifyMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_AddBoat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="ReservationDialog.Designer.cs">
       <DependentUpon>ReservationDialog.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form_ModifyMember.resx">
+      <DependentUpon>Form_ModifyMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_AddBoat.resx">
       <DependentUpon>Form_AddBoat.cs</DependentUpon>
     </EmbeddedResource>

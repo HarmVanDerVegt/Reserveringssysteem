@@ -18,148 +18,92 @@ namespace ReserveringssysteemWF
             InitializeComponent();
         }
 
-        private bool ValidateEmail()
+        public static bool Validation(ErrorProvider errorProvider, TextBox textBox, string inputTextBox)
         {
-            if (String.IsNullOrWhiteSpace(Tb_EmailRegister.Text))
+            if (String.IsNullOrWhiteSpace(textBox.Text))
             {
-                errorProvider1.SetError(Tb_EmailRegister, "Email is verplicht");
+                errorProvider.SetError(textBox, inputTextBox);
                 return false;
             }
             else
             {
-                errorProvider1.SetError(Tb_EmailRegister, "");
+                errorProvider.SetError(textBox, "");
                 return true;
             }
         }
 
-        private bool ValidatePassword()
+        public static bool ValidatePassword(ErrorProvider errorProvider, TextBox textBox)
         {
-            if (String.IsNullOrWhiteSpace(Tb_PasswordRegister.Text))
+            if (String.IsNullOrWhiteSpace(textBox.Text))
             {
-                errorProvider1.SetError(Tb_PasswordRegister, "Wachtwoord is verplicht");
+                errorProvider.SetError(textBox, "Wachtwoord is verplicht");
                 return false;
             }
-            if (Tb_PasswordRegister.Text.Length < 6 || Tb_PasswordRegister.Text.Length > 99)
+            if (textBox.Text.Length < 6 || textBox.Text.Length > 99)
             {
-                errorProvider1.SetError(Tb_PasswordRegister, "Wachtwoord moet minimaal 6 characters bevatten");
+                errorProvider.SetError(textBox, "Wachtwoord moet minimaal 6 characters bevatten");
                 return false;
             }
             else
             {
-                errorProvider1.SetError(Tb_PasswordRegister, "");
+                errorProvider.SetError(textBox, "");
                 return true;
             }
         }
 
-        private bool ValidatePassword2()
+        public static bool ValidatePassword2(ErrorProvider errorProvider, TextBox textBox)
         {
-            if (String.IsNullOrWhiteSpace(Tb_Password2Register.Text))
+            if (String.IsNullOrWhiteSpace(textBox.Text))
             {
-                errorProvider1.SetError(Tb_Password2Register, "Wachtwoord is verplicht");
+                errorProvider.SetError(textBox, "Wachtwoord is verplicht");
                 return false;
             }
-            if (Tb_PasswordRegister.Text != Tb_Password2Register.Text)
+            if (textBox.Text != textBox.Text)
             {
-                errorProvider1.SetError(Tb_PasswordRegister, "Wachtwoorden zijn niet gelijk aan elkaar");
+                errorProvider.SetError(textBox, "Wachtwoorden zijn niet gelijk aan elkaar");
                 return false;
             }
             else
             {
-                errorProvider1.SetError(Tb_Password2Register, "");
+                errorProvider.SetError(textBox, "");
                 return true;
             }
         }
 
-        private bool ValidateName()
+        public static bool ValidateHouseNumber(ErrorProvider errorProvider, TextBox textBox)
         {
-            if (String.IsNullOrWhiteSpace(Tb_NameRegister.Text))
+            if (String.IsNullOrWhiteSpace(textBox.Text))
             {
-                errorProvider1.SetError(Tb_NameRegister, "Naam is verplicht");
+                errorProvider.SetError(textBox, "Huisnummer is verplicht");
+                return false;
+            }
+            if (!int.TryParse(textBox.Text, out int n))
+            {
+                errorProvider.SetError(textBox, "Huisnummer moet een nummer zijn");
                 return false;
             }
             else
             {
-                errorProvider1.SetError(Tb_NameRegister, "");
+                errorProvider.SetError(textBox, "");
                 return true;
             }
         }
 
-        private bool ValidateOrganisation()
+        public static bool ValidateZipCode(ErrorProvider errorProvider, TextBox textBox)
         {
-            if (String.IsNullOrWhiteSpace(Tb_OrganisationRegister.Text))
+            if (String.IsNullOrWhiteSpace(textBox.Text))
             {
-                errorProvider1.SetError(Tb_OrganisationRegister, "Organisatie is verplicht");
+                errorProvider.SetError(textBox, "Postcode is verplicht");
+                return false;
+            }
+            if (!IsZipCode(textBox.Text))
+            {
+                errorProvider.SetError(textBox, "Postcode moet bestaan als volgt \"8000AA\"");
                 return false;
             }
             else
             {
-                errorProvider1.SetError(Tb_OrganisationRegister, "");
-                return true;
-            }
-        }
-
-        private bool ValidateStreet()
-        {
-            if (String.IsNullOrWhiteSpace(Tb_StreetRegister.Text))
-            {
-                errorProvider1.SetError(Tb_StreetRegister, "Straat is verplicht");
-                return false;
-            }
-            else
-            {
-                errorProvider1.SetError(Tb_StreetRegister, "");
-                return true;
-            }
-        }
-
-        private bool ValidateHouseNumber()
-        {
-            if (String.IsNullOrWhiteSpace(Tb_HousenumberRegister.Text))
-            {
-                errorProvider1.SetError(Tb_HousenumberRegister, "Huisnummer is verplicht");
-                return false;
-            }
-            if (!int.TryParse(Tb_HousenumberRegister.Text, out int n))
-            {
-                errorProvider1.SetError(Tb_HousenumberRegister, "Huisnummer moet een nummer zijn");
-                return false;
-            }
-            else
-            {
-                errorProvider1.SetError(Tb_HousenumberRegister, "");
-                return true;
-            }
-        }
-
-        private bool ValidateZipCode()
-        {
-            if (String.IsNullOrWhiteSpace(Tb_ZipcodeRegister.Text))
-            {
-                errorProvider1.SetError(Tb_ZipcodeRegister, "Postcode is verplicht");
-                return false;
-            }
-            if (!IsZipCode(Tb_ZipcodeRegister.Text))
-            {
-                errorProvider1.SetError(Tb_ZipcodeRegister, "Postcode moet bestaan als volgt \"8000AA\"");
-                return false;
-            }
-            else
-            {
-                errorProvider1.SetError(Tb_ZipcodeRegister, "");
-                return true;
-            }
-        }
-
-        private bool ValidateCity()
-        {
-            if (String.IsNullOrWhiteSpace(Tb_CityRegister.Text))
-            {
-                errorProvider1.SetError(Tb_CityRegister, "Wachtwoord is verplicht");
-                return false;
-            }
-            else
-            {
-                errorProvider1.SetError(Tb_CityRegister, "");
+                errorProvider.SetError(textBox, "");
                 return true;
             }
         }
@@ -215,19 +159,20 @@ namespace ReserveringssysteemWF
         private bool Valid()
         {
             return
-                ValidateEmail() &&
-                ValidatePassword() &&
-                ValidatePassword2() &&
-                ValidateName() &&
-                ValidateOrganisation() &&
-                ValidateGender() &&
-                ValidateStreet() &&
-                ValidateHouseNumber() &&
-                ValidateZipCode() &&
-                ValidateCity();
+                Validation(errorProvider1, Tb_EmailRegister, "Email is verplicht") &&
+                ValidatePassword(errorProvider1, Tb_PasswordRegister) &&
+                ValidatePassword2(errorProvider1, Tb_Password2Register) &&
+                Validation(errorProvider1, Tb_NameRegister, "Naam is verplicht") &&
+                Validation(errorProvider1, Tb_OrganisationRegister, "Organisatie is verplicht") &&
+                Validation(errorProvider1, Tb_StreetRegister, "Straat is verplicht") &&
+                ValidateHouseNumber(errorProvider1, Tb_HousenumberRegister) &&
+                ValidateZipCode(errorProvider1, Tb_ZipcodeRegister) &&
+                Validation(errorProvider1, Tb_CityRegister, "Stad is verplicht");
+
+
         }
 
-        private bool IsZipCode(string str)
+        private static bool IsZipCode(string str)
         {
             int i = 0;
             str = str.Replace(" ", "");

@@ -23,17 +23,24 @@ namespace ReserveringssysteemWF
 
         private void Bt_Login_Click(object sender, EventArgs e)
         {
-            MailAddress Email = new MailAddress(Tb_Login.Text);
-            string Password = Tb_Password.Text;
-            
-            if (Member.Login(Convert.ToString(Email), Password))
+            try
             {
-                Close();
-                Mainscreen.LoginScreen();
+                MailAddress Email = new MailAddress(Tb_Login.Text);
+                string Password = Tb_Password.Text;
+
+                if (Member.Login(Convert.ToString(Email), Password))
+                {
+                    Close();
+                    Mainscreen.LoginScreen();
+                }
+                else
+                {
+                    Lb_ErrorMessageLogin.Text = "Email en wachtwoord komen niet overeen.";
+                }
             }
-            else
+            catch
             {
-                Lb_ErrorMessageLogin.Text = "Email en wachtwoord komen niet overeen.";
+                Lb_ErrorMessageLogin.Text = "Email is niet geldig";
             }
         }
     }

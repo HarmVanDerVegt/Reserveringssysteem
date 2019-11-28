@@ -135,14 +135,14 @@
             // Login_AccountMenuItem
             // 
             this.Login_AccountMenuItem.Name = "Login_AccountMenuItem";
-            this.Login_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.Login_AccountMenuItem.Size = new System.Drawing.Size(158, 26);
             this.Login_AccountMenuItem.Text = "Inloggen";
             this.Login_AccountMenuItem.Click += new System.EventHandler(this.Login_AccountMenuItem_Click);
             // 
             // Logout_AccountMenuItem
             // 
             this.Logout_AccountMenuItem.Name = "Logout_AccountMenuItem";
-            this.Logout_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.Logout_AccountMenuItem.Size = new System.Drawing.Size(158, 26);
             this.Logout_AccountMenuItem.Text = "Uitloggen";
             this.Logout_AccountMenuItem.Visible = false;
             this.Logout_AccountMenuItem.Click += new System.EventHandler(this.Logout_AccountMenuItem_Click);

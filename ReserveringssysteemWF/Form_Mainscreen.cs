@@ -19,7 +19,6 @@ namespace ReserveringssysteemWF
             InitializeComponent();
             this.MinimumSize = new Size(600, 300);
             tabControl1.TabPages.Remove(tab_Reservations);
-            tabControl1.TabPages.Remove(tab_Profiles);
             tabControl1.TabPages.Remove(tab_Members);
             tabControl1.TabPages.Remove(tab_Teams);
         }
@@ -151,18 +150,19 @@ namespace ReserveringssysteemWF
 
         public void MemberActions()
         {
-
             if (Member.CurrentMember == null)
             {
                 Lb_WelcomeMessage.Text = "";
                 Login_AccountMenuItem.Visible = true;
                 Logout_AccountMenuItem.Visible = false;
+                Bt_ReportDamage.Visible = false;
             }
             else
             {
                 Lb_WelcomeMessage.Text = $"Welkom, {Member.CurrentMember.Name}";
                 Logout_AccountMenuItem.Visible = true;
                 Login_AccountMenuItem.Visible = false;
+                Bt_ReportDamage.Visible = true;
             }
 
             if (tabControl1.Contains(tab_Reservations))
@@ -174,7 +174,7 @@ namespace ReserveringssysteemWF
                 tabControl1.TabPages.Add(tab_Reservations);
             }
 
-            Bt_ReportDamage.Visible = !Bt_ReportDamage.Visible;
+           // Bt_ReportDamage.Visible = !Bt_ReportDamage.Visible;
             Bt_AddReservation.Visible = !Bt_AddReservation.Visible;
             Bt_ModifyReservation.Visible = !Bt_ModifyReservation.Visible;
             Bt_RemoveReservation.Visible = !Bt_RemoveReservation.Visible;
@@ -208,14 +208,14 @@ namespace ReserveringssysteemWF
 
         public void AdminActions()
         {
-            if (tabControl1.Contains(tab_Profiles))
-            {
-                tabControl1.TabPages.Remove(tab_Profiles);
-            }
-            else
-            {
-                tabControl1.TabPages.Add(tab_Profiles);
-            }
+            //if (tabControl1.Contains(tab_Profiles))
+            //{
+            //    tabControl1.TabPages.Remove(tab_Profiles);
+            //}
+            //else
+            //{
+            //    tabControl1.TabPages.Add(tab_Profiles);
+            //}
 
             Bt_MakeProfile.Visible = !Bt_MakeProfile.Visible;
             Bt_ModifyProfile.Visible = !Bt_ModifyProfile.Visible;

@@ -123,7 +123,7 @@
                 Organisation = "Roeivereniging",
                 Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
                 Email = "beauterham@gmail.com",
-                Password = "#",
+                Password = "7bca025eff4fb877bea86faac56c909b65c97adfba23b7c1fb6b9772d34b420e", //Welkom123
             }, new Member()
             {
                 Name = "Harry Snotter",
@@ -132,7 +132,7 @@
                 Organisation = "Roeivereniging",
                 Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
                 Email = "harrysnotter@gmail.com",
-                Password = "#",
+                Password = "7bca025eff4fb877bea86faac56c909b65c97adfba23b7c1fb6b9772d34b420e", //Welkom123
             }, new Member()
             {
                 Name = "Pieter Post",
@@ -141,7 +141,7 @@
                 Organisation = "Roeivereniging",
                 Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
                 Email = "pieterpost@gmail.com",
-                Password = "#",
+                Password = "7bca025eff4fb877bea86faac56c909b65c97adfba23b7c1fb6b9772d34b420e", //Welkom123
             }, new Member()
             {
                 Name = "Prog Ramma",
@@ -150,7 +150,7 @@
                 Organisation = "Roeivereniging",
                 Address = new Address() { City = "Zwolle", HouseNumber = 42, Street = "Roeistraat", ZIP = "1234 AB" },
                 Email = "programma@gmail.com",
-                Password = "#",
+                Password = "7bca025eff4fb877bea86faac56c909b65c97adfba23b7c1fb6b9772d34b420e", //Welkom123
             });
 
             try

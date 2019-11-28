@@ -16,7 +16,9 @@ namespace ReserveringssysteemWF
     public partial class Form_ModifyMember : Form
     {
         Member member = null;
-        List<Certificate> certificatesList = null;
+        List<Certificate> certificateMembers = null;
+        List<Certificate> certificates = null;
+        List<Role> rolesMembers = null;
         List<Role> roles = null;
         public Form_ModifyMember(int ID)
         {
@@ -28,10 +30,17 @@ namespace ReserveringssysteemWF
                           where m.ID == ID
                           select m).Single();
 
-                certificatesList = (from c in member.Levels
-                                    select c).ToList();
+                certificateMembers = (from c in member.Levels
+                                      select c).ToList();
 
-                roles = (from r in member.Roles
+                certificates = (from c in db.Certificates
+                                select c).ToList();
+
+
+                rolesMembers = (from r in member.Roles
+                                select r).ToList();
+
+                roles = (from r in db.Roles
                          select r).ToList();
             }
             ShowMemberInformation();
@@ -60,15 +69,26 @@ namespace ReserveringssysteemWF
                 Rb_MaleGender.Checked = false;
             }
 
-            foreach (var c in certificatesList)
+            foreach (var c in certificateMembers)
             {
                 Lb_Certificaat.Items.Add(c.Name);
             }
 
-            foreach (var r in roles)
+            foreach (var r in rolesMembers)
             {
                 Lb_Roles.Items.Add(r.Type);
             }
+
+            foreach (var c in certificates)
+            {
+                Cb_Certificates.Items.Add(c.Name);
+            }
+
+            foreach (var r in roles)
+            {
+                Cb_Roles.Items.Add(r.Type);
+            }
+
         }
         private void MemberCredentialsValidation()
         {
@@ -94,17 +114,14 @@ namespace ReserveringssysteemWF
             member.Address.Suffix = Tb_Annex.Text;
             member.Address.ZIP = Tb_Zipcode.Text;
             member.Address.City = Tb_City.Text;
-
-
         }
         private void Bt_ChangeMember_Click(object sender, EventArgs e)
         {
             MemberCredentialsValidation();
+            ChangeMemberInformation();
             //Change credentials
             using (var db = new ReserveringssysteemContext())
             {
-                ChangeMemberInformation();
-
                 if (Rb_MaleGender.Checked)
                 {
                     member.Gender = Gender.Male;
@@ -117,10 +134,53 @@ namespace ReserveringssysteemWF
                 db.Members.AddOrUpdate(member);
                 db.Addresses.AddOrUpdate(member.Address);
                 db.SaveChanges();
-
-
             }
+        }
 
+        private void Bt_addCertificate_Click(object sender, EventArgs e)
+        {
+            string certificate = Cb_Certificates.SelectedItem.ToString();
+            Certificate selectedCertificate;
+            using (var db = new ReserveringssysteemContext())
+            {
+                selectedCertificate = (from c in db.Certificates
+                                       where c.Name == certificate
+                                       select c).Single();
+
+                Member dbMember = (from m in db.Members.Include(m => m.Levels)
+                                   where m.ID == member.ID
+                                   select m).Single();
+
+                dbMember.Levels.Add(selectedCertificate);
+                db.SaveChanges();
+            }
+            if (Lb_Certificaat.Items.Contains(selectedCertificate.Name))
+            {
+                Bt_addCertificate.Enabled = false;
+            } else
+            {
+                Bt_addCertificate.Enabled = true;
+                Lb_Certificaat.Items.Add(selectedCertificate.Name);
+            }
+        }
+
+        private void Bt_AddRoles_Click(object sender, EventArgs e)
+        {
+            RoleType cbRoleType = (RoleType)Cb_Roles.SelectedItem;
+            Role role;
+            using (var db = new ReserveringssysteemContext())
+            {
+                role = (from r in db.Roles
+                        where r.Type == cbRoleType
+                        select r).Single();
+
+                Member dbMember = (from m in db.Members.Include(m => m.Levels)
+                                   where m.ID == member.ID
+                                   select m).Single();
+                dbMember.Roles.Add(role);
+                db.SaveChanges();
+            }
+            Lb_Roles.Items.Add(role.Type);
         }
     }
 }

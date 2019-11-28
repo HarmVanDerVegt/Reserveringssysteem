@@ -84,7 +84,7 @@ namespace ReserveringssysteemWF
 
                 foreach (var m in sortMembers.Include(m => m.Address))
                 {
-                    Datagrid_Members.Rows.Add(m.Name, m.Email, m.Organisation);
+                    Datagrid_Members.Rows.Add(m.Name, m.Email, m.Organisation, m.ID);
                 }
             }
         }
@@ -287,13 +287,32 @@ namespace ReserveringssysteemWF
                     string EmailMember = (string)row.Cells[1].Value;
 
                     selectedMember = (from m in db.Members
-                                          where EmailMember == m.Email
-                                          select m).Single();
+                                      where EmailMember == m.Email
+                                      select m).Single();
                 }
             }
 
             new Form_ModifyMember(selectedMember.ID).ShowDialog();
             ShowMembersTable();
+        }
+
+        private void Bt_RemoveMember_Click(object sender, EventArgs e)
+        {
+            using (var db = new ReserveringssysteemContext())
+            {
+                foreach (DataGridViewRow row in Datagrid_Members.SelectedRows)
+                {
+                    int MemberID = (int)row.Cells[3].Value;
+
+                    db.Members.Remove(
+                        db.Members.Include(m => m.Address).Include(m => m.Roles).
+                        Where(m => m.ID == MemberID).First()
+                        );
+
+                    db.SaveChanges();
+                    ShowMembersTable();
+                }
+            }
         }
     }
 }

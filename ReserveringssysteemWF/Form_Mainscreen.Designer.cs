@@ -85,14 +85,15 @@
             this.Gender_ProfilesTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_Members = new System.Windows.Forms.TabPage();
             this.Datagrid_Members = new System.Windows.Forms.DataGridView();
+            this.Naam_MembersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email_MembersTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Organisatie_MembersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Bt_RemoveMember = new System.Windows.Forms.Button();
             this.Bt_ModifyMember = new System.Windows.Forms.Button();
             this.Bt_AddMember = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Lb_WelcomeMessage = new System.Windows.Forms.Label();
-            this.Naam_MembersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email_MembersTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Organisatie_MembersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MembersID_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_News.SuspendLayout();
@@ -736,7 +737,8 @@
             this.Datagrid_Members.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Naam_MembersColumn,
             this.Email_MembersTab,
-            this.Organisatie_MembersColumn});
+            this.Organisatie_MembersColumn,
+            this.MembersID_Column});
             this.Datagrid_Members.Location = new System.Drawing.Point(0, 77);
             this.Datagrid_Members.MultiSelect = false;
             this.Datagrid_Members.Name = "Datagrid_Members";
@@ -748,6 +750,25 @@
             this.Datagrid_Members.Size = new System.Drawing.Size(994, 311);
             this.Datagrid_Members.TabIndex = 10;
             // 
+            // Naam_MembersColumn
+            // 
+            this.Naam_MembersColumn.HeaderText = "Naam";
+            this.Naam_MembersColumn.MinimumWidth = 6;
+            this.Naam_MembersColumn.Name = "Naam_MembersColumn";
+            // 
+            // Email_MembersTab
+            // 
+            this.Email_MembersTab.HeaderText = "E-mail";
+            this.Email_MembersTab.MinimumWidth = 6;
+            this.Email_MembersTab.Name = "Email_MembersTab";
+            this.Email_MembersTab.ReadOnly = true;
+            // 
+            // Organisatie_MembersColumn
+            // 
+            this.Organisatie_MembersColumn.HeaderText = "Organisatie";
+            this.Organisatie_MembersColumn.MinimumWidth = 6;
+            this.Organisatie_MembersColumn.Name = "Organisatie_MembersColumn";
+            // 
             // Bt_RemoveMember
             // 
             this.Bt_RemoveMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -758,6 +779,7 @@
             this.Bt_RemoveMember.Text = "Lid verwijderen";
             this.Bt_RemoveMember.UseVisualStyleBackColor = true;
             this.Bt_RemoveMember.Visible = false;
+            this.Bt_RemoveMember.Click += new System.EventHandler(this.Bt_RemoveMember_Click);
             // 
             // Bt_ModifyMember
             // 
@@ -792,24 +814,12 @@
             this.Lb_WelcomeMessage.TabIndex = 2;
             this.Lb_WelcomeMessage.Paint += new System.Windows.Forms.PaintEventHandler(this.Lb_WelcomeMessage_Paint);
             // 
-            // Naam_MembersColumn
+            // MembersID_Column
             // 
-            this.Naam_MembersColumn.HeaderText = "Naam";
-            this.Naam_MembersColumn.MinimumWidth = 6;
-            this.Naam_MembersColumn.Name = "Naam_MembersColumn";
-            // 
-            // Email_MembersTab
-            // 
-            this.Email_MembersTab.HeaderText = "E-mail";
-            this.Email_MembersTab.MinimumWidth = 6;
-            this.Email_MembersTab.Name = "Email_MembersTab";
-            this.Email_MembersTab.ReadOnly = true;
-            // 
-            // Organisatie_MembersColumn
-            // 
-            this.Organisatie_MembersColumn.HeaderText = "Organisatie";
-            this.Organisatie_MembersColumn.MinimumWidth = 6;
-            this.Organisatie_MembersColumn.Name = "Organisatie_MembersColumn";
+            this.MembersID_Column.HeaderText = "Column1";
+            this.MembersID_Column.MinimumWidth = 6;
+            this.MembersID_Column.Name = "MembersID_Column";
+            this.MembersID_Column.Visible = false;
             // 
             // Form_Mainscreen
             // 
@@ -913,6 +923,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Naam_MembersColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email_MembersTab;
         private System.Windows.Forms.DataGridViewTextBoxColumn Organisatie_MembersColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MembersID_Column;
     }
 }
 

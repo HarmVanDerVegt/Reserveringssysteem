@@ -55,10 +55,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Bt_ChangeMember = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Cb_Certificates = new System.Windows.Forms.ComboBox();
             this.Bt_addCertificate = new System.Windows.Forms.Button();
             this.Bt_AddRoles = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.Cb_Roles = new System.Windows.Forms.ComboBox();
             this.Bt_RemoveRole = new System.Windows.Forms.Button();
             this.Bt_RemoveCertificate = new System.Windows.Forms.Button();
             this.Lb_Roles = new System.Windows.Forms.ListBox();
@@ -293,13 +293,14 @@
             this.Bt_ChangeMember.UseVisualStyleBackColor = true;
             this.Bt_ChangeMember.Click += new System.EventHandler(this.Bt_ChangeMember_Click);
             // 
-            // comboBox1
+            // Cb_Certificates
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(503, 116);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(270, 24);
-            this.comboBox1.TabIndex = 52;
+            this.Cb_Certificates.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cb_Certificates.FormattingEnabled = true;
+            this.Cb_Certificates.Location = new System.Drawing.Point(503, 116);
+            this.Cb_Certificates.Name = "Cb_Certificates";
+            this.Cb_Certificates.Size = new System.Drawing.Size(270, 24);
+            this.Cb_Certificates.TabIndex = 52;
             // 
             // Bt_addCertificate
             // 
@@ -309,6 +310,7 @@
             this.Bt_addCertificate.TabIndex = 53;
             this.Bt_addCertificate.Text = "Toevoegen ";
             this.Bt_addCertificate.UseVisualStyleBackColor = true;
+            this.Bt_addCertificate.Click += new System.EventHandler(this.Bt_addCertificate_Click);
             // 
             // Bt_AddRoles
             // 
@@ -318,14 +320,16 @@
             this.Bt_AddRoles.TabIndex = 54;
             this.Bt_AddRoles.Text = "Toevoegen ";
             this.Bt_AddRoles.UseVisualStyleBackColor = true;
+            this.Bt_AddRoles.Click += new System.EventHandler(this.Bt_AddRoles_Click);
             // 
-            // comboBox2
+            // Cb_Roles
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(503, 305);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(270, 24);
-            this.comboBox2.TabIndex = 55;
+            this.Cb_Roles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cb_Roles.FormattingEnabled = true;
+            this.Cb_Roles.Location = new System.Drawing.Point(503, 305);
+            this.Cb_Roles.Name = "Cb_Roles";
+            this.Cb_Roles.Size = new System.Drawing.Size(270, 24);
+            this.Cb_Roles.TabIndex = 55;
             // 
             // Bt_RemoveRole
             // 
@@ -397,10 +401,10 @@
             this.Controls.Add(this.Lb_Roles);
             this.Controls.Add(this.Bt_RemoveCertificate);
             this.Controls.Add(this.Bt_RemoveRole);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.Cb_Roles);
             this.Controls.Add(this.Bt_AddRoles);
             this.Controls.Add(this.Bt_addCertificate);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Cb_Certificates);
             this.Controls.Add(this.LB_ErrorMessageRegister);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label11);
@@ -463,10 +467,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Bt_ChangeMember;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Cb_Certificates;
         private System.Windows.Forms.Button Bt_addCertificate;
         private System.Windows.Forms.Button Bt_AddRoles;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox Cb_Roles;
         private System.Windows.Forms.Button Bt_RemoveRole;
         private System.Windows.Forms.Button Bt_RemoveCertificate;
         private System.Windows.Forms.ListBox Lb_Roles;

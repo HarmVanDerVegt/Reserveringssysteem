@@ -230,6 +230,7 @@ namespace ReserveringssysteemWF
         private bool IsZipCode(string str)
         {
             int i = 0;
+            str = str.Replace(" ", "");
 
             if (str.Length != 6)
             {

@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201911261134313_FixingManyToMantTeamUsers.designer.cs">
       <DependentUpon>201911261134313_FixingManyToMantTeamUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911290813310_AddedGenderToMatch.cs" />
+    <Compile Include="Migrations\201911290813310_AddedGenderToMatch.designer.cs">
+      <DependentUpon>201911290813310_AddedGenderToMatch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911261134313_FixingManyToMantTeamUsers.resx">
       <DependentUpon>201911261134313_FixingManyToMantTeamUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911290813310_AddedGenderToMatch.resx">
+      <DependentUpon>201911290813310_AddedGenderToMatch.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

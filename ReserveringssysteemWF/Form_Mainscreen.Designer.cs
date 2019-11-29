@@ -53,12 +53,6 @@
             this.Bt_RemoveGame = new System.Windows.Forms.Button();
             this.Bt_AddGame = new System.Windows.Forms.Button();
             this.Datagrid_Games = new System.Windows.Forms.DataGridView();
-            this.Date_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartTime_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndTime_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Boat_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Distance_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_Reservations = new System.Windows.Forms.TabPage();
             this.Bt_RemoveReservation = new System.Windows.Forms.Button();
             this.Bt_ModifyReservation = new System.Windows.Forms.Button();
@@ -92,6 +86,13 @@
             this.Bt_AddMember = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Lb_WelcomeMessage = new System.Windows.Forms.Label();
+            this.Date_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartTime_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndTime_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Boat_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Distance_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender_GameTab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_News.SuspendLayout();
@@ -135,14 +136,14 @@
             // Login_AccountMenuItem
             // 
             this.Login_AccountMenuItem.Name = "Login_AccountMenuItem";
-            this.Login_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.Login_AccountMenuItem.Size = new System.Drawing.Size(158, 26);
             this.Login_AccountMenuItem.Text = "Inloggen";
             this.Login_AccountMenuItem.Click += new System.EventHandler(this.Login_AccountMenuItem_Click);
             // 
             // Logout_AccountMenuItem
             // 
             this.Logout_AccountMenuItem.Name = "Logout_AccountMenuItem";
-            this.Logout_AccountMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.Logout_AccountMenuItem.Size = new System.Drawing.Size(158, 26);
             this.Logout_AccountMenuItem.Text = "Uitloggen";
             this.Logout_AccountMenuItem.Visible = false;
             this.Logout_AccountMenuItem.Click += new System.EventHandler(this.Logout_AccountMenuItem_Click);
@@ -362,6 +363,7 @@
             this.Bt_RemoveGame.Text = "Wedstrijd annuleren";
             this.Bt_RemoveGame.UseVisualStyleBackColor = true;
             this.Bt_RemoveGame.Visible = false;
+            this.Bt_RemoveGame.Click += new System.EventHandler(this.Bt_RemoveGame_Click);
             // 
             // Bt_AddGame
             // 
@@ -372,6 +374,7 @@
             this.Bt_AddGame.Text = "Wedstrijd toevoegen";
             this.Bt_AddGame.UseVisualStyleBackColor = true;
             this.Bt_AddGame.Visible = false;
+            this.Bt_AddGame.Click += new System.EventHandler(this.Bt_AddGame_Click);
             // 
             // Datagrid_Games
             // 
@@ -389,56 +392,16 @@
             this.EndTime_GameTab,
             this.Boat_GameTab,
             this.Distance_GameTab,
-            this.Gender_GameTab});
+            this.Gender_GameTab,
+            this.ID});
             this.Datagrid_Games.Location = new System.Drawing.Point(0, 77);
             this.Datagrid_Games.Name = "Datagrid_Games";
             this.Datagrid_Games.RowHeadersVisible = false;
             this.Datagrid_Games.RowHeadersWidth = 51;
             this.Datagrid_Games.RowTemplate.Height = 24;
+            this.Datagrid_Games.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Datagrid_Games.Size = new System.Drawing.Size(994, 311);
             this.Datagrid_Games.TabIndex = 0;
-            // 
-            // Date_GameTab
-            // 
-            this.Date_GameTab.HeaderText = "Datum";
-            this.Date_GameTab.MinimumWidth = 6;
-            this.Date_GameTab.Name = "Date_GameTab";
-            this.Date_GameTab.ReadOnly = true;
-            // 
-            // StartTime_GameTab
-            // 
-            this.StartTime_GameTab.HeaderText = "Starttijd";
-            this.StartTime_GameTab.MinimumWidth = 6;
-            this.StartTime_GameTab.Name = "StartTime_GameTab";
-            this.StartTime_GameTab.ReadOnly = true;
-            // 
-            // EndTime_GameTab
-            // 
-            this.EndTime_GameTab.HeaderText = "Eindtijd";
-            this.EndTime_GameTab.MinimumWidth = 6;
-            this.EndTime_GameTab.Name = "EndTime_GameTab";
-            this.EndTime_GameTab.ReadOnly = true;
-            // 
-            // Boat_GameTab
-            // 
-            this.Boat_GameTab.HeaderText = "Boot";
-            this.Boat_GameTab.MinimumWidth = 6;
-            this.Boat_GameTab.Name = "Boat_GameTab";
-            this.Boat_GameTab.ReadOnly = true;
-            // 
-            // Distance_GameTab
-            // 
-            this.Distance_GameTab.HeaderText = "Afstand";
-            this.Distance_GameTab.MinimumWidth = 6;
-            this.Distance_GameTab.Name = "Distance_GameTab";
-            this.Distance_GameTab.ReadOnly = true;
-            // 
-            // Gender_GameTab
-            // 
-            this.Gender_GameTab.HeaderText = "Geslacht";
-            this.Gender_GameTab.MinimumWidth = 6;
-            this.Gender_GameTab.Name = "Gender_GameTab";
-            this.Gender_GameTab.ReadOnly = true;
             // 
             // tab_Reservations
             // 
@@ -800,6 +763,54 @@
             this.Lb_WelcomeMessage.TabIndex = 2;
             this.Lb_WelcomeMessage.Paint += new System.Windows.Forms.PaintEventHandler(this.Lb_WelcomeMessage_Paint);
             // 
+            // Date_GameTab
+            // 
+            this.Date_GameTab.HeaderText = "Datum";
+            this.Date_GameTab.MinimumWidth = 6;
+            this.Date_GameTab.Name = "Date_GameTab";
+            this.Date_GameTab.ReadOnly = true;
+            // 
+            // StartTime_GameTab
+            // 
+            this.StartTime_GameTab.HeaderText = "Starttijd";
+            this.StartTime_GameTab.MinimumWidth = 6;
+            this.StartTime_GameTab.Name = "StartTime_GameTab";
+            this.StartTime_GameTab.ReadOnly = true;
+            // 
+            // EndTime_GameTab
+            // 
+            this.EndTime_GameTab.HeaderText = "Eindtijd";
+            this.EndTime_GameTab.MinimumWidth = 6;
+            this.EndTime_GameTab.Name = "EndTime_GameTab";
+            this.EndTime_GameTab.ReadOnly = true;
+            // 
+            // Boat_GameTab
+            // 
+            this.Boat_GameTab.HeaderText = "Boot";
+            this.Boat_GameTab.MinimumWidth = 6;
+            this.Boat_GameTab.Name = "Boat_GameTab";
+            this.Boat_GameTab.ReadOnly = true;
+            // 
+            // Distance_GameTab
+            // 
+            this.Distance_GameTab.HeaderText = "Afstand";
+            this.Distance_GameTab.MinimumWidth = 6;
+            this.Distance_GameTab.Name = "Distance_GameTab";
+            this.Distance_GameTab.ReadOnly = true;
+            // 
+            // Gender_GameTab
+            // 
+            this.Gender_GameTab.HeaderText = "Geslacht";
+            this.Gender_GameTab.MinimumWidth = 6;
+            this.Gender_GameTab.Name = "Gender_GameTab";
+            this.Gender_GameTab.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            // 
             // Form_Mainscreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -867,12 +878,6 @@
         private System.Windows.Forms.Button Bt_RemoveGame;
         private System.Windows.Forms.Button Bt_AddGame;
         private System.Windows.Forms.DataGridView Datagrid_Games;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date_GameTab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartTime_GameTab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndTime_GameTab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Boat_GameTab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Distance_GameTab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Gender_GameTab;
         private System.Windows.Forms.Button Bt_RemoveProfile;
         private System.Windows.Forms.Button Bt_ModifyProfile;
         private System.Windows.Forms.Button Bt_MakeProfile;
@@ -901,6 +906,13 @@
         private System.Windows.Forms.ToolStripMenuItem Login_AccountMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Logout_AccountMenuItem;
         private System.Windows.Forms.Label Lb_WelcomeMessage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date_GameTab;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartTime_GameTab;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndTime_GameTab;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Boat_GameTab;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Distance_GameTab;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gender_GameTab;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }
 

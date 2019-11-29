@@ -24,6 +24,9 @@ namespace Reserveringssysteem
         [Required]
         public BoatType Type { get; set; }
 
+        [Required, EnumDataType(typeof(Gender))]
+        public Gender Gender { get; set; }
+
         public List<MatchTeam> Participants { get; set; }
         public List<Result> Results { get; set; }
 
